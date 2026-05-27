@@ -1,7 +1,7 @@
 # dependencies
-node_modules
+node_modules/
 
-# next.js
+# next.js build output
 .next/
 out/
 
@@ -11,14 +11,21 @@ build/
 # misc
 .DS_Store
 *.pem
+Thumbs.db
 
 # debug
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # env files
+.env
 .env*.local
 
-# typescript
+# typescript (auto-generated)
 *.tsbuildinfo
 next-env.d.ts
-tsconfig.tsbuildinfo
+
+# editor
+.vscode/
+.idea/
