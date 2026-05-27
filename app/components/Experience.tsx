@@ -91,12 +91,12 @@ export default function Experience() {
         {/* Right: Large arch image (~50%) */}
         <FadeIn delay={0.25} className="lg:w-[50%] w-full">
           <CurvedImage
-            src="/images/interior-arch.jpg"
-            alt="Mock and Roll boutique interior with warm ambient lighting"
+            src="/images/boutique-interior.jpg"
+            alt="Mock and Roll boutique interior with warm ambient lighting and elegant seating"
             width={640}
             height={800}
             variant="arch"
-            className="w-full min-h-[400px] lg:min-h-[520px] bg-peach-nectar/30"
+            className="w-full min-h-[400px] lg:min-h-[520px]"
           />
         </FadeIn>
       </div>

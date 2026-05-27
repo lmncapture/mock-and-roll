@@ -1,39 +1,46 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import FadeIn from "@/app/components/ui/FadeIn";
 
 interface Mocktail {
   name: string;
   description: string;
-  imageBg: string;
+  image: string;
+  accent: string;
 }
 
 const mocktails: Mocktail[] = [
   {
     name: "Citrus Bloom",
     description: "Yuzu · elderflower · sparkling citrus",
-    imageBg: "bg-gradient-to-br from-lime-sorbet via-lime-sorbet/80 to-frosted-mint/60",
+    image: "/images/signature-drink-01.jpg",
+    accent: "bg-lime-sorbet/20",
   },
   {
     name: "Golden Hour",
     description: "Turmeric · passionfruit · honeyed ginger",
-    imageBg: "bg-gradient-to-br from-lemon-zest via-lemon-zest/70 to-peach-nectar/50",
+    image: "/images/signature-drink-02.jpg",
+    accent: "bg-lemon-zest/20",
   },
   {
     name: "Sunset Blush",
     description: "Blood orange · rose water · vanilla foam",
-    imageBg: "bg-gradient-to-br from-peach-nectar via-pink-lychee/70 to-rose-petal/50",
+    image: "/images/signature-drink-03.jpg",
+    accent: "bg-peach-nectar/20",
   },
   {
     name: "Berry Fizz",
     description: "Muddled berries · lavender · prosecco bubbles",
-    imageBg: "bg-gradient-to-br from-berry-crush/80 via-rose-petal/60 to-soft-plum/40",
+    image: "/images/signature-drink-04.jpg",
+    accent: "bg-berry-crush/15",
   },
   {
     name: "Ocean Breeze",
     description: "Coconut · blue spirulina · lime zest",
-    imageBg: "bg-gradient-to-br from-arctic-mist via-blueberry-dew/60 to-frosted-mint/40",
+    image: "/images/signature-drink-05.jpg",
+    accent: "bg-arctic-mist/20",
   },
 ];
 
@@ -57,26 +64,31 @@ export default function Mocktails() {
 
         {/* Desktop: Structured editorial grid */}
         <div className="hidden lg:block">
-          {/* Top row: featured (wide) + secondary (narrower), aligned baseline */}
+          {/* Top row: featured (wide) + secondary (narrower) */}
           <FadeIn>
             <div className="grid grid-cols-12 gap-5 mb-5">
               {/* Featured — Citrus Bloom */}
               <motion.article
-                className="col-span-7 relative group cursor-pointer"
+                className="col-span-7 relative group cursor-pointer overflow-hidden rounded-[24px]"
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className={`${mocktails[0].imageBg} rounded-[24px] aspect-[16/9] relative overflow-hidden`}>
-                  <div className="absolute inset-3 rounded-[18px] border border-cool-white/15" />
-                  {/* Glass silhouette suggestion */}
-                  <div className="absolute bottom-8 right-12 w-16 h-24 rounded-full bg-cool-white/10 blur-sm" />
-                  <div className="absolute top-10 left-12 w-10 h-10 rounded-full bg-cool-white/8" />
+                <div className="relative aspect-[16/9] overflow-hidden rounded-[24px]">
+                  <Image
+                    src={mocktails[0].image}
+                    alt={`${mocktails[0].name} — ${mocktails[0].description}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 58vw"
+                  />
+                  {/* Gradient overlay for text legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate/50 via-transparent to-transparent" />
                 </div>
-                <div className="absolute bottom-6 left-7">
-                  <h3 className="font-body font-semibold text-slate text-xl tracking-tight">
+                <div className="absolute bottom-6 left-7 z-10">
+                  <h3 className="font-body font-semibold text-cool-white text-xl tracking-tight">
                     {mocktails[0].name}
                   </h3>
-                  <p className="font-body text-slate/55 text-sm mt-0.5 tracking-wide">
+                  <p className="font-body text-cool-white/80 text-sm mt-0.5 tracking-wide">
                     {mocktails[0].description}
                   </p>
                 </div>
@@ -84,19 +96,25 @@ export default function Mocktails() {
 
               {/* Secondary — Golden Hour */}
               <motion.article
-                className="col-span-5 relative group cursor-pointer"
+                className="col-span-5 relative group cursor-pointer overflow-hidden rounded-[24px]"
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className={`${mocktails[1].imageBg} rounded-[24px] aspect-[16/9] relative overflow-hidden`}>
-                  <div className="absolute inset-3 rounded-[18px] border border-cool-white/15" />
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-12 h-18 rounded-full bg-cool-white/10 blur-sm" />
+                <div className="relative aspect-[16/9] overflow-hidden rounded-[24px]">
+                  <Image
+                    src={mocktails[1].image}
+                    alt={`${mocktails[1].name} — ${mocktails[1].description}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 42vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate/50 via-transparent to-transparent" />
                 </div>
-                <div className="absolute bottom-6 left-7">
-                  <h3 className="font-body font-semibold text-slate text-xl tracking-tight">
+                <div className="absolute bottom-6 left-7 z-10">
+                  <h3 className="font-body font-semibold text-cool-white text-xl tracking-tight">
                     {mocktails[1].name}
                   </h3>
-                  <p className="font-body text-slate/55 text-sm mt-0.5 tracking-wide">
+                  <p className="font-body text-cool-white/80 text-sm mt-0.5 tracking-wide">
                     {mocktails[1].description}
                   </p>
                 </div>
@@ -104,7 +122,7 @@ export default function Mocktails() {
             </div>
           </FadeIn>
 
-          {/* Bottom row: three supporting drinks, equal rhythm */}
+          {/* Bottom row: three supporting drinks */}
           <FadeIn delay={0.1}>
             <div className="grid grid-cols-12 gap-5">
               {/* Sunset Blush */}
@@ -113,9 +131,14 @@ export default function Mocktails() {
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className={`${mocktails[2].imageBg} rounded-[24px] aspect-[4/3] relative overflow-hidden`}>
-                  <div className="absolute inset-2.5 rounded-[18px] border border-cool-white/12" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-12 h-18 rounded-full bg-cool-white/10 blur-sm" />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[24px]">
+                  <Image
+                    src={mocktails[2].image}
+                    alt={`${mocktails[2].name} — ${mocktails[2].description}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
                 <div className="mt-4">
                   <h3 className="font-body font-semibold text-slate text-lg tracking-tight">
@@ -127,15 +150,20 @@ export default function Mocktails() {
                 </div>
               </motion.article>
 
-              {/* Berry Fizz — slightly wider */}
+              {/* Berry Fizz */}
               <motion.article
                 className="col-span-5 relative group cursor-pointer"
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className={`${mocktails[3].imageBg} rounded-[24px] aspect-[4/3] relative overflow-hidden`}>
-                  <div className="absolute inset-2.5 rounded-[18px] border border-cool-white/12" />
-                  <div className="absolute bottom-8 right-10 w-14 h-14 rounded-full bg-cool-white/10" />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[24px]">
+                  <Image
+                    src={mocktails[3].image}
+                    alt={`${mocktails[3].name} — ${mocktails[3].description}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 42vw"
+                  />
                 </div>
                 <div className="mt-4">
                   <h3 className="font-body font-semibold text-slate text-lg tracking-tight">
@@ -147,15 +175,20 @@ export default function Mocktails() {
                 </div>
               </motion.article>
 
-              {/* Ocean Breeze — narrower */}
+              {/* Ocean Breeze */}
               <motion.article
                 className="col-span-3 relative group cursor-pointer"
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className={`${mocktails[4].imageBg} rounded-[24px] aspect-[4/3] relative overflow-hidden`}>
-                  <div className="absolute inset-2.5 rounded-[18px] border border-cool-white/12" />
-                  <div className="absolute top-8 right-6 w-8 h-12 rounded-full bg-cool-white/8 blur-sm" />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[24px]">
+                  <Image
+                    src={mocktails[4].image}
+                    alt={`${mocktails[4].name} — ${mocktails[4].description}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
                 </div>
                 <div className="mt-4">
                   <h3 className="font-body font-semibold text-slate text-lg tracking-tight">
@@ -183,12 +216,17 @@ export default function Mocktails() {
                 >
                   <div
                     className={`
-                      ${drink.imageBg} rounded-[20px] relative overflow-hidden
+                      relative rounded-[20px] overflow-hidden
                       ${index === 0 ? "aspect-[4/3]" : "aspect-[3/4]"}
                     `}
                   >
-                    <div className="absolute inset-2 rounded-[16px] border border-cool-white/12" />
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-12 h-16 rounded-full bg-cool-white/10 blur-sm" />
+                    <Image
+                      src={drink.image}
+                      alt={`${drink.name} — ${drink.description}`}
+                      fill
+                      className="object-cover"
+                      sizes="75vw"
+                    />
                   </div>
                   <div className="mt-3.5 px-0.5">
                     <h3 className="font-body font-semibold text-slate text-lg tracking-tight">

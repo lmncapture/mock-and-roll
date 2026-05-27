@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import FadeIn from "@/app/components/ui/FadeIn";
 import Button from "@/app/components/ui/Button";
 
 interface EventType {
   name: string;
   description: string;
-  imageBg: string;
+  image: string;
 }
 
 const events: EventType[] = [
@@ -14,31 +15,31 @@ const events: EventType[] = [
     name: "Bridal Showers",
     description:
       "Elegant celebrations for the bride-to-be, with custom mocktail menus and intimate styling.",
-    imageBg: "bg-pink-lychee/50",
+    image: "/images/events-bridal.jpg",
   },
   {
     name: "Birthdays",
     description:
       "Mark milestones in style with curated drinks, ambient lighting, and personalized touches.",
-    imageBg: "bg-lemon-zest/50",
+    image: "/images/events-celebration.jpg",
   },
   {
     name: "Private Events",
     description:
       "Reserve the space for your exclusive gathering, tailored to your vision.",
-    imageBg: "bg-frosted-mint/50",
+    image: "/images/events-gathering.jpg",
   },
   {
     name: "Networking",
     description:
       "Sophisticated settings for meaningful connections over refined beverages.",
-    imageBg: "bg-blueberry-dew/50",
+    image: "/images/events-networking.jpg",
   },
   {
     name: "Community Gatherings",
     description:
       "Bring people together in a warm, welcoming atmosphere designed for connection.",
-    imageBg: "bg-soft-plum/40",
+    image: "/images/events-community.jpg",
   },
 ];
 
@@ -63,11 +64,16 @@ export default function Events() {
                   isImageLeft ? "lg:flex-row" : "lg:flex-row-reverse"
                 } items-center gap-8 lg:gap-14`}
               >
-                {/* Curved event image placeholder */}
-                <div
-                  className={`${event.imageBg} rounded-2xl w-full lg:w-[48%] aspect-[4/3] flex-shrink-0`}
-                  aria-hidden="true"
-                />
+                {/* Curved event image */}
+                <div className="relative rounded-2xl overflow-hidden w-full lg:w-[48%] aspect-[4/3] flex-shrink-0">
+                  <Image
+                    src={event.image}
+                    alt={`${event.name} at Mock & Roll`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 48vw"
+                  />
+                </div>
 
                 {/* Descriptive text */}
                 <div className="flex flex-col justify-center lg:w-[52%]">

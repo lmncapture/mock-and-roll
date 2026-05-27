@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Button from "@/app/components/ui/Button";
 import FadeIn from "@/app/components/ui/FadeIn";
 
@@ -52,21 +53,17 @@ export default function Hero() {
           </FadeIn>
         </div>
 
-        {/* Right: Hero drink photography placeholder (~45%) */}
+        {/* Right: Hero drink photography (~45%) */}
         <FadeIn delay={0.3} className="lg:w-[45%] w-full">
-          <div className="relative w-full min-h-[400px] lg:min-h-[520px] rounded-3xl overflow-hidden bg-gradient-to-br from-frosted-mint via-frosted-mint/80 to-arctic-mist/60">
-            {/* Decorative inner shapes to make the placeholder feel premium */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[60%] h-[60%] rounded-full bg-cool-white/30 blur-xl" />
-            </div>
-            <div className="absolute bottom-8 left-8 w-24 h-24 rounded-full bg-lime-sorbet/40" />
-            <div className="absolute top-12 right-12 w-16 h-16 rounded-full bg-peach-nectar/50" />
-            {/* Placeholder label */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-body text-slate/30 text-sm tracking-widest uppercase">
-                Hero Photography
-              </span>
-            </div>
+          <div className="relative w-full min-h-[400px] lg:min-h-[520px] rounded-3xl overflow-hidden">
+            <Image
+              src="/images/hero-mocktail.jpg"
+              alt="Premium crafted mocktail with fresh garnishes in natural light"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+              preload
+            />
           </div>
         </FadeIn>
       </div>

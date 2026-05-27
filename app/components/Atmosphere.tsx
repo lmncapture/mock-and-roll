@@ -1,48 +1,41 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import FadeIn from "@/app/components/ui/FadeIn";
 
 interface GalleryImage {
-  label: string;
-  category: string;
-  bgColor: string;
+  src: string;
+  alt: string;
   aspect: string;
   colSpan?: string;
-  breakGrid?: boolean;
 }
 
 const galleryImages: GalleryImage[] = [
   {
-    label: "Interior wide shot",
-    category: "interior",
-    bgColor: "bg-frosted-mint/40",
+    src: "/images/atmosphere-interior.jpg",
+    alt: "Elegant restaurant interior with warm ambient lighting",
     aspect: "aspect-[16/10]",
     colSpan: "lg:col-span-2",
   },
   {
-    label: "Drink close-up",
-    category: "drinks",
-    bgColor: "bg-soft-plum/40",
+    src: "/images/atmosphere-drinks.jpg",
+    alt: "Artfully crafted drinks with fresh garnishes",
     aspect: "aspect-[3/4]",
   },
   {
-    label: "Seating area",
-    category: "seating",
-    bgColor: "bg-blueberry-dew/40",
+    src: "/images/atmosphere-seating.jpg",
+    alt: "Stylish lounge seating with natural textures",
     aspect: "aspect-[4/3]",
   },
   {
-    label: "Lifestyle shot",
-    category: "lifestyle",
-    bgColor: "bg-rose-petal/40",
+    src: "/images/atmosphere-lifestyle.jpg",
+    alt: "Friends enjoying an elevated social experience",
     aspect: "aspect-[3/4]",
-    breakGrid: true,
   },
   {
-    label: "Bar detail",
-    category: "drinks",
-    bgColor: "bg-lime-sorbet/40",
+    src: "/images/atmosphere-detail.jpg",
+    alt: "Bar detail with premium glassware and botanical accents",
     aspect: "aspect-[16/9]",
     colSpan: "lg:col-span-2",
   },
@@ -61,11 +54,15 @@ export default function Atmosphere() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1.0] }}
             >
-              <div
-                className={`${galleryImages[0].bgColor} ${galleryImages[0].aspect} w-full rounded-2xl`}
-                role="img"
-                aria-label={galleryImages[0].label}
-              />
+              <div className={`relative ${galleryImages[0].aspect} w-full`}>
+                <Image
+                  src={galleryImages[0].src}
+                  alt={galleryImages[0].alt}
+                  fill
+                  className="object-cover rounded-2xl"
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                />
+              </div>
             </motion.div>
 
             {/* Image 2: Drink close-up — tall */}
@@ -74,11 +71,15 @@ export default function Atmosphere() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1.0] }}
             >
-              <div
-                className={`${galleryImages[1].bgColor} ${galleryImages[1].aspect} w-full rounded-2xl`}
-                role="img"
-                aria-label={galleryImages[1].label}
-              />
+              <div className={`relative ${galleryImages[1].aspect} w-full`}>
+                <Image
+                  src={galleryImages[1].src}
+                  alt={galleryImages[1].alt}
+                  fill
+                  className="object-cover rounded-2xl"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
             </motion.div>
 
             {/* Image 3: Seating area */}
@@ -87,11 +88,15 @@ export default function Atmosphere() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1.0] }}
             >
-              <div
-                className={`${galleryImages[2].bgColor} ${galleryImages[2].aspect} w-full rounded-xl`}
-                role="img"
-                aria-label={galleryImages[2].label}
-              />
+              <div className={`relative ${galleryImages[2].aspect} w-full`}>
+                <Image
+                  src={galleryImages[2].src}
+                  alt={galleryImages[2].alt}
+                  fill
+                  className="object-cover rounded-xl"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
             </motion.div>
 
             {/* Editorial typography — integrated within the grid */}
@@ -103,15 +108,19 @@ export default function Atmosphere() {
 
             {/* Image 4: Lifestyle shot — breaks grid boundary */}
             <motion.div
-              className="rounded-2xl overflow-visible lg:-translate-y-6 lg:-mr-8 relative z-10"
+              className="rounded-2xl overflow-hidden lg:-translate-y-6 lg:-mr-8 relative z-10"
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1.0] }}
             >
-              <div
-                className={`${galleryImages[3].bgColor} ${galleryImages[3].aspect} w-full rounded-2xl`}
-                role="img"
-                aria-label={galleryImages[3].label}
-              />
+              <div className={`relative ${galleryImages[3].aspect} w-full`}>
+                <Image
+                  src={galleryImages[3].src}
+                  alt={galleryImages[3].alt}
+                  fill
+                  className="object-cover rounded-2xl"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
             </motion.div>
 
             {/* Image 5: Bar detail — spans 2 columns */}
@@ -120,11 +129,15 @@ export default function Atmosphere() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1.0] }}
             >
-              <div
-                className={`${galleryImages[4].bgColor} ${galleryImages[4].aspect} w-full rounded-2xl`}
-                role="img"
-                aria-label={galleryImages[4].label}
-              />
+              <div className={`relative ${galleryImages[4].aspect} w-full`}>
+                <Image
+                  src={galleryImages[4].src}
+                  alt={galleryImages[4].alt}
+                  fill
+                  className="object-cover rounded-2xl"
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
