@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Mocktails", href: "#cocktails" },
-  { label: "Packages", href: "#packages" },
-  { label: "About", href: "#about" },
-  { label: "Book Mock & Roll", href: "#book" },
+  { label: "Mocktails", href: "/mocktails" },
+  { label: "Packages", href: "/packages" },
+  { label: "About", href: "/about" },
+  { label: "Book Mock & Roll", href: "mailto:hello@mockandroll.com" },
 ];
 
 export default function Footer() {
@@ -32,8 +32,7 @@ export default function Footer() {
               />
             </Link>
             <p className="font-body text-sm text-cool-white/60 mt-2 max-w-xs">
-              An elevated alcohol-free experience designed for connection,
-              celebration, and feel-good nights.
+              Premium mobile mocktail experiences for weddings, celebrations, and every event worth remembering.
             </p>
           </div>
 
