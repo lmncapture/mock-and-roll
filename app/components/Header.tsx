@@ -8,10 +8,10 @@ import Button from "@/app/components/ui/Button";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Cocktails", href: "#cocktails" },
-  { label: "Events", href: "#events" },
+  { label: "Mocktails", href: "#cocktails" },
+  { label: "Packages", href: "#packages" },
   { label: "About", href: "#about" },
-  { label: "Reservations", href: "#reservations" },
+  { label: "Inquiries", href: "#inquiries" },
 ];
 
 export default function Header() {
@@ -20,14 +20,14 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-cool-white/80 backdrop-blur-md">
       <nav className="flex items-center justify-between px-6 lg:px-12 py-4 lg:py-6">
-        {/* Logo */}
+        {/* Logo — larger for brand presence */}
         <Link href="/" aria-label="Mock & Roll Home">
           <Image
             src="/logo.svg"
             alt="Mock & Roll"
-            width={160}
-            height={40}
-            className="h-8 lg:h-10 w-auto"
+            width={240}
+            height={60}
+            className="h-12 lg:h-16 w-auto"
             unoptimized
           />
         </Link>
@@ -43,8 +43,8 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Button href="#reservations" hoverColor="peach-nectar">
-            Reserve a Spot
+          <Button href="#inquiries" hoverColor="peach-nectar">
+            Plan Your Event
           </Button>
         </div>
 
@@ -92,9 +92,9 @@ export default function Header() {
                 <Image
                   src="/logo.svg"
                   alt="Mock & Roll"
-                  width={160}
-                  height={40}
-                  className="h-8 w-auto"
+                  width={200}
+                  height={50}
+                  className="h-12 w-auto"
                   unoptimized
                 />
               </Link>
@@ -135,12 +135,12 @@ export default function Header() {
                 </Link>
               ))}
               <Button
-                href="#reservations"
+                href="#inquiries"
                 hoverColor="peach-nectar"
                 className="mt-4"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Reserve a Spot
+                Plan Your Event
               </Button>
             </div>
           </motion.div>
