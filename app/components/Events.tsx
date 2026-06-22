@@ -29,7 +29,7 @@ const events = [
 
 export default function Events() {
   return (
-    <section id="packages" className="bg-rose-petal py-20 lg:py-24 px-6 lg:px-12">
+    <section id="packages" className="bg-peach-nectar py-20 lg:py-24 px-6 lg:px-12">
       <FadeIn>
       <div className="mx-auto max-w-7xl">
         {/* Compact header */}

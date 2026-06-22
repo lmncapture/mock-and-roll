@@ -46,7 +46,7 @@ const mocktails: Mocktail[] = [
 
 export default function Mocktails() {
   return (
-    <section className="bg-cool-white py-24 lg:py-36 px-6 lg:px-12 overflow-hidden">
+    <section className="bg-frosted-mint py-24 lg:py-36 px-6 lg:px-12 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <FadeIn>

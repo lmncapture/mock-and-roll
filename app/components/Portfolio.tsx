@@ -49,7 +49,7 @@ const portfolioImages = [
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="bg-cool-white py-24 lg:py-32 px-6 lg:px-12">
+    <section id="portfolio" className="bg-rose-petal py-24 lg:py-32 px-6 lg:px-12">
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <FadeIn>
