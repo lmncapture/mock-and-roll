@@ -53,13 +53,13 @@ export default function Portfolio() {
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <FadeIn>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-8 lg:mb-20">
             <h2 className="font-display text-slate text-4xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight max-w-lg">
               Moments Worth
               <br />
               Celebrating
             </h2>
-            <p className="font-body text-slate/60 text-base lg:text-lg mt-6 lg:mt-0 max-w-sm leading-relaxed">
+            <p className="font-body text-slate/60 text-base lg:text-lg mt-3 lg:mt-0 max-w-sm leading-relaxed">
               A look at some of our favorite events, celebrations, and custom mocktail experiences.
             </p>
           </div>

@@ -50,13 +50,13 @@ export default function Mocktails() {
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <FadeIn>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-8 lg:mb-20">
             <h2 className="font-display text-slate text-4xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight">
               Signature
               <br />
               Mocktails
             </h2>
-            <p className="font-body text-slate/60 text-base lg:text-lg mt-6 lg:mt-0 max-w-xs leading-relaxed">
+            <p className="font-body text-slate/60 text-base lg:text-lg mt-3 lg:mt-0 max-w-xs leading-relaxed">
               Five curated creations, each crafted to surprise and delight.
             </p>
           </div>

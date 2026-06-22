@@ -2,7 +2,7 @@ import FadeIn from "@/app/components/ui/FadeIn";
 
 export default function AboutHero() {
   return (
-    <section className="relative bg-cool-white pt-40 pb-20 lg:pb-28 px-6 lg:px-12 overflow-hidden">
+    <section className="relative bg-cool-white pt-32 pb-16 lg:pt-40 lg:pb-28 px-6 lg:px-12 overflow-hidden">
       {/* Background shapes */}
       <div
         className="absolute top-16 right-[-6%] w-[350px] h-[350px] lg:w-[550px] lg:h-[550px] rounded-full bg-rose-petal/40 blur-3xl"

@@ -27,7 +27,7 @@ export default function WhoWeAre() {
 
         {/* Right: image */}
         <FadeIn delay={0.15} className="lg:w-[50%] w-full">
-          <div className="relative aspect-[4/3] rounded-[28px] overflow-hidden">
+          <div className="relative aspect-[4/3] lg:aspect-[4/3] rounded-[28px] overflow-hidden">
             <Image
               src="/images/atmosphere-drinks.jpg"
               alt="Mock & Roll premium mocktail service"

@@ -156,7 +156,7 @@ export default function Header() {
               alt="Mock & Roll"
               width={240}
               height={60}
-              className="h-12 lg:h-16 w-auto"
+              className="h-8 lg:h-16 w-auto"
               unoptimized
             />
           </Link>

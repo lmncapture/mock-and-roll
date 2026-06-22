@@ -14,9 +14,9 @@ export default function Footer() {
     <footer className="bg-slate text-cool-white py-16 lg:py-20 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8">
-          {/* Logo Column */}
-          <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8">
+          {/* Logo Column — full width on mobile */}
+          <div className="col-span-2 lg:col-span-1 flex flex-col gap-4">
             <Link href="/" aria-label="Mock & Roll Home">
               <Image
                 src="/logo.svg"

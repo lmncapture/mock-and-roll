@@ -4,7 +4,7 @@ import Button from "@/app/components/ui/Button";
 
 export default function MocktailsHero() {
   return (
-    <section className="relative bg-cool-white pt-40 pb-20 lg:pb-28 px-6 lg:px-12 overflow-hidden">
+    <section className="relative bg-cool-white pt-32 pb-16 lg:pt-40 lg:pb-28 px-6 lg:px-12 overflow-hidden">
       {/* Background shapes */}
       <div
         className="absolute top-12 right-[-6%] w-[380px] h-[380px] lg:w-[580px] lg:h-[580px] rounded-full bg-lime-sorbet/35 blur-3xl"
