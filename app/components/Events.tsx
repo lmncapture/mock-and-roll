@@ -67,8 +67,8 @@ export default function Events() {
 
         {/* Single CTA */}
         <div className="flex justify-start">
-          <Button href="#inquiries" hoverColor="berry-crush">
-            Inquire About Your Event
+          <Button href="#book" hoverColor="berry-crush">
+            Book Mock &amp; Roll
           </Button>
         </div>
       </div>

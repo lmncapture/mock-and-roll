@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Cocktails", href: "#cocktails" },
-  { label: "Events", href: "#events" },
+  { label: "Mocktails", href: "#cocktails" },
+  { label: "Packages", href: "#packages" },
   { label: "About", href: "#about" },
-  { label: "Reservations", href: "#reservations" },
+  { label: "Book Mock & Roll", href: "#book" },
 ];
 
 export default function Footer() {

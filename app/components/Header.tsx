@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Mocktails", href: "#cocktails" },
   { label: "Packages", href: "#packages" },
   { label: "About", href: "#about" },
-  { label: "Inquiries", href: "#inquiries" },
+  { label: "Book Mock & Roll", href: "#book" },
 ];
 
 export default function Header() {
@@ -43,8 +43,8 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Button href="#inquiries" hoverColor="peach-nectar">
-            Plan Your Event
+          <Button href="#book" hoverColor="peach-nectar">
+            Book Mock &amp; Roll
           </Button>
         </div>
 
@@ -135,12 +135,12 @@ export default function Header() {
                 </Link>
               ))}
               <Button
-                href="#inquiries"
+                href="#book"
                 hoverColor="peach-nectar"
                 className="mt-4"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Plan Your Event
+                Book Mock &amp; Roll
               </Button>
             </div>
           </motion.div>

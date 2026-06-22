@@ -53,8 +53,8 @@ export default function Hero() {
 
           <FadeIn delay={0.25}>
             <div className="mt-10">
-              <Button href="#inquiries" hoverColor="lime-sorbet">
-                Plan Your Event
+              <Button href="#book" hoverColor="lime-sorbet">
+                Book Mock &amp; Roll
               </Button>
             </div>
           </FadeIn>
