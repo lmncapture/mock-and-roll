@@ -16,13 +16,13 @@ const events = [
 
 export default function PerfectFor() {
   return (
-    <section className="bg-cool-white py-24 lg:py-32 px-6 lg:px-12">
+    <section className="bg-cool-white py-16 lg:py-32 px-6 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <p className="font-body text-slate/50 text-sm font-medium tracking-widest uppercase mb-5">
             04 — What We&apos;re Good For
           </p>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20 gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-10 lg:mb-20 gap-6">
             <h2 className="font-display text-slate text-4xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight max-w-lg">
               Perfect For Every Celebration
             </h2>

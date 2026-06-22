@@ -46,7 +46,7 @@ const mocktails: Mocktail[] = [
 
 export default function Mocktails() {
   return (
-    <section className="bg-frosted-mint py-24 lg:py-36 px-6 lg:px-12 overflow-hidden">
+    <section className="bg-frosted-mint py-16 lg:py-36 px-6 lg:px-12 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <FadeIn>
@@ -207,37 +207,36 @@ export default function Mocktails() {
         <div className="lg:hidden">
           <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 scrollbar-hide">
             {mocktails.map((drink, index) => (
-              <FadeIn key={drink.name} delay={index * 0.06}>
-                <article
+              <article
+                key={drink.name}
+                className={`
+                  relative flex-shrink-0 snap-center
+                  ${index === 0 ? "w-[72vw]" : "w-[62vw]"}
+                `}
+              >
+                <div
                   className={`
-                    relative flex-shrink-0 snap-center
-                    ${index === 0 ? "w-[72vw]" : "w-[62vw]"}
+                    relative rounded-[20px] overflow-hidden
+                    ${index === 0 ? "aspect-[4/3]" : "aspect-[3/4]"}
                   `}
                 >
-                  <div
-                    className={`
-                      relative rounded-[20px] overflow-hidden
-                      ${index === 0 ? "aspect-[4/3]" : "aspect-[3/4]"}
-                    `}
-                  >
-                    <Image
-                      src={drink.image}
-                      alt={`${drink.name} — ${drink.description}`}
-                      fill
-                      className="object-cover"
-                      sizes="75vw"
-                    />
-                  </div>
-                  <div className="mt-3.5 px-0.5">
-                    <h3 className="font-body font-semibold text-slate text-lg tracking-tight">
-                      {drink.name}
-                    </h3>
-                    <p className="font-body text-slate/55 text-sm mt-0.5 tracking-wide">
-                      {drink.description}
-                    </p>
-                  </div>
-                </article>
-              </FadeIn>
+                  <Image
+                    src={drink.image}
+                    alt={`${drink.name} — ${drink.description}`}
+                    fill
+                    className="object-cover"
+                    sizes="75vw"
+                  />
+                </div>
+                <div className="mt-3.5 px-0.5">
+                  <h3 className="font-body font-semibold text-slate text-lg tracking-tight">
+                    {drink.name}
+                  </h3>
+                  <p className="font-body text-slate/55 text-sm mt-0.5 tracking-wide">
+                    {drink.description}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
         </div>

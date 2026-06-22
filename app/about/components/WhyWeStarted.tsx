@@ -3,7 +3,7 @@ import FadeIn from "@/app/components/ui/FadeIn";
 
 export default function WhyWeStarted() {
   return (
-    <section className="bg-frosted-mint py-24 lg:py-32 px-6 lg:px-12">
+    <section className="bg-frosted-mint py-16 lg:py-32 px-6 lg:px-12">
       <div className="mx-auto max-w-7xl flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
         {/* Right (visually left due to reverse): copy */}
         <div className="lg:w-[50%]">

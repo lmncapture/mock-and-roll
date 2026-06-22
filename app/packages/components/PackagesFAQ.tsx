@@ -34,7 +34,7 @@ export default function PackagesFAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-frosted-mint py-20 lg:py-28 px-6 lg:px-12">
+    <section className="bg-frosted-mint py-16 lg:py-28 px-6 lg:px-12">
       <div className="mx-auto max-w-4xl">
         <FadeIn>
           <h2 className="font-display text-slate text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-12 lg:mb-16">

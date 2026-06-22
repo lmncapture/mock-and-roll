@@ -13,7 +13,7 @@ const supportingImages = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] overflow-hidden bg-cool-white pt-36 pb-20 lg:pb-28 px-6 lg:px-12">
+    <section className="relative min-h-[85vh] overflow-hidden bg-cool-white pt-28 pb-16 lg:pt-36 lg:pb-28 px-6 lg:px-12">
       {/* Soft pastel abstract background shapes */}
       <div
         className="absolute top-16 left-[-5%] w-[320px] h-[320px] lg:w-[500px] lg:h-[500px] rounded-full bg-lime-sorbet/40 blur-3xl"
@@ -40,20 +40,20 @@ export default function Hero() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <p className="font-body text-slate/80 text-xl lg:text-2xl leading-relaxed mt-8 max-w-md font-medium">
+            <p className="font-body text-slate/80 text-lg lg:text-2xl leading-relaxed mt-6 lg:mt-8 max-w-md font-medium">
               All of the buzz, none of the booze.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <p className="font-body text-slate/60 text-base lg:text-lg leading-relaxed mt-4 max-w-md">
+            <p className="font-body text-slate/60 text-sm lg:text-lg leading-relaxed mt-3 lg:mt-4 max-w-md">
               Premium mobile mocktail experiences for weddings, birthdays, corporate events, and every celebration worth remembering.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.25}>
-            <div className="mt-10">
-              <Button href="#book" hoverColor="lime-sorbet">
+            <div className="mt-8 lg:mt-10">
+              <Button href="mailto:hello@mockandroll.com" hoverColor="lime-sorbet">
                 Book Mock &amp; Roll
               </Button>
             </div>

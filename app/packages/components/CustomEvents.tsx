@@ -3,7 +3,7 @@ import Button from "@/app/components/ui/Button";
 
 export default function CustomEvents() {
   return (
-    <section className="bg-rose-petal py-20 lg:py-28 px-6 lg:px-12">
+    <section className="bg-rose-petal py-16 lg:py-28 px-6 lg:px-12">
       <FadeIn>
         <div className="mx-auto max-w-7xl flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
           <div className="max-w-2xl">

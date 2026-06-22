@@ -35,7 +35,7 @@ const flavors = [
 
 export default function FlavorProfiles() {
   return (
-    <section className="bg-rose-petal py-24 lg:py-32 px-6 lg:px-12">
+    <section className="bg-rose-petal py-16 lg:py-32 px-6 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20 gap-6">

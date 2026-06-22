@@ -65,7 +65,7 @@ const mocktails = [
 
 export default function SignatureMocktails() {
   return (
-    <section className="bg-frosted-mint py-24 lg:py-32 px-6 lg:px-12 overflow-hidden">
+    <section className="bg-frosted-mint py-16 lg:py-32 px-6 lg:px-12 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <FadeIn>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20">

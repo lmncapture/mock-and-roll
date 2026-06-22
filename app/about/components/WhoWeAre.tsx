@@ -3,7 +3,7 @@ import FadeIn from "@/app/components/ui/FadeIn";
 
 export default function WhoWeAre() {
   return (
-    <section className="bg-cool-white py-24 lg:py-32 px-6 lg:px-12">
+    <section className="bg-cool-white py-16 lg:py-32 px-6 lg:px-12">
       <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         {/* Left: copy */}
         <div className="lg:w-[50%]">

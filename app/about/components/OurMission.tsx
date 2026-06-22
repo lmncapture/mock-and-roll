@@ -2,7 +2,7 @@ import FadeIn from "@/app/components/ui/FadeIn";
 
 export default function OurMission() {
   return (
-    <section className="bg-blueberry-dew py-28 lg:py-36 px-6 lg:px-12">
+    <section className="bg-blueberry-dew py-20 lg:py-36 px-6 lg:px-12">
       <div className="mx-auto max-w-5xl text-center">
         <FadeIn>
           <p className="font-body text-slate/50 text-sm font-medium tracking-widest uppercase mb-6">

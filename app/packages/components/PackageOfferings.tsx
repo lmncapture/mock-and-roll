@@ -72,7 +72,7 @@ const packages = [
 
 export default function PackageOfferings() {
   return (
-    <section className="bg-cool-white py-20 lg:py-28 px-6 lg:px-12">
+    <section className="bg-cool-white py-16 lg:py-28 px-6 lg:px-12">
       <div className="mx-auto max-w-7xl">
         {/* Desktop: 2-column editorial grid */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-6">

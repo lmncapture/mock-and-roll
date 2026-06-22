@@ -3,7 +3,7 @@ import Button from "@/app/components/ui/Button";
 
 export default function PackagesCTA() {
   return (
-    <section className="bg-blueberry-dew py-28 lg:py-40 px-6 lg:px-12">
+    <section className="bg-blueberry-dew py-20 lg:py-40 px-6 lg:px-12">
       <FadeIn className="mx-auto max-w-4xl flex flex-col items-center text-center gap-10">
         <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl text-slate leading-[1.15]">
           Ready to bring Mock &amp; Roll to your event?
