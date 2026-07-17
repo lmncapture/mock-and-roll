@@ -40,19 +40,16 @@ const mocktails: Mocktail[] = [
 
 export default function Mocktails() {
   return (
-    <section className="bg-frosted-mint py-16 lg:py-36 px-6 lg:px-12 overflow-hidden">
+    <section className="bg-frosted-mint py-12 lg:py-20 px-6 lg:px-12 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <FadeIn>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-8 lg:mb-20">
+          <div className="flex flex-col items-center text-center mb-8 lg:mb-12">
             <h2 className="font-display text-slate text-4xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight">
               Signature
               <br />
               Mocktails
             </h2>
-            <p className="font-body text-slate/60 text-base lg:text-lg mt-3 lg:mt-0 max-w-xs leading-relaxed">
-              Five curated creations, each crafted to surprise and delight.
-            </p>
           </div>
         </FadeIn>
 
