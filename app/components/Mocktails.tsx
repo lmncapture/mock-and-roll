@@ -46,9 +46,7 @@ export default function Mocktails() {
         <FadeIn>
           <div className="flex flex-col items-center text-center mb-8 lg:mb-12">
             <h2 className="font-display text-slate text-4xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight">
-              Signature
-              <br />
-              Mocktails
+              Signature Mocktails
             </h2>
           </div>
         </FadeIn>
