@@ -6,7 +6,7 @@ import FadeIn from "@/app/components/ui/FadeIn";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-cool-white pt-24 pb-14 lg:pt-36 lg:pb-28 px-6 lg:px-12">
+    <section className="relative overflow-hidden bg-cool-white pt-24 pb-12 lg:pt-28 lg:pb-20 px-6 lg:px-12">
       {/* Soft pastel abstract background shapes */}
       <div
         className="absolute top-16 left-[-5%] w-[260px] h-[260px] lg:w-[500px] lg:h-[500px] rounded-full bg-lime-sorbet/40 blur-3xl"
@@ -21,11 +21,11 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
-        {/* Left: Typography content */}
-        <div className="flex flex-col justify-center lg:w-[50%] lg:pt-8">
+      <div className="relative z-10 mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        {/* Left: Typography content — single cohesive stack */}
+        <div className="flex flex-col lg:w-[50%]">
           <FadeIn delay={0}>
-            <h1 className="font-display text-slate text-[clamp(42px,10vw,80px)] lg:text-7xl xl:text-8xl leading-[1.08] tracking-tight">
+            <h1 className="font-display text-slate text-[clamp(40px,8vw,72px)] leading-[1.08] tracking-tight">
               Crafted mocktails.
               <br />
               Unforgettable moments.
@@ -33,19 +33,19 @@ export default function Hero() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <p className="font-body text-slate/80 text-base lg:text-2xl leading-relaxed mt-5 lg:mt-8 max-w-md font-medium">
+            <p className="font-body text-slate/80 text-base lg:text-xl leading-relaxed mt-6 max-w-md font-medium">
               All of the buzz, none of the booze.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <p className="font-body text-slate/60 text-sm lg:text-lg leading-relaxed mt-2 lg:mt-4 max-w-md">
+            <p className="font-body text-slate/60 text-sm lg:text-base leading-relaxed mt-3 max-w-md">
               Premium mobile mocktail bar for weddings, birthdays, corporate events, and every celebration worth remembering.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.25}>
-            <div className="mt-7 lg:mt-10">
+            <div className="mt-8">
               <Button href="mailto:lauren@mocknrollbar.com" hoverColor="lime-sorbet">
                 Book Mock &amp; Roll
               </Button>
