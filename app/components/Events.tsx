@@ -8,22 +8,27 @@ const events = [
   {
     name: "Weddings",
     image: "/images/mr-moments-1.jpg",
+    objectPosition: "center top",
   },
   {
     name: "Birthdays",
-    image: "/images/mr-moments-2.jpg",
+    image: "/images/mr-moments-3.jpg",
+    objectPosition: "center center",
   },
   {
     name: "Baby Showers",
-    image: "/images/mr-moments-3.jpg",
+    image: "/images/mr-moments-2.jpg",
+    objectPosition: "center top",
   },
   {
     name: "Corporate",
     image: "/images/mr-moments-4.jpg",
+    objectPosition: "center center",
   },
   {
     name: "Private Parties",
-    image: "/images/mr-signature-mocktails-horizontal.jpg",
+    image: "/images/mr-hero.jpg",
+    objectPosition: "center center",
   },
 ];
 
@@ -42,7 +47,7 @@ export default function Events() {
           </p>
         </div>
 
-        {/* Compact event type icons — horizontal scroll on mobile, flex on desktop */}
+        {/* Compact event type cards — horizontal scroll on mobile, grid on desktop */}
         <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 lg:mx-0 lg:px-0 lg:overflow-visible lg:grid lg:grid-cols-5 scrollbar-hide mb-10 lg:mb-12">
           {events.map((event) => (
             <div
@@ -52,9 +57,10 @@ export default function Events() {
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
                 <Image
                   src={event.image}
-                  alt={event.name}
+                  alt={`Mock & Roll at ${event.name.toLowerCase()}`}
                   fill
                   className="object-cover"
+                  style={{ objectPosition: event.objectPosition }}
                   sizes="(max-width: 768px) 42vw, 20vw"
                 />
               </div>
