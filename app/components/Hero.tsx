@@ -57,7 +57,7 @@ export default function Hero() {
         <FadeIn delay={0.2} className="lg:w-[50%] w-full">
           <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
             <Image
-              src="/images/mr-hero.jpg"
+              src="/images/mr-hero-new.jpg"
               alt="Mock & Roll premium mocktail bar at a celebration event"
               fill
               className="object-cover"
