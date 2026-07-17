@@ -91,8 +91,8 @@ export default function Experience() {
         {/* Right: Large arch image (~50%) */}
         <FadeIn delay={0.25} className="lg:w-[50%] w-full">
           <CurvedImage
-            src="/images/boutique-interior.jpg"
-            alt="Mock and Roll boutique interior with warm ambient lighting and elegant seating"
+            src="/images/mr-moments-2.jpg"
+            alt="Mock & Roll mobile mocktail bar — crafted drinks and warm hospitality"
             width={640}
             height={800}
             variant="arch"

@@ -13,29 +13,29 @@ interface GalleryImage {
 
 const galleryImages: GalleryImage[] = [
   {
-    src: "/images/atmosphere-interior.jpg",
-    alt: "Elegant restaurant interior with warm ambient lighting",
+    src: "/images/mr-moments-1.jpg",
+    alt: "Mock & Roll — moments worth celebrating",
     aspect: "aspect-[16/10]",
     colSpan: "lg:col-span-2",
   },
   {
-    src: "/images/atmosphere-drinks.jpg",
-    alt: "Artfully crafted drinks with fresh garnishes",
+    src: "/images/mr-signature-mocktails-horizontal.jpg",
+    alt: "Mock & Roll signature mocktails crafted with care",
     aspect: "aspect-[3/4]",
   },
   {
-    src: "/images/atmosphere-seating.jpg",
-    alt: "Stylish lounge seating with natural textures",
+    src: "/images/mr-moments-2.jpg",
+    alt: "Mock & Roll — guests enjoying handcrafted mocktails",
     aspect: "aspect-[4/3]",
   },
   {
-    src: "/images/atmosphere-lifestyle.jpg",
-    alt: "Friends enjoying an elevated social experience",
+    src: "/images/mr-moments-3.jpg",
+    alt: "Mock & Roll — a celebration worth remembering",
     aspect: "aspect-[3/4]",
   },
   {
-    src: "/images/atmosphere-detail.jpg",
-    alt: "Bar detail with premium glassware and botanical accents",
+    src: "/images/mr-moments-4.jpg",
+    alt: "Mock & Roll — premium mobile mocktail bar at an event",
     aspect: "aspect-[16/9]",
     colSpan: "lg:col-span-2",
   },

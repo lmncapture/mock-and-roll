@@ -133,7 +133,7 @@ export default function PackageOfferings() {
 
                 {/* CTA */}
                 <div className="mt-2">
-                  <Button href="mailto:hello@mockandroll.com" hoverColor="frosted-mint">
+                  <Button href="mailto:lauren@mocknrollbar.com" hoverColor="frosted-mint">
                     Book Mock &amp; Roll
                   </Button>
                 </div>
@@ -189,7 +189,7 @@ export default function PackageOfferings() {
                   ))}
                 </ul>
 
-                <Button href="mailto:hello@mockandroll.com" hoverColor="frosted-mint">
+                <Button href="mailto:lauren@mocknrollbar.com" hoverColor="frosted-mint">
                   Book Mock &amp; Roll
                 </Button>
               </article>

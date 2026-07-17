@@ -29,7 +29,7 @@ export default function WhyWeStarted() {
         <FadeIn delay={0.15} className="lg:w-[50%] w-full">
           <div className="relative aspect-[4/3] rounded-[28px] overflow-hidden">
             <Image
-              src="/images/events-gathering.jpg"
+              src="/images/mr-moments-1.jpg"
               alt="Guests celebrating with Mock & Roll mocktails"
               fill
               className="object-cover"

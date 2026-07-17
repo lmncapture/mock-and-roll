@@ -59,7 +59,7 @@ export default function PerfectFor() {
             <h3 className="font-display text-slate text-3xl lg:text-4xl xl:text-5xl leading-[1.15] tracking-tight">
               Bring Mock &amp; Roll to Your Celebration
             </h3>
-            <Button href="mailto:hello@mockandroll.com" hoverColor="peach-nectar">
+            <Button href="mailto:lauren@mocknrollbar.com" hoverColor="peach-nectar">
               Book Mock &amp; Roll
             </Button>
           </div>

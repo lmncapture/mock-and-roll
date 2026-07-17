@@ -6,7 +6,7 @@ import FlavorProfiles from "@/app/mocktails/components/FlavorProfiles";
 import MocktailsCTA from "@/app/mocktails/components/MocktailsCTA";
 
 export const metadata = {
-  title: "Mocktails — Mock & Roll",
+  title: "Mocktails",
   description:
     "Handcrafted mocktails made to celebrate. From bright citrus blends to berry-forward pours — every drink is crafted to feel festive, refreshing, and beautiful.",
 };

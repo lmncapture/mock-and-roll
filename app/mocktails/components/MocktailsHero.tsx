@@ -33,7 +33,7 @@ export default function MocktailsHero() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="mt-10">
-              <Button href="mailto:hello@mockandroll.com" hoverColor="lime-sorbet">
+              <Button href="mailto:lauren@mocknrollbar.com" hoverColor="lime-sorbet">
                 Book Mock &amp; Roll
               </Button>
             </div>
@@ -44,12 +44,12 @@ export default function MocktailsHero() {
         <FadeIn delay={0.15} className="lg:w-[48%] w-full">
           <div className="relative w-full aspect-[4/3] rounded-[28px] overflow-hidden">
             <Image
-              src="/images/hero-mocktail.jpg"
-              alt="Beautifully crafted mocktail with fresh garnishes"
+              src="/images/mr-signature-mocktails-horizontal.jpg"
+              alt="Mock & Roll handcrafted mocktails — beautifully presented with fresh garnishes"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 48vw"
-              preload
+              priority
             />
           </div>
         </FadeIn>

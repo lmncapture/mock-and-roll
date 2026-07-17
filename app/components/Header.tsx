@@ -13,7 +13,7 @@ const navLinks = [
   { label: "Mocktails", href: "/mocktails" },
   { label: "Packages", href: "/packages" },
   { label: "About", href: "/about" },
-  { label: "Inquiries", href: "mailto:hello@mockandroll.com" },
+  { label: "Inquiries", href: "mailto:lauren@mocknrollbar.com" },
 ];
 
 export default function Header() {
@@ -132,7 +132,7 @@ export default function Header() {
               transition={{ delay: 0.38, duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <Button
-                href="mailto:hello@mockandroll.com"
+                href="mailto:lauren@mocknrollbar.com"
                 hoverColor="peach-nectar"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -176,7 +176,7 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button href="mailto:hello@mockandroll.com" hoverColor="peach-nectar">
+            <Button href="mailto:lauren@mocknrollbar.com" hoverColor="peach-nectar">
               Book Mock &amp; Roll
             </Button>
           </div>

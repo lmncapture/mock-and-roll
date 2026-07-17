@@ -29,8 +29,8 @@ export default function WhoWeAre() {
         <FadeIn delay={0.15} className="lg:w-[50%] w-full">
           <div className="relative aspect-[4/3] lg:aspect-[4/3] rounded-[28px] overflow-hidden">
             <Image
-              src="/images/atmosphere-drinks.jpg"
-              alt="Mock & Roll premium mocktail service"
+              src="/images/mr-signature-mocktails-horizontal.jpg"
+              alt="Mock & Roll premium handcrafted mocktail service"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"

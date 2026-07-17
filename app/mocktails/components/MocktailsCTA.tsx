@@ -11,7 +11,7 @@ export default function MocktailsCTA() {
         <p className="font-body text-slate/65 text-lg max-w-lg leading-relaxed -mt-2">
           We can create a mocktail menu tailored to your event colors, season, guest preferences, or celebration style.
         </p>
-        <Button href="mailto:hello@mockandroll.com" hoverColor="arctic-mist">
+        <Button href="mailto:lauren@mocknrollbar.com" hoverColor="arctic-mist">
           Book Mock &amp; Roll
         </Button>
       </FadeIn>

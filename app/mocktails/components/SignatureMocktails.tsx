@@ -6,60 +6,39 @@ import FadeIn from "@/app/components/ui/FadeIn";
 
 const mocktails = [
   {
-    name: "Citrus Bloom",
-    description: "Yuzu, elderflower, and sparkling citrus.",
-    image: "/images/signature-drink-01.jpg",
+    name: "Garden Sparkler",
+    description: "Fresh garden botanicals and sparkling citrus.",
+    image: "/images/mr-garden-sparkler.jpg",
     accent: "bg-lime-sorbet/30",
-    size: "featured", // col-span-2
+    size: "featured",
   },
   {
-    name: "Golden Hour",
-    description: "Turmeric, passionfruit, and honeyed ginger.",
-    image: "/images/signature-drink-02.jpg",
+    name: "Ginger Dragon",
+    description: "Bold ginger, dragon fruit, and citrus.",
+    image: "/images/mr-ginger-dragon.jpg",
     accent: "bg-lemon-zest/30",
     size: "standard",
   },
   {
-    name: "Berry Crush",
-    description: "Muddled berries, lavender, and prosecco-style bubbles.",
-    image: "/images/signature-drink-03.jpg",
+    name: "Habiscus Tea Blossom",
+    description: "Hibiscus, floral tea, and a sparkling finish.",
+    image: "/images/mr-habiscus-tea-blossom.jpg",
     accent: "bg-berry-crush/25",
     size: "standard",
   },
   {
-    name: "Lime Sorbet",
-    description: "Lime, cucumber, mint, and soda.",
-    image: "/images/signature-drink-04.jpg",
+    name: "Pineapple Sunrise",
+    description: "Pineapple, tropical fruit, and sunrise layers.",
+    image: "/images/mr-pineapple-sunrise.jpg",
     accent: "bg-lime-sorbet/25",
     size: "standard",
   },
   {
-    name: "Peach Glow",
-    description: "Peach, jasmine, and white tea.",
-    image: "/images/signature-drink-05.jpg",
+    name: "Signature Mocktails",
+    description: "Handcrafted for every celebration.",
+    image: "/images/mr-signature-mocktails-horizontal.jpg",
     accent: "bg-peach-nectar/30",
-    size: "standard",
-  },
-  {
-    name: "Rose Spritz",
-    description: "Rose, lychee, lemon, and bubbles.",
-    image: "/images/atmosphere-drinks.jpg",
-    accent: "bg-rose-petal/40",
-    size: "wide", // col-span-2
-  },
-  {
-    name: "Arctic Mist",
-    description: "Mint, lime, cucumber, and sparkling water.",
-    image: "/images/atmosphere-detail.jpg",
-    accent: "bg-arctic-mist/30",
-    size: "standard",
-  },
-  {
-    name: "Soft Plum",
-    description: "Plum, lavender, vanilla, and citrus.",
-    image: "/images/atmosphere-lifestyle.jpg",
-    accent: "bg-soft-plum/30",
-    size: "standard",
+    size: "wide",
   },
 ];
 
@@ -75,7 +54,7 @@ export default function SignatureMocktails() {
               Mocktails
             </h2>
             <p className="font-body text-slate/60 text-base lg:text-lg mt-6 lg:mt-0 max-w-xs leading-relaxed">
-              Eight curated creations, crafted to surprise and delight at every event.
+              Four curated creations, crafted to surprise and delight at every event.
             </p>
           </div>
         </FadeIn>
@@ -125,9 +104,9 @@ export default function SignatureMocktails() {
             </motion.article>
           </FadeIn>
 
-          {/* Row 2: three equal cards */}
-          {[2, 3, 4].map((i, pos) => (
-            <FadeIn key={mocktails[i].name} className="col-span-4" delay={0.08 + pos * 0.04}>
+          {/* Row 2: two equal cards */}
+          {[2, 3].map((i, pos) => (
+            <FadeIn key={mocktails[i].name} className="col-span-6" delay={0.08 + pos * 0.04}>
               <motion.article
                 className="group cursor-pointer"
                 whileHover={{ y: -3 }}
@@ -139,7 +118,7 @@ export default function SignatureMocktails() {
                     alt={`${mocktails[i].name} — ${mocktails[i].description}`}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    sizes="33vw"
+                    sizes="50vw"
                   />
                 </div>
                 <div className="mt-4">
@@ -150,46 +129,24 @@ export default function SignatureMocktails() {
             </FadeIn>
           ))}
 
-          {/* Row 3: wide (col-8) + standard (col-4) */}
-          <FadeIn className="col-span-8" delay={0.12}>
+          {/* Row 3: full-width signature horizontal */}
+          <FadeIn className="col-span-12" delay={0.12}>
             <motion.article
-              className="relative group cursor-pointer overflow-hidden rounded-[24px] aspect-[16/9]"
+              className="relative group cursor-pointer overflow-hidden rounded-[24px] aspect-[21/9]"
               whileHover={{ y: -3 }}
               transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <Image
-                src={mocktails[5].image}
-                alt={`${mocktails[5].name} — ${mocktails[5].description}`}
+                src={mocktails[4].image}
+                alt="Mock & Roll signature mocktails — handcrafted for every celebration"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                sizes="66vw"
+                sizes="100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate/55 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-7 z-10">
-                <h3 className="font-body font-semibold text-cool-white text-xl tracking-tight">{mocktails[5].name}</h3>
-                <p className="font-body text-cool-white/75 text-sm mt-0.5 tracking-wide">{mocktails[5].description}</p>
-              </div>
-            </motion.article>
-          </FadeIn>
-
-          <FadeIn className="col-span-4" delay={0.15}>
-            <motion.article
-              className="group cursor-pointer"
-              whileHover={{ y: -3 }}
-              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              <div className="relative overflow-hidden rounded-[24px] aspect-[4/3]">
-                <Image
-                  src={mocktails[6].image}
-                  alt={`${mocktails[6].name} — ${mocktails[6].description}`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  sizes="33vw"
-                />
-              </div>
-              <div className="mt-4">
-                <h3 className="font-body font-semibold text-slate text-lg tracking-tight">{mocktails[6].name}</h3>
-                <p className="font-body text-slate/55 text-sm mt-0.5 tracking-wide">{mocktails[6].description}</p>
+                <h3 className="font-body font-semibold text-cool-white text-xl tracking-tight">Mock &amp; Roll Signature Menu</h3>
+                <p className="font-body text-cool-white/75 text-sm mt-0.5 tracking-wide">Handcrafted for every celebration.</p>
               </div>
             </motion.article>
           </FadeIn>

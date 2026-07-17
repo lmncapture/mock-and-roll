@@ -7,23 +7,23 @@ import Button from "@/app/components/ui/Button";
 const events = [
   {
     name: "Weddings",
-    image: "/images/events-bridal.jpg",
+    image: "/images/mr-moments-1.jpg",
   },
   {
     name: "Birthdays",
-    image: "/images/events-celebration.jpg",
+    image: "/images/mr-moments-2.jpg",
   },
   {
     name: "Baby Showers",
-    image: "/images/events-gathering.jpg",
+    image: "/images/mr-moments-3.jpg",
   },
   {
     name: "Corporate",
-    image: "/images/events-networking.jpg",
+    image: "/images/mr-moments-4.jpg",
   },
   {
     name: "Private Parties",
-    image: "/images/events-community.jpg",
+    image: "/images/mr-signature-mocktails-horizontal.jpg",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function Events() {
 
         {/* Single CTA */}
         <div className="flex justify-start">
-          <Button href="mailto:hello@mockandroll.com" hoverColor="berry-crush">
+          <Button href="mailto:lauren@mocknrollbar.com" hoverColor="berry-crush">
             Book Mock &amp; Roll
           </Button>
         </div>

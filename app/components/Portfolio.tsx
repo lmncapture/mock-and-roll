@@ -6,43 +6,23 @@ import FadeIn from "@/app/components/ui/FadeIn";
 
 const portfolioImages = [
   {
-    src: "/images/events-bridal.jpg",
-    alt: "Intimate bridal shower with custom mocktail menu",
+    src: "/images/mr-moments-1.jpg",
+    alt: "Moments worth celebrating — Mock & Roll event",
     size: "large", // col-span-2
   },
   {
-    src: "/images/events-celebration.jpg",
-    alt: "Birthday celebration with curated drink experience",
+    src: "/images/mr-moments-2.jpg",
+    alt: "Moments worth celebrating — guests enjoying mocktails",
     size: "small",
   },
   {
-    src: "/images/atmosphere-detail.jpg",
-    alt: "Signature garnish and glassware detail",
+    src: "/images/mr-moments-3.jpg",
+    alt: "Moments worth celebrating — curated drink experience",
     size: "small",
   },
   {
-    src: "/images/events-networking.jpg",
-    alt: "Corporate networking event with premium mocktail bar",
-    size: "small",
-  },
-  {
-    src: "/images/atmosphere-lifestyle.jpg",
-    alt: "Guests enjoying a private event setup",
-    size: "large",
-  },
-  {
-    src: "/images/events-gathering.jpg",
-    alt: "Elegant private gathering with styled tablescape",
-    size: "small",
-  },
-  {
-    src: "/images/atmosphere-seating.jpg",
-    alt: "Beautifully styled event seating and table detail",
-    size: "small",
-  },
-  {
-    src: "/images/events-community.jpg",
-    alt: "Community celebration with signature drinks",
+    src: "/images/mr-moments-4.jpg",
+    alt: "Moments worth celebrating — beautiful event setup",
     size: "small",
   },
 ];
@@ -67,7 +47,7 @@ export default function Portfolio() {
 
         {/* Editorial gallery — desktop asymmetric grid */}
         <div className="hidden lg:block">
-          {/* Row 1: large left + 2 small right */}
+          {/* Row 1: large left + 2 small right stacked */}
           <FadeIn>
             <div className="grid grid-cols-12 gap-4 mb-4">
               <motion.div
@@ -104,36 +84,20 @@ export default function Portfolio() {
             </div>
           </FadeIn>
 
-          {/* Row 2: 3 equal + wide right */}
+          {/* Row 2: single wide image */}
           <FadeIn delay={0.1}>
             <div className="grid grid-cols-12 gap-4">
-              {[3, 6, 7].map((i) => (
-                <motion.div
-                  key={i}
-                  className="col-span-3 relative rounded-2xl overflow-hidden aspect-[3/4] group cursor-pointer"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                >
-                  <Image
-                    src={portfolioImages[i].src}
-                    alt={portfolioImages[i].alt}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                    sizes="25vw"
-                  />
-                </motion.div>
-              ))}
               <motion.div
-                className="col-span-3 relative rounded-2xl overflow-hidden aspect-[3/4] group cursor-pointer"
+                className="col-span-12 relative rounded-2xl overflow-hidden aspect-[21/9] group cursor-pointer"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
               >
                 <Image
-                  src={portfolioImages[4].src}
-                  alt={portfolioImages[4].alt}
+                  src={portfolioImages[3].src}
+                  alt={portfolioImages[3].alt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                  sizes="25vw"
+                  sizes="100vw"
                 />
               </motion.div>
             </div>
@@ -156,7 +120,7 @@ export default function Portfolio() {
           </FadeIn>
           {/* Horizontal scroll row */}
           <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 scrollbar-hide">
-            {portfolioImages.slice(1, 6).map((img, i) => (
+            {portfolioImages.slice(1).map((img, i) => (
               <div
                 key={i}
                 className="relative flex-shrink-0 snap-center w-[58vw] aspect-[4/3] rounded-xl overflow-hidden"

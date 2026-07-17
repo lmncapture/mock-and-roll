@@ -11,7 +11,7 @@ export default function PackagesCTA() {
         <p className="font-body text-slate/65 text-lg max-w-lg leading-relaxed -mt-4">
           Reach out and we&apos;ll get back to you within 24 hours to discuss your event details and find the perfect package.
         </p>
-        <Button href="mailto:hello@mockandroll.com" hoverColor="arctic-mist">
+        <Button href="mailto:lauren@mocknrollbar.com" hoverColor="arctic-mist">
           Book Mock &amp; Roll
         </Button>
       </FadeIn>

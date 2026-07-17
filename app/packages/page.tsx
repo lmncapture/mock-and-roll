@@ -7,7 +7,7 @@ import PackagesCTA from "@/app/packages/components/PackagesCTA";
 import PackagesFAQ from "@/app/packages/components/PackagesFAQ";
 
 export const metadata = {
-  title: "Packages — Mock & Roll",
+  title: "Packages",
   description:
     "Premium mobile mocktail experiences for every celebration. From intimate gatherings to large-scale events — find the perfect Mock & Roll package.",
 };

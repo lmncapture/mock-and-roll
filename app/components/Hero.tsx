@@ -4,13 +4,6 @@ import Image from "next/image";
 import Button from "@/app/components/ui/Button";
 import FadeIn from "@/app/components/ui/FadeIn";
 
-const supportingImages = [
-  { src: "/images/events-celebration.jpg", alt: "Celebration with curated mocktails" },
-  { src: "/images/events-bridal.jpg", alt: "Elegant bridal shower event" },
-  { src: "/images/atmosphere-drinks.jpg", alt: "Artful mocktail with garnish detail" },
-  { src: "/images/events-gathering.jpg", alt: "Guests enjoying a private event" },
-];
-
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-cool-white pt-24 pb-14 lg:pt-36 lg:pb-28 px-6 lg:px-12">
@@ -53,45 +46,24 @@ export default function Hero() {
 
           <FadeIn delay={0.25}>
             <div className="mt-7 lg:mt-10">
-              <Button href="mailto:hello@mockandroll.com" hoverColor="lime-sorbet">
+              <Button href="mailto:lauren@mocknrollbar.com" hoverColor="lime-sorbet">
                 Book Mock &amp; Roll
               </Button>
             </div>
           </FadeIn>
         </div>
 
-        {/* Right: Event-focused image composition */}
+        {/* Right: Single immersive hero image */}
         <FadeIn delay={0.2} className="lg:w-[50%] w-full">
-          <div className="flex flex-col gap-2.5">
-            {/* Large featured image */}
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/hero-mocktail.jpg"
-                alt="Premium mocktail bar setup at a celebration event"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                preload
-              />
-            </div>
-
-            {/* Four supporting images */}
-            <div className="grid grid-cols-4 gap-2.5">
-              {supportingImages.map((img, i) => (
-                <div
-                  key={i}
-                  className="relative aspect-[3/4] rounded-xl overflow-hidden"
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 25vw, 12vw"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+            <Image
+              src="/images/mr-hero.jpg"
+              alt="Mock & Roll premium mocktail bar at a celebration event"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
           </div>
         </FadeIn>
       </div>

@@ -6,7 +6,7 @@ const navLinks = [
   { label: "Mocktails", href: "/mocktails" },
   { label: "Packages", href: "/packages" },
   { label: "About", href: "/about" },
-  { label: "Book Mock & Roll", href: "mailto:hello@mockandroll.com" },
+  { label: "Book Mock & Roll", href: "mailto:lauren@mocknrollbar.com" },
 ];
 
 export default function Footer() {
@@ -62,10 +62,10 @@ export default function Footer() {
             <div className="flex gap-4">
               {/* Instagram */}
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/mocknrollbar?utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow us on Instagram"
+                aria-label="Follow Mock & Roll on Instagram"
                 className="flex items-center justify-center w-11 h-11 rounded-full border border-cool-white/20 hover:border-cool-white/60 hover:bg-cool-white/10 transition-all duration-200"
               >
                 <svg
@@ -84,52 +84,6 @@ export default function Footer() {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                 </svg>
               </a>
-
-              {/* Facebook */}
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on Facebook"
-                className="flex items-center justify-center w-11 h-11 rounded-full border border-cool-white/20 hover:border-cool-white/60 hover:bg-cool-white/10 transition-all duration-200"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-cool-white"
-                >
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                </svg>
-              </a>
-
-              {/* TikTok */}
-              <a
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on TikTok"
-                className="flex items-center justify-center w-11 h-11 rounded-full border border-cool-white/20 hover:border-cool-white/60 hover:bg-cool-white/10 transition-all duration-200"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-cool-white"
-                >
-                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                </svg>
-              </a>
             </div>
           </div>
 
@@ -140,14 +94,11 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:hello@mockandroll.com"
+                href="mailto:lauren@mocknrollbar.com"
                 className="font-body text-cool-white/80 hover:text-cool-white transition-colors duration-200"
               >
-                hello@mockandroll.com
+                lauren@mocknrollbar.com
               </a>
-              <p className="font-body text-cool-white/80">
-                123 Botanical Lane, Austin, TX
-              </p>
             </div>
           </div>
         </div>
@@ -155,7 +106,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-cool-white/10 mt-12 lg:mt-16 pt-8">
           <p className="font-body text-sm text-cool-white/50 text-center">
-            © 2024 Mock & Roll. All rights reserved.
+          © {new Date().getFullYear()} Mock &amp; Roll. All rights reserved.
           </p>
         </div>
       </div>

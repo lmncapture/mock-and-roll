@@ -7,7 +7,7 @@ import OurMission from "@/app/about/components/OurMission";
 import PerfectFor from "@/app/about/components/PerfectFor";
 
 export const metadata = {
-  title: "About — Mock & Roll",
+  title: "About",
   description:
     "Mock & Roll is a premium mobile mocktail bar bringing beautiful, alcohol-free drinks to celebrations of every kind.",
 };

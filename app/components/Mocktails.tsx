@@ -13,34 +13,28 @@ interface Mocktail {
 
 const mocktails: Mocktail[] = [
   {
-    name: "Citrus Bloom",
-    description: "Yuzu · elderflower · sparkling citrus",
-    image: "/images/signature-drink-01.jpg",
+    name: "Garden Sparkler",
+    description: "Fresh garden botanicals · sparkling citrus",
+    image: "/images/mr-garden-sparkler.jpg",
     accent: "bg-lime-sorbet/20",
   },
   {
-    name: "Golden Hour",
-    description: "Turmeric · passionfruit · honeyed ginger",
-    image: "/images/signature-drink-02.jpg",
+    name: "Ginger Dragon",
+    description: "Bold ginger · dragon fruit · citrus",
+    image: "/images/mr-ginger-dragon.jpg",
     accent: "bg-lemon-zest/20",
   },
   {
-    name: "Sunset Blush",
-    description: "Blood orange · rose water · vanilla foam",
-    image: "/images/signature-drink-03.jpg",
+    name: "Habiscus Tea Blossom",
+    description: "Hibiscus · floral tea · sparkling finish",
+    image: "/images/mr-habiscus-tea-blossom.jpg",
     accent: "bg-peach-nectar/20",
   },
   {
-    name: "Berry Fizz",
-    description: "Muddled berries · lavender · prosecco bubbles",
-    image: "/images/signature-drink-04.jpg",
+    name: "Pineapple Sunrise",
+    description: "Pineapple · tropical fruit · sunrise layers",
+    image: "/images/mr-pineapple-sunrise.jpg",
     accent: "bg-berry-crush/15",
-  },
-  {
-    name: "Ocean Breeze",
-    description: "Coconut · blue spirulina · lime zest",
-    image: "/images/signature-drink-05.jpg",
-    accent: "bg-arctic-mist/20",
   },
 ];
 
@@ -67,7 +61,7 @@ export default function Mocktails() {
           {/* Top row: featured (wide) + secondary (narrower) */}
           <FadeIn>
             <div className="grid grid-cols-12 gap-5 mb-5">
-              {/* Featured — Citrus Bloom */}
+              {/* Featured — Garden Sparkler */}
               <motion.article
                 className="col-span-7 relative group cursor-pointer overflow-hidden rounded-[24px]"
                 whileHover={{ y: -3 }}
@@ -94,7 +88,7 @@ export default function Mocktails() {
                 </div>
               </motion.article>
 
-              {/* Secondary — Golden Hour */}
+              {/* Secondary — Ginger Dragon */}
               <motion.article
                 className="col-span-5 relative group cursor-pointer overflow-hidden rounded-[24px]"
                 whileHover={{ y: -3 }}
@@ -122,12 +116,12 @@ export default function Mocktails() {
             </div>
           </FadeIn>
 
-          {/* Bottom row: three supporting drinks */}
+          {/* Bottom row: two supporting drinks */}
           <FadeIn delay={0.1}>
             <div className="grid grid-cols-12 gap-5">
-              {/* Sunset Blush */}
+              {/* Habiscus Tea Blossom */}
               <motion.article
-                className="col-span-4 relative group cursor-pointer"
+                className="col-span-6 relative group cursor-pointer"
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               >
@@ -137,7 +131,7 @@ export default function Mocktails() {
                     alt={`${mocktails[2].name} — ${mocktails[2].description}`}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 <div className="mt-4">
@@ -150,9 +144,9 @@ export default function Mocktails() {
                 </div>
               </motion.article>
 
-              {/* Berry Fizz */}
+              {/* Pineapple Sunrise */}
               <motion.article
-                className="col-span-5 relative group cursor-pointer"
+                className="col-span-6 relative group cursor-pointer"
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               >
@@ -162,7 +156,7 @@ export default function Mocktails() {
                     alt={`${mocktails[3].name} — ${mocktails[3].description}`}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 42vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 <div className="mt-4">
@@ -171,31 +165,6 @@ export default function Mocktails() {
                   </h3>
                   <p className="font-body text-slate/55 text-sm mt-0.5 tracking-wide">
                     {mocktails[3].description}
-                  </p>
-                </div>
-              </motion.article>
-
-              {/* Ocean Breeze */}
-              <motion.article
-                className="col-span-3 relative group cursor-pointer"
-                whileHover={{ y: -3 }}
-                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[24px]">
-                  <Image
-                    src={mocktails[4].image}
-                    alt={`${mocktails[4].name} — ${mocktails[4].description}`}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                  />
-                </div>
-                <div className="mt-4">
-                  <h3 className="font-body font-semibold text-slate text-lg tracking-tight">
-                    {mocktails[4].name}
-                  </h3>
-                  <p className="font-body text-slate/55 text-sm mt-0.5 tracking-wide">
-                    {mocktails[4].description}
                   </p>
                 </div>
               </motion.article>

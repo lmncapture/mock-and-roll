@@ -17,7 +17,7 @@ export default function CustomEvents() {
             </p>
           </div>
           <div className="flex-shrink-0">
-            <Button href="mailto:hello@mockandroll.com" hoverColor="berry-crush">
+            <Button href="mailto:lauren@mocknrollbar.com" hoverColor="berry-crush">
               Book Mock &amp; Roll
             </Button>
           </div>

@@ -41,7 +41,7 @@ export default function ParallaxImage({
           alt={alt}
           width={width}
           height={height}
-          preload={priority}
+          priority={priority}
           className="w-full h-auto"
         />
       </div>
@@ -56,7 +56,7 @@ export default function ParallaxImage({
           alt={alt}
           width={width}
           height={height}
-          preload={priority}
+          priority={priority}
           className="w-full h-auto"
         />
       </motion.div>

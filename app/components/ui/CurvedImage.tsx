@@ -32,7 +32,7 @@ export default function CurvedImage({
         alt={alt}
         width={width}
         height={height}
-        preload={priority}
+        priority={priority}
         className="w-full h-auto"
       />
     </div>

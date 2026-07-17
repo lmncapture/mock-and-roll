@@ -11,7 +11,7 @@ export default function ReservationCTA() {
           Join us for mocktails worth remembering.
         </h2>
 
-        <Button href="mailto:hello@mockandroll.com" hoverColor="arctic-mist">
+        <Button href="mailto:lauren@mocknrollbar.com" hoverColor="arctic-mist">
           Book Mock &amp; Roll
         </Button>
       </FadeIn>
