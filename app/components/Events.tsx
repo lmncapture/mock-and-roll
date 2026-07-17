@@ -7,27 +7,27 @@ import Button from "@/app/components/ui/Button";
 const events = [
   {
     name: "Weddings",
-    image: "/images/mr-moments-1.jpg",
-    objectPosition: "center top",
+    image: "/images/events/wedding-event.jpg",
+    objectPosition: "center center",
   },
   {
     name: "Birthdays",
-    image: "/images/mr-moments-3.jpg",
+    image: "/images/events/birthday-event.jpg",
     objectPosition: "center center",
   },
   {
     name: "Baby Showers",
-    image: "/images/mr-moments-2.jpg",
+    image: "/images/events/baby-shower-event.jpg",
     objectPosition: "center top",
   },
   {
     name: "Corporate",
-    image: "/images/mr-moments-4.jpg",
+    image: "/images/events/corporate-event.jpg",
     objectPosition: "center center",
   },
   {
     name: "Private Parties",
-    image: "/images/mr-hero.jpg",
+    image: "/images/events/private-party-event.jpg",
     objectPosition: "center center",
   },
 ];
