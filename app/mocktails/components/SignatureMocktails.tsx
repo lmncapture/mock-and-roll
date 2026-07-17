@@ -48,12 +48,26 @@ export default function SignatureMocktails() {
           </div>
         </FadeIn>
 
-        {/* Desktop: uniform 2×2 grid + full-width horizontal */}
+        {/* Desktop: horizontal image above + uniform 2×2 grid */}
         <div className="hidden lg:flex lg:flex-col lg:gap-5">
-          {/* Row 1 */}
+          {/* Full-width horizontal image — above the drink grid */}
           <FadeIn>
+            <div className="relative overflow-hidden rounded-[24px] w-full">
+              <Image
+                src="/images/mr-signature-mocktails-horizontal.jpg"
+                alt="Mock & Roll signature mocktails — handcrafted for every celebration"
+                width={1400}
+                height={560}
+                className="w-full h-auto rounded-[24px]"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+              />
+            </div>
+          </FadeIn>
+
+          {/* Row 1 */}
+          <FadeIn delay={0.06}>
             <div className="grid grid-cols-2 gap-5">
-              {mocktails.slice(0, 2).map((drink, pos) => (
+              {mocktails.slice(0, 2).map((drink) => (
                 <motion.article
                   key={drink.name}
                   className="relative group cursor-pointer overflow-hidden rounded-[24px] aspect-[4/3]"
@@ -85,7 +99,7 @@ export default function SignatureMocktails() {
           </FadeIn>
 
           {/* Row 2 */}
-          <FadeIn delay={0.08}>
+          <FadeIn delay={0.12}>
             <div className="grid grid-cols-2 gap-5">
               {mocktails.slice(2, 4).map((drink) => (
                 <motion.article
@@ -117,27 +131,22 @@ export default function SignatureMocktails() {
               ))}
             </div>
           </FadeIn>
-
-          {/* Row 3: full-width horizontal closing image */}
-          <FadeIn delay={0.14}>
-            <motion.div
-              className="relative overflow-hidden rounded-[24px] aspect-[21/9] group cursor-pointer"
-              whileHover={{ y: -3 }}
-              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              <Image
-                src="/images/mr-signature-mocktails-horizontal.jpg"
-                alt="Mock & Roll signature mocktails — handcrafted for every celebration"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                sizes="100vw"
-              />
-            </motion.div>
-          </FadeIn>
         </div>
 
-        {/* Mobile: stacked cards + horizontal image last */}
+        {/* Mobile: horizontal image first, then stacked drink cards */}
         <div className="lg:hidden flex flex-col gap-4">
+          {/* Full-width horizontal image — above the drink cards */}
+          <div className="relative overflow-hidden rounded-[20px] w-full">
+            <Image
+              src="/images/mr-signature-mocktails-horizontal.jpg"
+              alt="Mock & Roll signature mocktails — handcrafted for every celebration"
+              width={800}
+              height={320}
+              className="w-full h-auto rounded-[20px]"
+              sizes="100vw"
+            />
+          </div>
+
           {mocktails.map((drink) => (
             <article
               key={drink.name}
@@ -164,17 +173,6 @@ export default function SignatureMocktails() {
               </div>
             </article>
           ))}
-
-          {/* Full-width horizontal closing image */}
-          <div className="relative overflow-hidden rounded-[20px] aspect-[16/9] w-full">
-            <Image
-              src="/images/mr-signature-mocktails-horizontal.jpg"
-              alt="Mock & Roll signature mocktails — handcrafted for every celebration"
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-          </div>
         </div>
       </div>
     </section>
