@@ -14,25 +14,25 @@ interface Mocktail {
 const mocktails: Mocktail[] = [
   {
     name: "Hibiscus Tea Blossom",
-    description: "Hibiscus · floral tea · sparkling finish",
+    description: "Hibiscus tea, rose syrup, lemon.",
     image: "/images/mr-habiscus-tea-blossom.jpg",
     accent: "bg-peach-nectar/20",
   },
   {
     name: "Ginger Dragon",
-    description: "Bold ginger · dragon fruit · citrus",
+    description: "Pineapple Mango Spritz.",
     image: "/images/mr-ginger-dragon.jpg",
     accent: "bg-lemon-zest/20",
   },
   {
     name: "Garden Sparkler",
-    description: "Fresh garden botanicals · sparkling citrus",
+    description: "Fresh garden botanicals, sparkling citrus.",
     image: "/images/mr-garden-sparkler.jpg",
     accent: "bg-lime-sorbet/20",
   },
   {
     name: "Pineapple Sunrise",
-    description: "Pineapple · tropical fruit · sunrise layers",
+    description: "Tart lemonade with sweet lavender syrup and a sparkling finish.",
     image: "/images/mr-pineapple-sunrise.jpg",
     accent: "bg-berry-crush/15",
   },
