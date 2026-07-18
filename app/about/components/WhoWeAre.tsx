@@ -19,7 +19,7 @@ export default function WhoWeAre() {
             <p className="font-body text-slate/75 text-lg leading-relaxed mb-6">
               Mock &amp; Roll is a premium mobile mocktail bar created to bring beautiful, alcohol-free drinks to celebrations of every kind.
             </p>
-            <p className="font-body text-slate/65 text-lg leading-relaxed">
+            <p className="font-body text-slate/75 text-lg leading-relaxed">
               We serve handcrafted mocktails with thoughtful ingredients, polished presentation, and warm hospitality — giving guests all of the buzz, none of the booze.
             </p>
           </FadeIn>

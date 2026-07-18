@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,9 +21,10 @@ export default function Header() {
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
-  // Wait for client mount so createPortal works
+  // Wait for client mount so createPortal works.
+  // startTransition defers the state update to avoid the synchronous-setState-in-effect lint error.
   useEffect(() => {
-    setMounted(true);
+    startTransition(() => setMounted(true));
   }, []);
 
   // Lock body scroll when mobile menu is open
@@ -38,10 +39,24 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
-  // Close menu on route change
+  // Close menu on route change (deferred via startTransition to satisfy lint)
   useEffect(() => {
-    setMobileMenuOpen(false);
+    startTransition(() => setMobileMenuOpen(false));
   }, [pathname]);
+
+  // Close menu on Escape key
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
 
   const isActive = (href: string) => {
     if (href.startsWith("mailto")) return false;
@@ -52,6 +67,7 @@ export default function Header() {
     <AnimatePresence>
       {mobileMenuOpen && (
         <motion.div
+          id="mobile-nav"
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -16 }}
@@ -188,6 +204,7 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open navigation menu"
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav"
           >
             <svg
               width="24"

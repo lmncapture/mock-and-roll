@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import FadeIn from "@/app/components/ui/FadeIn";
 import Button from "@/app/components/ui/Button";
@@ -42,7 +40,7 @@ export default function PackagesPreview() {
               <h2 className="font-display text-slate text-4xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight max-w-xl">
                 Mocktail Experiences for Every Celebration
               </h2>
-              <p className="font-body text-slate/65 text-base lg:text-lg mt-6 max-w-lg leading-relaxed">
+              <p className="font-body text-slate/75 text-base lg:text-lg mt-6 max-w-lg leading-relaxed">
                 From intimate gatherings to large-scale celebrations, we offer handcrafted mocktail experiences designed to fit your event.
               </p>
             </div>
@@ -82,7 +80,7 @@ export default function PackagesPreview() {
                 </h3>
 
                 {/* Description */}
-                <p className="font-body text-slate/65 text-sm leading-relaxed">
+                <p className="font-body text-slate/75 text-sm leading-relaxed">
                   {pkg.description}
                 </p>
 

@@ -1,5 +1,3 @@
-"use client";
-
 import FadeIn from "@/app/components/ui/FadeIn";
 import Button from "@/app/components/ui/Button";
 

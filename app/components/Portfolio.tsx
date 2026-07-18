@@ -29,7 +29,7 @@ const portfolioImages = [
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="bg-rose-petal py-16 lg:py-32 px-6 lg:px-12">
+    <section id="portfolio" className="bg-rose-petal py-16 lg:py-32 px-6 lg:px-12 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <FadeIn>
@@ -39,7 +39,7 @@ export default function Portfolio() {
               <br />
               Celebrating
             </h2>
-            <p className="font-body text-slate/60 text-base lg:text-lg mt-3 lg:mt-0 max-w-sm leading-relaxed">
+            <p className="font-body text-slate/75 text-base lg:text-lg mt-3 lg:mt-0 max-w-sm leading-relaxed">
               A look at some of our favorite events, celebrations, and custom mocktail experiences.
             </p>
           </div>

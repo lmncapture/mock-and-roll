@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import FadeIn from "@/app/components/ui/FadeIn";
 import Button from "@/app/components/ui/Button";
@@ -34,7 +32,7 @@ const events = [
 
 export default function Events() {
   return (
-    <section id="packages" className="bg-peach-nectar py-16 lg:py-24 px-6 lg:px-12">
+    <section id="packages" className="bg-peach-nectar py-16 lg:py-24 px-6 lg:px-12 overflow-hidden">
       <FadeIn>
       <div className="mx-auto max-w-7xl">
         {/* Compact header */}

@@ -1,5 +1,3 @@
-"use client";
-
 import Button from "@/app/components/ui/Button";
 import FadeIn from "@/app/components/ui/FadeIn";
 import CurvedImage from "@/app/components/ui/CurvedImage";

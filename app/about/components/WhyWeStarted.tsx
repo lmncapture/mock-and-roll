@@ -19,7 +19,7 @@ export default function WhyWeStarted() {
             <p className="font-body text-slate/75 text-lg leading-relaxed mb-6">
               We started Mock &amp; Roll because celebrations deserve drinks that feel just as special — without requiring alcohol.
             </p>
-            <p className="font-body text-slate/65 text-lg leading-relaxed">
+            <p className="font-body text-slate/75 text-lg leading-relaxed">
               Whether guests are sober, expecting, driving, working, celebrating with family, or simply choosing not to drink, they still deserve something crafted, beautiful, and memorable in their glass.
             </p>
           </FadeIn>

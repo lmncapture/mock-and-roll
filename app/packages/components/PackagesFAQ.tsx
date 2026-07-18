@@ -70,7 +70,7 @@ export default function PackagesFAQ() {
                     open === i ? "max-h-48 opacity-100 mt-4" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="font-body text-slate/70 text-base leading-relaxed max-w-2xl">
+                  <p className="font-body text-slate/80 text-base leading-relaxed max-w-2xl">
                     {faq.a}
                   </p>
                 </div>

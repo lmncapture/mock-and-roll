@@ -10,7 +10,7 @@ export default function CustomEvents() {
             <h2 className="font-display text-slate text-4xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight">
               Need Something Custom?
             </h2>
-            <p className="font-body text-slate/70 text-lg leading-relaxed mt-6 max-w-lg">
+            <p className="font-body text-slate/80 text-lg leading-relaxed mt-6 max-w-lg">
               We love creating unique mocktail experiences tailored to your event. If your
               celebration requires something special, we&apos;d love to build a custom
               package just for you.

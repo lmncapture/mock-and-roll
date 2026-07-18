@@ -23,7 +23,7 @@ export default function AboutHero() {
           </h1>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <p className="font-body text-slate/65 text-lg lg:text-xl leading-relaxed mt-8 max-w-xl">
+          <p className="font-body text-slate/75 text-lg lg:text-xl leading-relaxed mt-8 max-w-xl">
             We&apos;re a premium mobile mocktail bar creating beautiful, alcohol-free experiences for celebrations of every kind.
           </p>
         </FadeIn>

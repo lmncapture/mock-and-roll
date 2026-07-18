@@ -42,7 +42,7 @@ export default function FlavorProfiles() {
             <h2 className="font-display text-slate text-4xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight max-w-xl">
               Build a Menu That Fits Your Event
             </h2>
-            <p className="font-body text-slate/60 text-base lg:text-lg max-w-sm leading-relaxed">
+            <p className="font-body text-slate/75 text-base lg:text-lg max-w-sm leading-relaxed">
               Choose from bright, botanical, fruit-forward, sparkling, or custom seasonal mocktails.
             </p>
           </div>

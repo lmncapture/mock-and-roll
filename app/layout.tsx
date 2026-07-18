@@ -15,7 +15,7 @@ const outfit = localFont({
   weight: "100 900",
 });
 
-const siteUrl = "https://mocknrollbar.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mocknrollbar.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -95,7 +95,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <a
                 href="mailto:lauren@mocknrollbar.com"
-                className="font-body text-cool-white/80 hover:text-cool-white transition-colors duration-200"
+                className="font-body text-cool-white/80 hover:text-cool-white transition-colors duration-200 break-all"
               >
                 lauren@mocknrollbar.com
               </a>

@@ -27,7 +27,7 @@ export default function PackagesHero() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <p className="font-body text-slate/70 text-lg lg:text-xl leading-relaxed mt-8 max-w-2xl">
+          <p className="font-body text-slate/80 text-lg lg:text-xl leading-relaxed mt-8 max-w-2xl">
             Every Mock &amp; Roll package includes unlimited mocktails during your event,
             professional service, premium garnishes, setup, and cleanup.
             We come to you — any venue, any occasion.

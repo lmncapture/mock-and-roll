@@ -16,7 +16,7 @@ export default function OurMission() {
           <p className="font-body text-slate/75 text-xl lg:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto">
             Our mission is to make alcohol-free hospitality feel elevated, inclusive, and unforgettable.
           </p>
-          <p className="font-body text-slate/60 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="font-body text-slate/75 text-lg leading-relaxed max-w-2xl mx-auto">
             We create mocktail experiences that help people gather, connect, celebrate, and feel cared for — one handcrafted drink at a time.
           </p>
         </FadeIn>

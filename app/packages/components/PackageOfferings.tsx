@@ -72,7 +72,9 @@ const packages = [
 
 export default function PackageOfferings() {
   return (
-    <section className="bg-cool-white py-16 lg:py-28 px-6 lg:px-12">
+    <section className="bg-cool-white py-16 lg:py-28 px-6 lg:px-12" aria-labelledby="packages-section-heading">
+      {/* Visually hidden section heading — maintains h1→h2→h3 hierarchy for screen readers */}
+      <h2 id="packages-section-heading" className="sr-only">Our Packages</h2>
       <div className="mx-auto max-w-7xl">
         {/* Desktop: 2-column editorial grid */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-6">
@@ -105,12 +107,12 @@ export default function PackageOfferings() {
                 </div>
 
                 {/* Name */}
-                <h2 className="font-display text-slate text-3xl xl:text-4xl leading-[1.15] tracking-tight">
+                <h3 className="font-display text-slate text-3xl xl:text-4xl leading-[1.15] tracking-tight">
                   {pkg.name}
-                </h2>
+                </h3>
 
                 {/* Description */}
-                <p className="font-body text-slate/70 text-base leading-relaxed">
+                <p className="font-body text-slate/80 text-base leading-relaxed">
                   {pkg.description}
                 </p>
 
@@ -156,9 +158,9 @@ export default function PackageOfferings() {
                         {pkg.badge}
                       </span>
                     )}
-                    <h2 className="font-display text-slate text-2xl leading-[1.2] tracking-tight mt-2">
+                    <h3 className="font-display text-slate text-2xl leading-[1.2] tracking-tight mt-2">
                       {pkg.name}
-                    </h2>
+                    </h3>
                   </div>
                   <div className="text-right flex-shrink-0">
                     <span className="font-display text-slate text-3xl leading-none tracking-tight">
@@ -170,7 +172,7 @@ export default function PackageOfferings() {
                   </div>
                 </div>
 
-                <p className="font-body text-slate/70 text-sm leading-relaxed">
+                <p className="font-body text-slate/80 text-sm leading-relaxed">
                   {pkg.description}
                 </p>
 

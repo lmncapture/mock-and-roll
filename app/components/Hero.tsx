@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Button from "@/app/components/ui/Button";
 import FadeIn from "@/app/components/ui/FadeIn";
@@ -39,7 +37,7 @@ export default function Hero() {
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <p className="font-body text-slate/60 text-sm lg:text-base leading-relaxed mt-3 max-w-md">
+            <p className="font-body text-slate/75 text-sm lg:text-base leading-relaxed mt-3 max-w-md">
               Premium mobile mocktail bar for weddings, birthdays, corporate events, and every celebration worth remembering.
             </p>
           </FadeIn>

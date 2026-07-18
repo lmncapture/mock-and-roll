@@ -34,6 +34,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-body);
 }
+
+/* Global focus-visible ring — applies to all interactive elements that lack custom focus styles */
+:focus-visible {
+  outline: 2px solid #324648;
+  outline-offset: 2px;
+}
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

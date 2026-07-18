@@ -26,7 +26,7 @@ export default function PerfectFor() {
             <h2 className="font-display text-slate text-4xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight max-w-lg">
               Perfect For Every Celebration
             </h2>
-            <p className="font-body text-slate/60 text-base lg:text-lg max-w-sm leading-relaxed">
+            <p className="font-body text-slate/75 text-base lg:text-lg max-w-sm leading-relaxed">
               Mock &amp; Roll is designed for events where guests want something beautiful, refreshing, and memorable.
             </p>
           </div>

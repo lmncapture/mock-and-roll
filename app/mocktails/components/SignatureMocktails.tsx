@@ -42,7 +42,7 @@ export default function SignatureMocktails() {
               <br />
               Mocktails
             </h2>
-            <p className="font-body text-slate/60 text-base lg:text-lg mt-6 lg:mt-0 max-w-xs leading-relaxed">
+            <p className="font-body text-slate/75 text-base lg:text-lg mt-6 lg:mt-0 max-w-xs leading-relaxed">
               Four curated creations, crafted to surprise and delight at every event.
             </p>
           </div>
