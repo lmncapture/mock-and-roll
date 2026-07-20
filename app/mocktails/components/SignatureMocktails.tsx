@@ -6,26 +6,26 @@ import FadeIn from "@/app/components/ui/FadeIn";
 
 const mocktails = [
   {
-    name: "Hibiscus Tea Blossom",
-    description: "Hibiscus tea, rose syrup, lemon.",
+    name: "Hibiscus Blossom",
+    description: "hibiscus tea, raspberry puree, rose syrup and fresh lemon",
     image: "/images/mr-habiscus-tea-blossom.jpg",
     objectPosition: "center center",
   },
   {
     name: "Ginger Dragon",
-    description: "Pineapple Mango Spritz.",
+    description: "dragonfruit syrup and ginger ale topped with fresh lime juice",
     image: "/images/mr-ginger-dragon.jpg",
     objectPosition: "center center",
   },
   {
     name: "Garden Sparkler",
-    description: "Fresh garden botanicals, sparkling citrus.",
+    description: "Tart lemonade with sweet lavender and a sparkling finish",
     image: "/images/mr-garden-sparkler.jpg",
     objectPosition: "center center",
   },
   {
     name: "Pineapple Sunrise",
-    description: "Tart lemonade with sweet lavender syrup and a sparkling finish.",
+    description: "Pineapple juice and mango puree topped off with club soda",
     image: "/images/mr-pineapple-sunrise.jpg",
     objectPosition: "center center",
   },
