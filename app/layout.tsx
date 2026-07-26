@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const justCosmic = localFont({
@@ -79,7 +80,7 @@ export default function RootLayout({
       lang="en"
       className={`${justCosmic.variable} ${outfit.variable}`}
     >
-      <body>{children}</body>
+      <body>{children}<Analytics /></body>
     </html>
   );
 }
