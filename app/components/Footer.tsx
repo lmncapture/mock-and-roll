@@ -6,7 +6,7 @@ const navLinks = [
   { label: "Mocktails", href: "/mocktails" },
   { label: "Packages", href: "/packages" },
   { label: "About", href: "/about" },
-  { label: "Book Mock & Roll", href: "mailto:lauren@mocknrollbar.com" },
+  { label: "Book Mock & Roll", href: "/inquiries" },
 ];
 
 export default function Footer() {

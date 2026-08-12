@@ -17,8 +17,8 @@ No `BuilderCTA.tsx` — the inline booking CTA lives directly in `MocktailBuilde
 
 ## Tasks
 
-- [ ] 1. Create IngredientChip component
-  - [ ] 1.1 Implement IngredientChip.tsx
+- [x] 1. Create IngredientChip component
+  - [x] 1.1 Implement IngredientChip.tsx
     - Create `app/mocktails/components/IngredientChip.tsx`
     - Define `StepColorScheme` interface with `idle`, `hover`, `selected`, and `ring` string fields (Tailwind class names)
     - Define `IngredientChipProps` interface with `name: string`, `isSelected: boolean`, `onSelect: () => void`, `colorScheme: StepColorScheme`
@@ -38,8 +38,8 @@ No `BuilderCTA.tsx` — the inline booking CTA lives directly in `MocktailBuilde
     - Export `StepColorScheme` interface for use in other components
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 10.1, 10.2, 10.3, 10.4, 10.5_
 
-- [ ] 2. Create LivePreview component
-  - [ ] 2.1 Implement LivePreview.tsx
+- [x] 2. Create LivePreview component
+  - [x] 2.1 Implement LivePreview.tsx
     - Create `app/mocktails/components/LivePreview.tsx`
     - Define props interface: `base: string | null`, `puree: string | null`, `syrup: string | null`, `garnishes: string[]`, `onReset: () => void`
     - Determine `hasSelections` — true when any of base/puree/syrup is non-null or garnishes is non-empty
@@ -68,8 +68,8 @@ No `BuilderCTA.tsx` — the inline booking CTA lives directly in `MocktailBuilde
       - Positioned within or immediately adjacent to the preview content
     - _Requirements: 8.1, 8.2, 8.3, 8.4, 14.1, 14.2, 14.3, 14.4, 14.5, 15.4, 15.5_
 
-- [ ] 3. Create BuilderStep component
-  - [ ] 3.1 Implement BuilderStep.tsx
+- [x] 3. Create BuilderStep component
+  - [x] 3.1 Implement BuilderStep.tsx
     - Create `app/mocktails/components/BuilderStep.tsx`
     - Define `BuilderStepProps` interface:
       - `stepNumber: string` — two-digit string ("01", "02", "03", "04")
@@ -94,8 +94,8 @@ No `BuilderCTA.tsx` — the inline booking CTA lives directly in `MocktailBuilde
       ```
     - _Requirements: 3.1, 3.2, 4.1, 4.2, 5.1, 5.2, 6.1, 6.2, 11.3, 16.1_
 
-- [ ] 4. Create MocktailBuilder — state, configuration, and selection handlers
-  - [ ] 4.1 Implement MocktailBuilder.tsx with state and step configuration
+- [x] 4. Create MocktailBuilder — state, configuration, and selection handlers
+  - [x] 4.1 Implement MocktailBuilder.tsx with state and step configuration
     - Create `app/mocktails/components/MocktailBuilder.tsx` with `"use client"` directive
     - Import `BuilderStep`, `LivePreview`, `Button` (from `@/app/components/ui/Button`), `FadeIn` (from `@/app/components/ui/FadeIn`), and `StepColorScheme` from IngredientChip
     - Define `StepConfig` interface: `id: string`, `stepNumber: string`, `label: string`, `options: string[]`, `colorScheme: StepColorScheme`, `multiSelect: boolean`
@@ -113,8 +113,8 @@ No `BuilderCTA.tsx` — the inline booking CTA lives directly in `MocktailBuilde
     - State lives only in React component state — no localStorage, sessionStorage, cookies, URL parameters, analytics, or external persistence
     - _Requirements: 3.3, 3.4, 4.3, 4.4, 5.3, 5.4, 6.3, 6.4, 12.1, 12.2, 12.3, 15.1, 15.2, 15.3_
 
-- [ ] 5. Compose MocktailBuilder layout, steps, preview, and inline CTA
-  - [ ] 5.1 Implement MocktailBuilder.tsx layout and rendering
+- [x] 5. Compose MocktailBuilder layout, steps, preview, and inline CTA
+  - [x] 5.1 Implement MocktailBuilder.tsx layout and rendering
     - Render outer `<section>` with `bg-cool-white` and responsive padding: `px-6 py-16 lg:px-12 lg:py-32`
     - Render `max-w-6xl mx-auto` container
     - Render section introduction with `FadeIn`:
@@ -141,8 +141,8 @@ No `BuilderCTA.tsx` — the inline booking CTA lives directly in `MocktailBuilde
       - Centered layout, generous top margin
     - _Requirements: 2.1, 2.2, 2.3, 9.1, 9.2, 9.3, 9.4, 11.1, 11.2, 11.4, 16.1, 16.2, 16.3, 17.1_
 
-- [ ] 6. Integrate into page and remove FlavorProfiles
-  - [ ] 6.1 Update page.tsx and remove FlavorProfiles
+- [x] 6. Integrate into page and remove FlavorProfiles
+  - [x] 6.1 Update page.tsx and remove FlavorProfiles
     - In `app/mocktails/page.tsx`:
       - Remove: `import FlavorProfiles from "@/app/mocktails/components/FlavorProfiles";`
       - Add: `import MocktailBuilder from "@/app/mocktails/components/MocktailBuilder";`

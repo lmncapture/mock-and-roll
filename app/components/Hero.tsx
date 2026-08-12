@@ -44,7 +44,7 @@ export default function Hero() {
 
           <FadeIn delay={0.25}>
             <div className="mt-8">
-              <Button href="mailto:lauren@mocknrollbar.com" hoverColor="lime-sorbet">
+              <Button href="/inquiries" hoverColor="lime-sorbet">
                 Book Mock &amp; Roll
               </Button>
             </div>

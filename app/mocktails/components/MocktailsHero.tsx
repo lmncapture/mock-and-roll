@@ -33,7 +33,7 @@ export default function MocktailsHero() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="mt-10">
-              <Button href="mailto:lauren@mocknrollbar.com" hoverColor="lime-sorbet">
+              <Button href="/inquiries" hoverColor="lime-sorbet">
                 Book Mock &amp; Roll
               </Button>
             </div>
