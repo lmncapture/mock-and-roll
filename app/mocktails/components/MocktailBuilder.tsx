@@ -42,6 +42,7 @@ const CATEGORIES = [
 
 export default function MocktailBuilder() {
   return (
+    <>
     <section className="bg-cool-white px-6 py-16 lg:px-12 lg:py-32">
       <div className="mx-auto max-w-6xl">
         {/* Centered introduction */}
@@ -108,26 +109,22 @@ export default function MocktailBuilder() {
           {/* Mobile row separator — visible between the two rows on small screens */}
           <hr className="border-t border-slate/10 my-0 lg:hidden hidden" aria-hidden="true" />
         </FadeIn>
-
-        {/* CTA separation divider */}
-        <FadeIn delay={0.15}>
-          <div className="mx-auto mt-14 mb-12 lg:mt-20 lg:mb-16 max-w-xs">
-            <hr className="border-t border-slate/15" />
-          </div>
-        </FadeIn>
-
-        {/* Closing CTA */}
-        <FadeIn delay={0.2}>
-          <div className="text-center flex flex-col items-center gap-5">
-            <h3 className="font-display text-2xl lg:text-3xl text-slate">
-              Build Your Menu Now
-            </h3>
-            <Button href="mailto:lauren@mocknrollbar.com" hoverColor="rose-petal">
-              Book Mock &amp; Roll
-            </Button>
-          </div>
-        </FadeIn>
       </div>
     </section>
+
+    {/* Full-width closing CTA on Blueberry Dew background */}
+    <section className="bg-blueberry-dew px-6 py-20 lg:py-32">
+      <FadeIn>
+        <div className="mx-auto max-w-4xl text-center flex flex-col items-center gap-5">
+          <h2 className="font-display text-2xl lg:text-3xl xl:text-4xl text-slate">
+            Build Your Menu Now
+          </h2>
+          <Button href="mailto:lauren@mocknrollbar.com" hoverColor="arctic-mist">
+            Book Mock &amp; Roll
+          </Button>
+        </div>
+      </FadeIn>
+    </section>
+    </>
   );
 }
