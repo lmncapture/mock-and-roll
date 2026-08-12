@@ -14,19 +14,25 @@ export default function AdminLoginPage() {
     setIsLoading(true);
     setError('');
 
-    const supabase = createBrowserSupabaseClient();
-    const { error: authError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    try {
+      const supabase = createBrowserSupabaseClient();
+      const { error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-    setIsLoading(false);
-
-    if (authError) {
-      setError('Invalid email or password.');
-    } else {
-      // Hard navigation so the server picks up the new auth cookies
-      window.location.href = '/admin';
+      if (authError) {
+        setError('Invalid email or password.');
+        setIsLoading(false);
+      } else {
+        // Short delay to ensure auth cookies are fully written before navigation
+        setTimeout(() => {
+          window.location.href = '/admin';
+        }, 100);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong.');
+      setIsLoading(false);
     }
   };
 
