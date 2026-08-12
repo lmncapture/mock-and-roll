@@ -3,7 +3,6 @@ import Footer from "@/app/components/Footer";
 import MocktailsHero from "@/app/mocktails/components/MocktailsHero";
 import SignatureMocktails from "@/app/mocktails/components/SignatureMocktails";
 import MocktailBuilder from "@/app/mocktails/components/MocktailBuilder";
-import MocktailsCTA from "@/app/mocktails/components/MocktailsCTA";
 
 export const metadata = {
   title: "Mocktails",
@@ -19,7 +18,6 @@ export default function MocktailsPage() {
         <MocktailsHero />
         <SignatureMocktails />
         <MocktailBuilder />
-        <MocktailsCTA />
       </main>
       <Footer />
     </>

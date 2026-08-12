@@ -118,14 +118,10 @@ export default function MocktailBuilder() {
 
         {/* Closing CTA */}
         <FadeIn delay={0.2}>
-          <div className="text-center flex flex-col items-center gap-4">
+          <div className="text-center flex flex-col items-center gap-5">
             <h3 className="font-display text-2xl lg:text-3xl text-slate">
-              Have Something Special in Mind?
+              Build Your Menu Now
             </h3>
-            <p className="font-body text-slate/75 text-base lg:text-lg max-w-md leading-relaxed">
-              We&apos;d love to create a custom mocktail that complements your
-              event, colors, or celebration.
-            </p>
             <Button href="mailto:lauren@mocknrollbar.com" hoverColor="rose-petal">
               Book Mock &amp; Roll
             </Button>
