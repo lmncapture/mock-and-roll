@@ -9,10 +9,11 @@ interface FilterBarProps {
   status?: string;
   eventType?: string;
   packageFilter?: string;
-  eventDate?: string;
+  eventDateFrom?: string;
+  eventDateTo?: string;
 }
 
-export default function FilterBar({ status, eventType, packageFilter, eventDate }: FilterBarProps) {
+export default function FilterBar({ status, eventType, packageFilter, eventDateFrom, eventDateTo }: FilterBarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -69,10 +70,18 @@ export default function FilterBar({ status, eventType, packageFilter, eventDate 
 
       <input
         type="date"
-        value={eventDate ?? ''}
-        onChange={(e) => updateFilter('eventDate', e.target.value)}
+        value={eventDateFrom ?? ''}
+        onChange={(e) => updateFilter('eventDateFrom', e.target.value)}
         className={selectClass}
-        aria-label="Filter by event date"
+        aria-label="Event date from"
+      />
+      <span className="font-body text-xs text-slate/50 self-center">to</span>
+      <input
+        type="date"
+        value={eventDateTo ?? ''}
+        onChange={(e) => updateFilter('eventDateTo', e.target.value)}
+        className={selectClass}
+        aria-label="Event date to"
       />
     </div>
   );

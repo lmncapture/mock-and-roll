@@ -13,7 +13,8 @@ const adminParamsSchema = z.object({
   status: z.enum(INQUIRY_STATUSES).optional().catch(undefined),
   eventType: z.enum(EVENT_TYPES).optional().catch(undefined),
   package: z.enum(PACKAGE_IDS as [string, ...string[]]).optional().catch(undefined),
-  eventDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().catch(undefined),
+  eventDateFrom: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().catch(undefined),
+  eventDateTo: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().catch(undefined),
   sort: z.enum(ALLOWED_SORTS).optional().catch('created_at' as const),
   direction: z.enum(ALLOWED_DIRECTIONS).optional().catch('desc' as const),
   page: z.coerce.number().int().min(1).optional().catch(1),
@@ -24,7 +25,8 @@ export type ValidatedAdminParams = {
   status: string | undefined;
   eventType: string | undefined;
   packageFilter: string | undefined;
-  eventDate: string | undefined;
+  eventDateFrom: string | undefined;
+  eventDateTo: string | undefined;
   sort: 'created_at' | 'event_date';
   direction: 'asc' | 'desc';
   page: number;
@@ -38,7 +40,8 @@ export function sanitizeAdminParams(raw: Record<string, string | undefined>): Va
     status: parsed.status,
     eventType: parsed.eventType,
     packageFilter: parsed.package,
-    eventDate: parsed.eventDate,
+    eventDateFrom: parsed.eventDateFrom,
+    eventDateTo: parsed.eventDateTo,
     sort: parsed.sort ?? 'created_at',
     direction: parsed.direction ?? 'desc',
     page: parsed.page ?? 1,

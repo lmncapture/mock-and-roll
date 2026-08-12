@@ -27,7 +27,8 @@ export default async function AdminDashboardPage({ searchParams }: PageProps) {
     p_status: params.status ?? null,
     p_event_type: params.eventType ?? null,
     p_package_id: params.packageFilter ?? null,
-    p_event_date: params.eventDate ?? null,
+    p_event_date_from: params.eventDateFrom ?? null,
+    p_event_date_to: params.eventDateTo ?? null,
     p_sort: params.sort,
     p_direction: params.direction,
     p_page: params.page,
@@ -52,7 +53,8 @@ export default async function AdminDashboardPage({ searchParams }: PageProps) {
             status={params.status}
             eventType={params.eventType}
             packageFilter={params.packageFilter}
-            eventDate={params.eventDate}
+            eventDateFrom={params.eventDateFrom}
+            eventDateTo={params.eventDateTo}
           />
         </div>
 
