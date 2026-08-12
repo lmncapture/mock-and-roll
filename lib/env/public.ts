@@ -1,13 +1,15 @@
-function requirePublicEnv(name: string): string {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(`Missing required environment variable: ${name}`);
-  }
-  return value;
-}
-
 export const publicEnv = {
-  get supabaseUrl() { return requirePublicEnv('NEXT_PUBLIC_SUPABASE_URL'); },
-  get supabasePublishableKey() { return requirePublicEnv('NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY'); },
-  get siteUrl() { return process.env.NEXT_PUBLIC_SITE_URL ?? ''; },
+  get supabaseUrl() {
+    const value = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    if (!value) throw new Error('Missing required environment variable: NEXT_PUBLIC_SUPABASE_URL');
+    return value;
+  },
+  get supabasePublishableKey() {
+    const value = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+    if (!value) throw new Error('Missing required environment variable: NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY');
+    return value;
+  },
+  get siteUrl() {
+    return process.env.NEXT_PUBLIC_SITE_URL ?? '';
+  },
 };
