@@ -2,7 +2,7 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import MocktailsHero from "@/app/mocktails/components/MocktailsHero";
 import SignatureMocktails from "@/app/mocktails/components/SignatureMocktails";
-import FlavorProfiles from "@/app/mocktails/components/FlavorProfiles";
+import MocktailBuilder from "@/app/mocktails/components/MocktailBuilder";
 import MocktailsCTA from "@/app/mocktails/components/MocktailsCTA";
 
 export const metadata = {
@@ -18,7 +18,7 @@ export default function MocktailsPage() {
       <main>
         <MocktailsHero />
         <SignatureMocktails />
-        <FlavorProfiles />
+        <MocktailBuilder />
         <MocktailsCTA />
       </main>
       <Footer />
