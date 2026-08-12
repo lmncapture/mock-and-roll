@@ -5,19 +5,22 @@ const CATEGORIES = [
   {
     name: "Base",
     options: ["Lemonade", "Tea", "Soda", "Juice"],
-    accent: "bg-frosted-mint/40",
+    accent: "bg-frosted-mint/20",
+    border: "border-lime-sorbet",
     dot: "bg-lime-sorbet",
   },
   {
     name: "Purée",
     options: ["Mango", "Strawberry", "Raspberry", "Banana", "Peach", "Passionfruit"],
-    accent: "bg-lemon-zest/30",
+    accent: "bg-peach-nectar/15",
+    border: "border-peach-nectar",
     dot: "bg-peach-nectar",
   },
   {
     name: "Syrup",
     options: ["Rose", "Lavender", "Mint", "Vanilla", "Dragonfruit"],
-    accent: "bg-rose-petal/50",
+    accent: "bg-rose-petal/30",
+    border: "border-berry-crush",
     dot: "bg-berry-crush",
   },
   {
@@ -31,7 +34,8 @@ const CATEGORIES = [
       "Herbs",
       "Glitter",
     ],
-    accent: "bg-blueberry-dew/40",
+    accent: "bg-blueberry-dew/20",
+    border: "border-soft-plum",
     dot: "bg-soft-plum",
   },
 ];
@@ -42,7 +46,7 @@ export default function MocktailBuilder() {
       <div className="mx-auto max-w-6xl">
         {/* Centered introduction */}
         <FadeIn>
-          <div className="text-center max-w-2xl mx-auto mb-14 lg:mb-20">
+          <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl text-slate leading-[1.1] tracking-tight">
               Create Your Own Mocktail
             </h2>
@@ -54,27 +58,44 @@ export default function MocktailBuilder() {
               All drinks come sparkling with club soda unless otherwise requested.
             </p>
           </div>
+
+          {/* Editorial divider */}
+          <div className="mx-auto mt-10 mb-12 lg:mt-14 lg:mb-16 max-w-xs">
+            <hr className="border-t border-slate/15" />
+          </div>
         </FadeIn>
 
         {/* Four-category menu grid */}
         <FadeIn delay={0.1}>
-          <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4 lg:gap-10">
-            {CATEGORIES.map((category) => (
-              <div key={category.name} className="flex flex-col">
-                {/* Category heading */}
-                <h3 className="font-display text-xl lg:text-2xl text-slate mb-4 lg:mb-6">
-                  {category.name}
-                </h3>
+          <div className="grid grid-cols-2 gap-y-10 gap-x-6 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-0">
+            {CATEGORIES.map((category, index) => (
+              <div
+                key={category.name}
+                className={[
+                  "flex flex-col",
+                  // Desktop vertical separators between columns
+                  index > 0 ? "lg:border-l lg:border-slate/10 lg:pl-8" : "",
+                  index < CATEGORIES.length - 1 ? "lg:pr-8" : "",
+                ].join(" ")}
+              >
+                {/* Category header with pastel accent band */}
+                <div className={`${category.accent} rounded-lg px-4 py-3 mb-5 lg:mb-6`}>
+                  <div className={`border-b-2 ${category.border} pb-2 inline-block`}>
+                    <h3 className="font-display text-xl lg:text-2xl text-slate">
+                      {category.name}
+                    </h3>
+                  </div>
+                </div>
 
                 {/* Ingredient list */}
-                <ul className="space-y-2.5">
+                <ul className="space-y-3 px-1">
                   {category.options.map((option) => (
-                    <li key={option} className="flex items-center gap-2.5">
+                    <li key={option} className="flex items-center gap-3">
                       <span
-                        className={`${category.dot} w-2 h-2 rounded-full shrink-0`}
+                        className={`${category.dot} w-1.5 h-1.5 rounded-full shrink-0`}
                         aria-hidden="true"
                       />
-                      <span className="font-body text-sm lg:text-base text-slate/80 leading-snug">
+                      <span className="font-body text-sm lg:text-base text-slate/85 leading-relaxed">
                         {option}
                       </span>
                     </li>
@@ -83,11 +104,21 @@ export default function MocktailBuilder() {
               </div>
             ))}
           </div>
+
+          {/* Mobile row separator — visible between the two rows on small screens */}
+          <hr className="border-t border-slate/10 my-0 lg:hidden hidden" aria-hidden="true" />
+        </FadeIn>
+
+        {/* CTA separation divider */}
+        <FadeIn delay={0.15}>
+          <div className="mx-auto mt-14 mb-12 lg:mt-20 lg:mb-16 max-w-xs">
+            <hr className="border-t border-slate/15" />
+          </div>
         </FadeIn>
 
         {/* Closing CTA */}
         <FadeIn delay={0.2}>
-          <div className="mt-16 lg:mt-24 text-center flex flex-col items-center gap-4">
+          <div className="text-center flex flex-col items-center gap-4">
             <h3 className="font-display text-2xl lg:text-3xl text-slate">
               Have Something Special in Mind?
             </h3>
