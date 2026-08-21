@@ -63,7 +63,7 @@ export default function DrinkSlot({ index, state, onChange, isExcess = false }: 
               type="button"
               onClick={() => setChoiceType('signature')}
               className={[
-                'font-body text-sm px-4 py-2 rounded-full transition-colors duration-200',
+                'font-body text-sm px-4 py-2.5 min-h-[44px] rounded-full transition-colors duration-200',
                 state.choiceType === 'signature'
                   ? 'bg-slate text-cool-white'
                   : 'bg-slate/10 text-slate hover:bg-slate/20',
@@ -75,7 +75,7 @@ export default function DrinkSlot({ index, state, onChange, isExcess = false }: 
               type="button"
               onClick={() => setChoiceType('custom')}
               className={[
-                'font-body text-sm px-4 py-2 rounded-full transition-colors duration-200',
+                'font-body text-sm px-4 py-2.5 min-h-[44px] rounded-full transition-colors duration-200',
                 state.choiceType === 'custom'
                   ? 'bg-slate text-cool-white'
                   : 'bg-slate/10 text-slate hover:bg-slate/20',

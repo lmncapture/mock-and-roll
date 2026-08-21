@@ -77,7 +77,7 @@ export default async function InquiryDetailPage({ params }: PageProps) {
 
       <main className="px-6 lg:px-12 py-8 max-w-4xl">
         {/* Reference + Status */}
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex flex-wrap items-center gap-4 mb-8">
           <h1 className="font-display text-2xl text-slate">{inquiry.reference}</h1>
           <StatusSelect inquiryId={inquiry.id} currentStatus={inquiry.status} />
         </div>

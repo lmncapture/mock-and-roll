@@ -42,7 +42,7 @@ export default function DrinkDisplay({ drinks }: DrinkDisplayProps) {
           {drink.choice_type === 'custom' && drink.custom_mocktail && (
             <div className="mt-2 space-y-1">
               <p className="font-body text-xs text-slate/50 uppercase tracking-wider">Custom Mocktail</p>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 mt-1">
                 <p className="font-body text-xs text-slate/60">Base</p>
                 <p className="font-body text-sm text-slate">{drink.custom_mocktail.base}</p>
                 <p className="font-body text-xs text-slate/60">Purée</p>

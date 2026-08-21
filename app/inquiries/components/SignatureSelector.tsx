@@ -14,7 +14,7 @@ export default function SignatureSelector({ selectedId, onSelect }: SignatureSel
         <label
           key={drink.id}
           className={[
-            'flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-colors duration-200',
+            'flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-colors duration-200 min-h-[44px]',
             selectedId === drink.id
               ? 'bg-peach-nectar/30 ring-1 ring-peach-nectar'
               : 'bg-cool-white hover:bg-peach-nectar/10',

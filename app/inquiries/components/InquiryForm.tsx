@@ -268,7 +268,7 @@ export default function InquiryForm() {
               aria-describedby={form.errors.firstName ? 'firstName-error' : undefined}
               value={form.firstName}
               onChange={(e) => updateField('firstName', e.target.value)}
-              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
             />
             {form.errors.firstName && (
               <p id="firstName-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.firstName}</p>
@@ -286,7 +286,7 @@ export default function InquiryForm() {
               aria-describedby={form.errors.lastName ? 'lastName-error' : undefined}
               value={form.lastName}
               onChange={(e) => updateField('lastName', e.target.value)}
-              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
             />
             {form.errors.lastName && (
               <p id="lastName-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.lastName}</p>
@@ -306,7 +306,7 @@ export default function InquiryForm() {
             aria-describedby={form.errors.email ? 'email-error' : undefined}
             value={form.email}
             onChange={(e) => updateField('email', e.target.value)}
-            className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+            className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
           />
           {form.errors.email && (
             <p id="email-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.email}</p>
@@ -325,7 +325,7 @@ export default function InquiryForm() {
             aria-describedby={form.errors.phoneNumber ? 'phoneNumber-error' : undefined}
             value={form.phoneNumber}
             onChange={(e) => updateField('phoneNumber', e.target.value)}
-            className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+            className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
           />
           {form.errors.phoneNumber && (
             <p id="phoneNumber-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.phoneNumber}</p>
@@ -348,7 +348,7 @@ export default function InquiryForm() {
               aria-describedby={form.errors.eventDate ? 'eventDate-error' : undefined}
               value={form.eventDate}
               onChange={(e) => updateField('eventDate', e.target.value)}
-              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
             />
             {form.errors.eventDate && (
               <p id="eventDate-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.eventDate}</p>
@@ -366,7 +366,7 @@ export default function InquiryForm() {
               aria-describedby={form.errors.eventTime ? 'eventTime-error' : undefined}
               value={form.eventTime}
               onChange={(e) => updateField('eventTime', e.target.value)}
-              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
             />
             {form.errors.eventTime && (
               <p id="eventTime-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.eventTime}</p>
@@ -384,7 +384,7 @@ export default function InquiryForm() {
             aria-describedby={form.errors.eventType ? 'eventType-error' : undefined}
             value={form.eventType}
             onChange={(e) => updateField('eventType', e.target.value)}
-            className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+            className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
           >
             <option value="">Select event type</option>
             {EVENT_TYPES.map((type) => (
@@ -408,7 +408,7 @@ export default function InquiryForm() {
               aria-describedby={form.errors.eventTypeOther ? 'eventTypeOther-error' : undefined}
               value={form.eventTypeOther}
               onChange={(e) => updateField('eventTypeOther', e.target.value)}
-              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
             />
             {form.errors.eventTypeOther && (
               <p id="eventTypeOther-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.eventTypeOther}</p>
@@ -429,7 +429,7 @@ export default function InquiryForm() {
               aria-describedby={form.errors.estimatedGuestCount ? 'estimatedGuestCount-error' : undefined}
               value={form.estimatedGuestCount}
               onChange={(e) => handleGuestCountChange(e.target.value)}
-              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
             />
             {form.errors.estimatedGuestCount && (
               <p id="estimatedGuestCount-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.estimatedGuestCount}</p>
@@ -448,7 +448,7 @@ export default function InquiryForm() {
               value={form.eventLocation}
               onChange={(e) => updateField('eventLocation', e.target.value)}
               placeholder="Venue name, city, or address"
-              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
+              className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
             />
             {form.errors.eventLocation && (
               <p id="eventLocation-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.eventLocation}</p>
@@ -535,7 +535,7 @@ export default function InquiryForm() {
             aria-describedby={form.errors.additionalNotes ? 'additionalNotes-error' : undefined}
             value={form.additionalNotes}
             onChange={(e) => updateField('additionalNotes', e.target.value)}
-            className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-sm text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30 resize-y min-h-[100px]"
+            className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30 resize-y min-h-[100px]"
           />
           {form.errors.additionalNotes && (
             <p id="additionalNotes-error" className="font-body text-xs text-rose-500 mt-1">{form.errors.additionalNotes}</p>
@@ -555,7 +555,7 @@ export default function InquiryForm() {
         <button
           type="submit"
           disabled={isSubmitDisabled}
-          className="bg-slate text-cool-white rounded-full px-8 py-3.5 font-body font-semibold text-sm transition-opacity duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90"
+          className="w-full sm:w-auto bg-slate text-cool-white rounded-full px-8 py-3.5 font-body font-semibold text-base transition-opacity duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90"
         >
           {form.isSubmitting ? 'Sending…' : 'Send Inquiry'}
         </button>
