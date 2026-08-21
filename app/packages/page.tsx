@@ -2,9 +2,11 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import PackagesHero from "@/app/packages/components/PackagesHero";
 import PackageOfferings from "@/app/packages/components/PackageOfferings";
-import CustomEvents from "@/app/packages/components/CustomEvents";
-import PackagesCTA from "@/app/packages/components/PackagesCTA";
+import ServiceDetails from "@/app/packages/components/ServiceDetails";
+import PackagesGallery from "@/app/packages/components/PackagesGallery";
+import GratuityOptions from "@/app/packages/components/GratuityOptions";
 import PackagesFAQ from "@/app/packages/components/PackagesFAQ";
+import PackagesCTA from "@/app/packages/components/PackagesCTA";
 
 export const metadata = {
   title: "Packages",
@@ -19,7 +21,9 @@ export default function PackagesPage() {
       <main>
         <PackagesHero />
         <PackageOfferings />
-        <CustomEvents />
+        <ServiceDetails />
+        <PackagesGallery />
+        <GratuityOptions />
         <PackagesFAQ />
         <PackagesCTA />
       </main>

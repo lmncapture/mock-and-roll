@@ -12,7 +12,7 @@ const packages = [
     accent: "bg-lime-sorbet/40",
     hoverAccent: "hover:bg-lime-sorbet/60",
     includes: [
-      "Up to 30 guests",
+      "Up to 35 guests",
       "2 handcrafted mocktails",
       "Unlimited drinks",
       "Professional mocktail bar service",
@@ -29,7 +29,7 @@ const packages = [
     accent: "bg-peach-nectar/40",
     hoverAccent: "hover:bg-peach-nectar/60",
     includes: [
-      "31+ guests",
+      "36+ guests",
       "2 handcrafted mocktails",
       "Unlimited drinks",
       "Professional mocktail bar service",
@@ -100,6 +100,7 @@ export default function PackageOfferings() {
                     <span className="font-display text-slate text-4xl xl:text-5xl leading-none tracking-tight">
                       {pkg.price}
                     </span>
+                    <span className="font-body text-slate/45 text-sm ml-1">+ tax</span>
                     <p className="font-body text-slate/55 text-xs mt-1 tracking-wide">
                       {pkg.priceUnit}
                     </p>
@@ -166,6 +167,7 @@ export default function PackageOfferings() {
                     <span className="font-display text-slate text-3xl leading-none tracking-tight">
                       {pkg.price}
                     </span>
+                    <span className="font-body text-slate/45 text-xs ml-0.5">+ tax</span>
                     <p className="font-body text-slate/55 text-xs mt-1 tracking-wide">
                       {pkg.priceUnit}
                     </p>
@@ -202,7 +204,7 @@ export default function PackageOfferings() {
         {/* Pricing disclaimer */}
         <FadeIn delay={0.2}>
           <p className="font-body text-slate/45 text-sm text-center mt-10 max-w-xl mx-auto leading-relaxed">
-            Final pricing may vary based on event location, service time, custom menu needs, and specialty requests.
+            Applicable sales tax is additional. Final pricing may vary based on event location, service time, custom menu needs, and specialty requests.
           </p>
         </FadeIn>
       </div>

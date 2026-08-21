@@ -2,23 +2,23 @@ import { describe, it, expect } from 'vitest';
 import { isPackageEligible, getPackageById, PACKAGES } from '../packages';
 
 describe('isPackageEligible', () => {
-  it('Signature accepts ≤30 guests', () => {
+  it('Signature accepts ≤35 guests', () => {
     expect(isPackageEligible('signature-experience', 1)).toBe(true);
-    expect(isPackageEligible('signature-experience', 30)).toBe(true);
+    expect(isPackageEligible('signature-experience', 35)).toBe(true);
   });
 
-  it('Signature rejects >30 guests', () => {
-    expect(isPackageEligible('signature-experience', 31)).toBe(false);
+  it('Signature rejects >35 guests', () => {
+    expect(isPackageEligible('signature-experience', 36)).toBe(false);
     expect(isPackageEligible('signature-experience', 100)).toBe(false);
   });
 
-  it('Celebration accepts >30 guests', () => {
-    expect(isPackageEligible('celebration-experience', 31)).toBe(true);
+  it('Celebration accepts ≥36 guests', () => {
+    expect(isPackageEligible('celebration-experience', 36)).toBe(true);
     expect(isPackageEligible('celebration-experience', 200)).toBe(true);
   });
 
-  it('Celebration rejects ≤30 guests', () => {
-    expect(isPackageEligible('celebration-experience', 30)).toBe(false);
+  it('Celebration rejects <36 guests', () => {
+    expect(isPackageEligible('celebration-experience', 35)).toBe(false);
     expect(isPackageEligible('celebration-experience', 1)).toBe(false);
   });
 
