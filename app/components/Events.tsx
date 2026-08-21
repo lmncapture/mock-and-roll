@@ -16,7 +16,7 @@ const events = [
   {
     name: "Baby Showers",
     image: "/images/events/baby-shower-event.jpg",
-    objectPosition: "center top",
+    objectPosition: "center center",
   },
   {
     name: "Corporate",
