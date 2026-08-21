@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-cool-white flex items-center justify-center px-6">
       <div className="w-full max-w-sm">
         <h1 className="font-display text-3xl text-slate text-center">Admin Login</h1>
-        <p className="font-body text-sm text-slate/60 text-center mt-2">
+        <p className="font-body text-sm text-slate/75 text-center mt-2">
           Sign in to manage inquiries.
         </p>
 

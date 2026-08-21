@@ -8,7 +8,7 @@ export default function WhoWeAre() {
         {/* Left: copy */}
         <div className="lg:w-[50%]">
           <FadeIn>
-            <p className="font-body text-slate/50 text-sm font-medium tracking-widest uppercase mb-5">
+            <p aria-hidden="true" className="font-body text-slate/75 text-sm font-medium tracking-widest uppercase mb-5">
               01 — Who We Are
             </p>
             <h2 className="font-display text-slate text-4xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight mb-8">

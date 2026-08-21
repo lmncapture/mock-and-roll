@@ -19,7 +19,7 @@ export default function PerfectFor() {
     <section className="bg-cool-white py-16 lg:py-32 px-6 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <FadeIn>
-          <p className="font-body text-slate/50 text-sm font-medium tracking-widest uppercase mb-5">
+          <p aria-hidden="true" className="font-body text-slate/75 text-sm font-medium tracking-widest uppercase mb-5">
             04 — What We&apos;re Good For
           </p>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-10 lg:mb-20 gap-6">

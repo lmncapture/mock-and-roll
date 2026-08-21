@@ -16,7 +16,7 @@ export default function PackagesHero() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <FadeIn>
           {/* Eyebrow */}
-          <p className="font-body text-slate/50 text-sm font-medium tracking-widest uppercase mb-6">
+          <p aria-hidden="true" className="font-body text-slate/75 text-sm font-medium tracking-widest uppercase mb-6">
             Mock &amp; Roll — Packages
           </p>
 

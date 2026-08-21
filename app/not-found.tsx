@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main className="bg-cool-white min-h-screen flex flex-col items-center justify-center px-6 py-32 lg:py-48 text-center">
+      <main id="main-content" tabIndex={-1} className="bg-cool-white min-h-screen flex flex-col items-center justify-center px-6 py-32 lg:py-48 text-center">
         <p className="font-display text-slate text-8xl lg:text-[200px] leading-none tracking-tight mb-6 opacity-10 select-none">
           404
         </p>

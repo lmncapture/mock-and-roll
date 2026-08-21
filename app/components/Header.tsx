@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, startTransition } from "react";
+import { useState, useEffect, useRef, useCallback, startTransition } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,6 +19,7 @@ const navLinks = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
 
   // Wait for client mount so createPortal works.
@@ -44,12 +45,29 @@ export default function Header() {
     startTransition(() => setMobileMenuOpen(false));
   }, [pathname]);
 
+  // Move focus into dialog when opened
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    // Short delay to let the animation render the dialog DOM
+    const timer = setTimeout(() => {
+      const dialog = document.getElementById("mobile-nav");
+      if (dialog) {
+        const firstFocusable = dialog.querySelector<HTMLElement>(
+          'a[href], button:not([disabled])'
+        );
+        firstFocusable?.focus();
+      }
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [mobileMenuOpen]);
+
   // Close menu on Escape key
   useEffect(() => {
     if (!mobileMenuOpen) return;
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMobileMenuOpen(false);
+        hamburgerRef.current?.focus();
       }
     };
     document.addEventListener("keydown", handleKeyDown);
@@ -57,6 +75,32 @@ export default function Header() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [mobileMenuOpen]);
+
+  // Focus trap: keep Tab within open dialog
+  const trapFocus = useCallback((e: KeyboardEvent) => {
+    if (e.key !== "Tab") return;
+    const dialog = document.getElementById("mobile-nav");
+    if (!dialog) return;
+    const focusable = dialog.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    document.addEventListener("keydown", trapFocus);
+    return () => document.removeEventListener("keydown", trapFocus);
+  }, [mobileMenuOpen, trapFocus]);
 
   const isActive = (href: string) => {
     if (href.startsWith("mailto")) return false;
@@ -98,7 +142,7 @@ export default function Header() {
             <button
               type="button"
               className="flex items-center justify-center w-11 h-11 rounded-full bg-slate/8 hover:bg-slate/15 transition-colors duration-200"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false); hamburgerRef.current?.focus(); }}
               aria-label="Close navigation menu"
             >
               <svg
@@ -164,7 +208,7 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-cool-white/80 backdrop-blur-md">
-        <nav className="flex items-center justify-between px-6 lg:px-12 py-4 lg:py-6">
+        <nav aria-label="Main" className="flex items-center justify-between px-6 lg:px-12 py-4 lg:py-6">
           {/* Logo */}
           <Link href="/" aria-label="Mock & Roll Home">
             <Image
@@ -199,6 +243,7 @@ export default function Header() {
 
           {/* Mobile hamburger — only visible below md */}
           <button
+            ref={hamburgerRef}
             type="button"
             className="md:hidden flex items-center justify-center w-11 h-11"
             onClick={() => setMobileMenuOpen(true)}

@@ -46,7 +46,7 @@ export default async function AdminDashboardPage({ searchParams }: PageProps) {
         <LogoutButton />
       </header>
 
-      <main className="px-6 lg:px-12 py-8">
+      <main id="main-content" tabIndex={-1} className="px-6 lg:px-12 py-8">
         <div className="flex flex-col lg:flex-row gap-4 mb-6">
           <SearchBar defaultValue={params.search} />
           <FilterBar
@@ -61,7 +61,7 @@ export default async function AdminDashboardPage({ searchParams }: PageProps) {
         {error ? (
           <p className="font-body text-sm text-rose-500">Failed to load inquiries.</p>
         ) : inquiries.length === 0 ? (
-          <p className="font-body text-sm text-slate/60">No inquiries found.</p>
+          <p className="font-body text-sm text-slate/75">No inquiries found.</p>
         ) : (
           <InquiryTable
             inquiries={inquiries}
@@ -77,7 +77,7 @@ export default async function AdminDashboardPage({ searchParams }: PageProps) {
           />
         )}
 
-        <p className="font-body text-xs text-slate/40 mt-4">
+        <p className="font-body text-xs text-slate/75 mt-4">
           {totalCount} total {totalCount === 1 ? 'inquiry' : 'inquiries'}
         </p>
       </main>

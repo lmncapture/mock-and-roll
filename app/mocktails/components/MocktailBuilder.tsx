@@ -21,7 +21,7 @@ export default function MocktailBuilder() {
             Build a custom mocktail for your celebration by choosing your base,
             purée, syrup, and garnishes.
           </p>
-          <p className="mt-2 font-body text-slate/60 text-sm italic">
+          <p className="mt-2 font-body text-slate/75 text-sm italic">
             All drinks come sparkling with club soda unless otherwise requested.
           </p>
         </FadeIn>
@@ -30,7 +30,7 @@ export default function MocktailBuilder() {
           {STEPS.map((step, index) => (
             <FadeIn key={step.number} delay={index * 0.1}>
               <div>
-                <p className="font-body text-sm font-semibold tracking-widest uppercase text-slate/40">
+                <p aria-hidden="true" className="font-body text-sm font-semibold tracking-widest uppercase text-slate/75">
                   {step.number}
                 </p>
                 <h3 className="font-display text-2xl lg:text-3xl text-slate mt-2">

@@ -15,7 +15,7 @@ export default function AboutHero() {
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <FadeIn>
-          <p className="font-body text-slate/50 text-sm font-medium tracking-widest uppercase mb-6">
+          <p aria-hidden="true" className="font-body text-slate/75 text-sm font-medium tracking-widest uppercase mb-6">
             Mock &amp; Roll — Our Story
           </p>
           <h1 className="font-display text-slate text-[clamp(44px,7vw,96px)] leading-[1.0] tracking-tight max-w-3xl">

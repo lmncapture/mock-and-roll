@@ -31,7 +31,7 @@ export default function Footer() {
                 unoptimized
               />
             </Link>
-            <p className="font-body text-sm text-cool-white/60 mt-2 max-w-xs">
+            <p className="font-body text-sm text-cool-white/70 mt-2 max-w-xs">
               Premium mobile mocktail experiences for weddings, celebrations, and every event worth remembering.
             </p>
           </div>
@@ -105,7 +105,7 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="border-t border-cool-white/10 mt-12 lg:mt-16 pt-8">
-          <p className="font-body text-sm text-cool-white/50 text-center">
+          <p className="font-body text-sm text-cool-white/70 text-center">
           © {new Date().getFullYear()} Mock &amp; Roll. All rights reserved.
           </p>
         </div>

@@ -29,7 +29,7 @@ export default function GratuityOptions() {
               {/* Quick summary */}
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-lime-sorbet/60 flex items-center justify-center">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-lime-sorbet/60 flex items-center justify-center" aria-hidden="true">
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
                       <path d="M1 4L3.5 6.5L9 1" stroke="#324648" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -39,7 +39,7 @@ export default function GratuityOptions() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-lime-sorbet/60 flex items-center justify-center">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-lime-sorbet/60 flex items-center justify-center" aria-hidden="true">
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
                       <path d="M1 4L3.5 6.5L9 1" stroke="#324648" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -69,7 +69,7 @@ export default function GratuityOptions() {
               {/* Quick summary */}
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-peach-nectar/60 flex items-center justify-center">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-peach-nectar/60 flex items-center justify-center" aria-hidden="true">
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
                       <path d="M1 4L3.5 6.5L9 1" stroke="#324648" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -79,7 +79,7 @@ export default function GratuityOptions() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-peach-nectar/60 flex items-center justify-center">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-peach-nectar/60 flex items-center justify-center" aria-hidden="true">
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
                       <path d="M1 4L3.5 6.5L9 1" stroke="#324648" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>

@@ -41,6 +41,12 @@ body {
   outline-offset: 2px;
 }
 
+/* Ensure focused elements are not hidden behind fixed header */
+[id="main-content"] {
+  scroll-margin-top: 5rem;
+  outline: none; /* suppress focus ring on skip-link target (not a tab stop) */
+}
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

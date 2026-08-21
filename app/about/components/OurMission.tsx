@@ -5,7 +5,7 @@ export default function OurMission() {
     <section className="bg-blueberry-dew py-20 lg:py-36 px-6 lg:px-12">
       <div className="mx-auto max-w-5xl text-center">
         <FadeIn>
-          <p className="font-body text-slate/50 text-sm font-medium tracking-widest uppercase mb-6">
+          <p aria-hidden="true" className="font-body text-slate/75 text-sm font-medium tracking-widest uppercase mb-6">
             03 — Our Mission
           </p>
           <h2 className="font-display text-slate text-4xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight mb-10">

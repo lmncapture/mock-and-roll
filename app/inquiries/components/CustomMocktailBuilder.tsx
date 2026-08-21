@@ -42,13 +42,13 @@ export default function CustomMocktailBuilder({ state, onChange }: CustomMocktai
 
   return (
     <div className="space-y-8 mt-4">
-      <p className="font-body text-sm text-slate/60 italic">
+      <p className="font-body text-sm text-slate/75 italic">
         All drinks come sparkling with club soda unless otherwise requested.
       </p>
 
       {/* Step 1: Base */}
       <div>
-        <h4 className="font-body text-sm font-semibold tracking-widest uppercase text-slate/40">01</h4>
+        <h4 aria-hidden="true" className="font-body text-sm font-semibold tracking-widest uppercase text-slate/75">01</h4>
         <p className="font-display text-lg text-slate mt-1">Choose Your Base</p>
         <div className="flex flex-wrap gap-3 mt-3">
           {BASES.map(base => (
@@ -65,7 +65,7 @@ export default function CustomMocktailBuilder({ state, onChange }: CustomMocktai
 
       {/* Step 2: Purée */}
       <div>
-        <h4 className="font-body text-sm font-semibold tracking-widest uppercase text-slate/40">02</h4>
+        <h4 aria-hidden="true" className="font-body text-sm font-semibold tracking-widest uppercase text-slate/75">02</h4>
         <p className="font-display text-lg text-slate mt-1">Choose Your Purée</p>
         <div className="flex flex-wrap gap-3 mt-3">
           {PUREES.map(puree => (
@@ -82,7 +82,7 @@ export default function CustomMocktailBuilder({ state, onChange }: CustomMocktai
 
       {/* Step 3: Syrup */}
       <div>
-        <h4 className="font-body text-sm font-semibold tracking-widest uppercase text-slate/40">03</h4>
+        <h4 aria-hidden="true" className="font-body text-sm font-semibold tracking-widest uppercase text-slate/75">03</h4>
         <p className="font-display text-lg text-slate mt-1">Choose Your Syrup</p>
         <div className="flex flex-wrap gap-3 mt-3">
           {SYRUPS.map(syrup => (
@@ -99,10 +99,10 @@ export default function CustomMocktailBuilder({ state, onChange }: CustomMocktai
 
       {/* Step 4: Garnishes */}
       <div>
-        <h4 className="font-body text-sm font-semibold tracking-widest uppercase text-slate/40">04</h4>
+        <h4 aria-hidden="true" className="font-body text-sm font-semibold tracking-widest uppercase text-slate/75">04</h4>
         <p className="font-display text-lg text-slate mt-1">Choose Your Garnishes</p>
-        <p className="font-body text-xs text-slate/50 mt-0.5">Optional — select as many as you like</p>
-        <div className="flex flex-wrap gap-3 mt-3">
+        <p className="font-body text-xs text-slate/75 mt-0.5">Optional — select as many as you like</p>
+        <div className="flex flex-wrap gap-3 mt-3" role="group" aria-label="Garnish options — select as many as you like">
           {GARNISHES.map(garnish => (
             <IngredientChip
               key={garnish}

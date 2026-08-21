@@ -230,7 +230,7 @@ export default function InquiryForm() {
   // Success state
   if (form.isSuccess) {
     return (
-      <div className="rounded-2xl bg-frosted-mint/30 p-8 lg:p-12 text-center">
+      <div role="status" aria-live="polite" className="rounded-2xl bg-frosted-mint/30 p-8 lg:p-12 text-center">
         <h2 className="font-display text-2xl lg:text-3xl text-slate">Thank You!</h2>
         <p className="font-body text-base text-slate/80 mt-4 max-w-md mx-auto leading-relaxed">
           Thanks for your inquiry — someone from our team will be in touch within 1 business day.
@@ -266,6 +266,7 @@ export default function InquiryForm() {
               required
               aria-required="true"
               aria-describedby={form.errors.firstName ? 'firstName-error' : undefined}
+              aria-invalid={!!form.errors.firstName}
               value={form.firstName}
               onChange={(e) => updateField('firstName', e.target.value)}
               className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
@@ -284,6 +285,7 @@ export default function InquiryForm() {
               required
               aria-required="true"
               aria-describedby={form.errors.lastName ? 'lastName-error' : undefined}
+              aria-invalid={!!form.errors.lastName}
               value={form.lastName}
               onChange={(e) => updateField('lastName', e.target.value)}
               className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
@@ -304,6 +306,7 @@ export default function InquiryForm() {
             aria-required="true"
             autoComplete="email"
             aria-describedby={form.errors.email ? 'email-error' : undefined}
+            aria-invalid={!!form.errors.email}
             value={form.email}
             onChange={(e) => updateField('email', e.target.value)}
             className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
@@ -323,6 +326,7 @@ export default function InquiryForm() {
             aria-required="true"
             autoComplete="tel"
             aria-describedby={form.errors.phoneNumber ? 'phoneNumber-error' : undefined}
+            aria-invalid={!!form.errors.phoneNumber}
             value={form.phoneNumber}
             onChange={(e) => updateField('phoneNumber', e.target.value)}
             className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
@@ -346,6 +350,7 @@ export default function InquiryForm() {
               required
               aria-required="true"
               aria-describedby={form.errors.eventDate ? 'eventDate-error' : undefined}
+              aria-invalid={!!form.errors.eventDate}
               value={form.eventDate}
               onChange={(e) => updateField('eventDate', e.target.value)}
               className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
@@ -364,6 +369,7 @@ export default function InquiryForm() {
               required
               aria-required="true"
               aria-describedby={form.errors.eventTime ? 'eventTime-error' : undefined}
+              aria-invalid={!!form.errors.eventTime}
               value={form.eventTime}
               onChange={(e) => updateField('eventTime', e.target.value)}
               className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
@@ -382,6 +388,7 @@ export default function InquiryForm() {
             required
             aria-required="true"
             aria-describedby={form.errors.eventType ? 'eventType-error' : undefined}
+            aria-invalid={!!form.errors.eventType}
             value={form.eventType}
             onChange={(e) => updateField('eventType', e.target.value)}
             className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
@@ -406,6 +413,7 @@ export default function InquiryForm() {
               required
               aria-required="true"
               aria-describedby={form.errors.eventTypeOther ? 'eventTypeOther-error' : undefined}
+              aria-invalid={!!form.errors.eventTypeOther}
               value={form.eventTypeOther}
               onChange={(e) => updateField('eventTypeOther', e.target.value)}
               className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
@@ -427,6 +435,7 @@ export default function InquiryForm() {
               min="1"
               aria-required="true"
               aria-describedby={form.errors.estimatedGuestCount ? 'estimatedGuestCount-error' : undefined}
+              aria-invalid={!!form.errors.estimatedGuestCount}
               value={form.estimatedGuestCount}
               onChange={(e) => handleGuestCountChange(e.target.value)}
               className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30"
@@ -445,6 +454,7 @@ export default function InquiryForm() {
               required
               aria-required="true"
               aria-describedby={form.errors.eventLocation ? 'eventLocation-error' : undefined}
+              aria-invalid={!!form.errors.eventLocation}
               value={form.eventLocation}
               onChange={(e) => updateField('eventLocation', e.target.value)}
               placeholder="Venue name, city, or address"
@@ -459,7 +469,7 @@ export default function InquiryForm() {
 
       {/* Section 03: Package */}
       <FormSection number="03" heading="Package">
-        <p className="font-body text-sm text-slate/60 -mt-2">
+        <p className="font-body text-sm text-slate/75 -mt-2">
           Your package can be changed later.
         </p>
         <div className="space-y-3">
@@ -489,12 +499,12 @@ export default function InquiryForm() {
       {/* Section 04: Drink Choices */}
       {selectedPackage && (
         <FormSection number="04" heading="Drink Choices">
-          <p className="font-body text-sm text-slate/60 -mt-2">
+          <p className="font-body text-sm text-slate/75 -mt-2">
             Your package includes {allowedDrinkCount} drink{allowedDrinkCount !== 1 ? 's' : ''}.
           </p>
 
           {hasExcessDrinks && (
-            <div className="rounded-xl bg-rose-petal/20 border border-rose-petal px-5 py-4">
+            <div role="alert" className="rounded-xl bg-rose-petal/20 border border-rose-petal px-5 py-4">
               <p className="font-body text-sm text-slate">
                 Your new package includes {allowedDrinkCount} drink{allowedDrinkCount !== 1 ? 's' : ''}. Please remove {excessDrinkCount} extra selection{excessDrinkCount !== 1 ? 's' : ''} to continue.
               </p>
@@ -533,6 +543,7 @@ export default function InquiryForm() {
             rows={4}
             maxLength={2000}
             aria-describedby={form.errors.additionalNotes ? 'additionalNotes-error' : undefined}
+            aria-invalid={!!form.errors.additionalNotes}
             value={form.additionalNotes}
             onChange={(e) => updateField('additionalNotes', e.target.value)}
             className="w-full rounded-xl border border-slate/20 px-4 py-3 font-body text-base text-slate bg-cool-white focus:outline-none focus:ring-2 focus:ring-slate/30 resize-y min-h-[100px]"
@@ -545,7 +556,7 @@ export default function InquiryForm() {
 
       {/* Form-level error */}
       {form.errors._form && (
-        <div className="rounded-xl bg-rose-petal/20 border border-rose-petal px-5 py-4">
+        <div role="alert" className="rounded-xl bg-rose-petal/20 border border-rose-petal px-5 py-4">
           <p className="font-body text-sm text-rose-500">{form.errors._form}</p>
         </div>
       )}

@@ -18,7 +18,7 @@ export default function PackagesPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <PackagesHero />
         <PackageOfferings />
         <ServiceDetails />

@@ -10,7 +10,7 @@ export default function FormSection({ number, heading, children }: FormSectionPr
       <legend className="sr-only">{heading}</legend>
       <div className="space-y-6">
         <div>
-          <span className="font-body text-sm font-semibold tracking-widest uppercase text-slate/40">
+          <span aria-hidden="true" className="font-body text-sm font-semibold tracking-widest uppercase text-slate/75">
             {number}
           </span>
           <h2 className="font-display text-2xl lg:text-3xl text-slate mt-1">

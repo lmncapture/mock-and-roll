@@ -11,7 +11,7 @@ export default function InquiriesPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 lg:pt-32">
+      <main id="main-content" tabIndex={-1} className="pt-24 lg:pt-32">
         <section className="px-6 lg:px-12 py-16 lg:py-24">
           <div className="max-w-3xl mx-auto">
             <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl text-slate leading-[1.1] tracking-tight">

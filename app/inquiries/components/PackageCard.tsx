@@ -28,7 +28,7 @@ export default function PackageCard({ pkg, isSelected, isEligible, onSelect }: P
       <div className="flex items-start justify-between gap-3">
         <div>
           {pkg.badge && (
-            <span className="font-body text-xs font-semibold text-slate/60 tracking-widest uppercase">
+            <span className="font-body text-xs font-semibold text-slate/75 tracking-widest uppercase">
               {pkg.badge}
             </span>
           )}

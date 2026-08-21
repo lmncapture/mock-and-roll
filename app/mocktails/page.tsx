@@ -15,7 +15,7 @@ export default function MocktailsPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <MocktailsHero />
         <SignatureMocktails />
         <MocktailBuilder />

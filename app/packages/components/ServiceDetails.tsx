@@ -18,7 +18,7 @@ export default function ServiceDetails() {
           {/* Service Time */}
           <FadeIn delay={0.05}>
             <div className="bg-frosted-mint/40 rounded-3xl p-8 lg:p-10 flex flex-col gap-5 h-full">
-              <div className="w-10 h-10 rounded-full bg-slate/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-slate/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#324648" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <polyline points="12 6 12 12 16 14" />
@@ -48,7 +48,7 @@ export default function ServiceDetails() {
           {/* Travel */}
           <FadeIn delay={0.1}>
             <div className="bg-blueberry-dew/30 rounded-3xl p-8 lg:p-10 flex flex-col gap-5 h-full">
-              <div className="w-10 h-10 rounded-full bg-slate/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-slate/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#324648" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
@@ -63,7 +63,7 @@ export default function ServiceDetails() {
               <div className="h-px bg-slate/10" />
               {/* Tiered pricing list */}
               <div className="flex flex-col gap-0">
-                <p className="font-body text-slate/60 text-xs font-medium tracking-wider uppercase mb-3">
+                <p className="font-body text-slate/75 text-xs font-medium tracking-wider uppercase mb-3">
                   Distance from our home base
                 </p>
                 <ul className="flex flex-col">
@@ -77,7 +77,7 @@ export default function ServiceDetails() {
                       </span>
                       <span className={`font-body text-sm font-semibold whitespace-nowrap ${
                         tier.price === 0
-                          ? 'text-slate/60'
+                          ? 'text-slate/75'
                           : tier.price === null
                             ? 'text-slate/70'
                             : 'text-slate'
@@ -94,7 +94,7 @@ export default function ServiceDetails() {
           {/* Gratuity */}
           <FadeIn delay={0.15}>
             <div className="bg-peach-nectar/30 rounded-3xl p-8 lg:p-10 flex flex-col gap-5 h-full">
-              <div className="w-10 h-10 rounded-full bg-slate/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-slate/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#324648" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>

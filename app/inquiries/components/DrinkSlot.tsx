@@ -99,7 +99,7 @@ export default function DrinkSlot({ index, state, onChange, isExcess = false }: 
             />
           )}
           {state.choiceType === null && (
-            <p className="font-body text-sm text-slate/50 italic">
+            <p className="font-body text-sm text-slate/75 italic">
               Choose a drink type above to get started.
             </p>
           )}

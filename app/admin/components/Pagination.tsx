@@ -28,7 +28,7 @@ export default function Pagination({ currentPage, totalPages }: PaginationProps)
         </Link>
       )}
 
-      <span className="font-body text-sm text-slate/60 px-2">
+      <span className="font-body text-sm text-slate/75 px-2">
         Page {currentPage} of {totalPages}
       </span>
 

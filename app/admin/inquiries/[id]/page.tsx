@@ -70,12 +70,12 @@ export default async function InquiryDetailPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-cool-white">
       <header className="border-b border-slate/10 px-6 lg:px-12 py-4">
-        <Link href="/admin" className="font-body text-sm text-slate/60 hover:text-slate transition-colors">
+        <Link href="/admin" className="font-body text-sm text-slate/75 hover:text-slate transition-colors">
           ← Back to Inquiries
         </Link>
       </header>
 
-      <main className="px-6 lg:px-12 py-8 max-w-4xl">
+      <main id="main-content" tabIndex={-1} className="px-6 lg:px-12 py-8 max-w-4xl">
         {/* Reference + Status */}
         <div className="flex flex-wrap items-center gap-4 mb-8">
           <h1 className="font-display text-2xl text-slate">{inquiry.reference}</h1>
@@ -84,18 +84,18 @@ export default async function InquiryDetailPage({ params }: PageProps) {
 
         {/* Contact */}
         <section className="mb-8">
-          <h2 className="font-body text-xs font-semibold text-slate/50 uppercase tracking-wider mb-3">Contact</h2>
+          <h2 className="font-body text-xs font-semibold text-slate/75 uppercase tracking-wider mb-3">Contact</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <p className="font-body text-xs text-slate/50">Name</p>
+              <p className="font-body text-xs text-slate/75">Name</p>
               <p className="font-body text-sm text-slate">{inquiry.first_name} {inquiry.last_name}</p>
             </div>
             <div>
-              <p className="font-body text-xs text-slate/50">Email</p>
+              <p className="font-body text-xs text-slate/75">Email</p>
               <p className="font-body text-sm text-slate">{inquiry.email}</p>
             </div>
             <div>
-              <p className="font-body text-xs text-slate/50">Phone</p>
+              <p className="font-body text-xs text-slate/75">Phone</p>
               <a href={`tel:${inquiry.phone_number}`} className="font-body text-sm text-slate hover:underline">
                 {inquiry.phone_number}
               </a>
@@ -105,28 +105,28 @@ export default async function InquiryDetailPage({ params }: PageProps) {
 
         {/* Event */}
         <section className="mb-8">
-          <h2 className="font-body text-xs font-semibold text-slate/50 uppercase tracking-wider mb-3">Event</h2>
+          <h2 className="font-body text-xs font-semibold text-slate/75 uppercase tracking-wider mb-3">Event</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <p className="font-body text-xs text-slate/50">Date</p>
+              <p className="font-body text-xs text-slate/75">Date</p>
               <p className="font-body text-sm text-slate">{formatDate(inquiry.event_date)}</p>
             </div>
             <div>
-              <p className="font-body text-xs text-slate/50">Time</p>
+              <p className="font-body text-xs text-slate/75">Time</p>
               <p className="font-body text-sm text-slate">{formatTime(inquiry.event_time)}</p>
             </div>
             <div>
-              <p className="font-body text-xs text-slate/50">Type</p>
+              <p className="font-body text-xs text-slate/75">Type</p>
               <p className="font-body text-sm text-slate">
                 {inquiry.event_type}{inquiry.event_type_other ? ` (${inquiry.event_type_other})` : ''}
               </p>
             </div>
             <div>
-              <p className="font-body text-xs text-slate/50">Guest Count</p>
+              <p className="font-body text-xs text-slate/75">Guest Count</p>
               <p className="font-body text-sm text-slate">{inquiry.estimated_guest_count}</p>
             </div>
             <div className="sm:col-span-2">
-              <p className="font-body text-xs text-slate/50">Location</p>
+              <p className="font-body text-xs text-slate/75">Location</p>
               <p className="font-body text-sm text-slate">{inquiry.event_location}</p>
             </div>
           </div>
@@ -134,7 +134,7 @@ export default async function InquiryDetailPage({ params }: PageProps) {
 
         {/* Package */}
         <section className="mb-8">
-          <h2 className="font-body text-xs font-semibold text-slate/50 uppercase tracking-wider mb-3">Package</h2>
+          <h2 className="font-body text-xs font-semibold text-slate/75 uppercase tracking-wider mb-3">Package</h2>
           <p className="font-body text-sm text-slate">
             {inquiry.package_name_snapshot} ({inquiry.package_price_display_snapshot})
           </p>
@@ -142,27 +142,27 @@ export default async function InquiryDetailPage({ params }: PageProps) {
 
         {/* Drinks */}
         <section className="mb-8">
-          <h2 className="font-body text-xs font-semibold text-slate/50 uppercase tracking-wider mb-3">Drink Choices</h2>
+          <h2 className="font-body text-xs font-semibold text-slate/75 uppercase tracking-wider mb-3">Drink Choices</h2>
           <DrinkDisplay drinks={drinks} />
         </section>
 
         {/* Additional Notes */}
         {inquiry.additional_notes && (
           <section className="mb-8">
-            <h2 className="font-body text-xs font-semibold text-slate/50 uppercase tracking-wider mb-3">Additional Notes</h2>
+            <h2 className="font-body text-xs font-semibold text-slate/75 uppercase tracking-wider mb-3">Additional Notes</h2>
             <p className="font-body text-sm text-slate whitespace-pre-wrap">{inquiry.additional_notes}</p>
           </section>
         )}
 
         {/* Admin Notes */}
         <section className="mb-8">
-          <h2 className="font-body text-xs font-semibold text-slate/50 uppercase tracking-wider mb-3">Admin Notes</h2>
+          <h2 className="font-body text-xs font-semibold text-slate/75 uppercase tracking-wider mb-3">Admin Notes</h2>
           <AdminNotes inquiryId={inquiry.id} currentNotes={inquiry.admin_notes ?? ''} />
         </section>
 
         {/* Meta */}
         <section className="border-t border-slate/10 pt-4 mt-8">
-          <p className="font-body text-xs text-slate/40">
+          <p className="font-body text-xs text-slate/75">
             Submitted: {formatDateTime(inquiry.created_at)} • Source: {inquiry.source}
           </p>
         </section>

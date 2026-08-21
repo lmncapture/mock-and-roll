@@ -75,7 +75,7 @@ export default function FilterBar({ status, eventType, packageFilter, eventDateF
         className={selectClass}
         aria-label="Event date from"
       />
-      <span className="font-body text-xs text-slate/50 self-center">to</span>
+      <span className="font-body text-xs text-slate/75 self-center">to</span>
       <input
         type="date"
         value={eventDateTo ?? ''}

@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <AboutHero />
         <WhoWeAre />
         <WhyWeStarted />

@@ -19,7 +19,7 @@ export default function MocktailsHero() {
         {/* Left: Typography */}
         <div className="lg:w-[50%] lg:py-0">
           <FadeIn>
-            <p className="font-body text-slate/50 text-sm font-medium tracking-widest uppercase mb-6">
+            <p aria-hidden="true" className="font-body text-slate/75 text-sm font-medium tracking-widest uppercase mb-6">
               Mock &amp; Roll — The Menu
             </p>
             <h1 className="font-display text-slate text-[clamp(40px,6.5vw,84px)] leading-[1.05] tracking-tight">

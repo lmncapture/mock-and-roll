@@ -6,7 +6,7 @@ export default function PackagesGallery() {
     <section className="bg-cool-white py-16 lg:py-24 px-6 lg:px-12 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <FadeIn>
-          <p className="font-body text-slate/50 text-sm font-medium tracking-widest uppercase mb-6">
+          <p aria-hidden="true" className="font-body text-slate/75 text-sm font-medium tracking-widest uppercase mb-6">
             The Experience
           </p>
           <h2 className="font-display text-slate text-3xl lg:text-4xl leading-[1.1] tracking-tight mb-12 lg:mb-16 max-w-lg">

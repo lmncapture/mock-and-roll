@@ -44,7 +44,7 @@ export default function LivePreview({ base, puree, syrup, garnishes }: LivePrevi
           </p>
         ))}
       </div>
-      <p className="mt-2 font-body text-xs text-slate/60 italic">
+      <p className="mt-2 font-body text-xs text-slate/75 italic">
         Sparkling with club soda
       </p>
     </div>

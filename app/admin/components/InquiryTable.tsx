@@ -55,27 +55,32 @@ export default function InquiryTable({ inquiries, sort, direction }: InquiryTabl
     );
   };
 
+  const getAriaSortValue = (column: string): 'ascending' | 'descending' | undefined => {
+    if (sort !== column) return undefined;
+    return direction === 'asc' ? 'ascending' : 'descending';
+  };
+
   return (
-    <div className="overflow-x-auto rounded-xl border border-slate/10">
+    <div className="overflow-x-auto rounded-xl border border-slate/10" role="region" aria-label="Inquiries table" tabIndex={0}>
       <table className="w-full text-left">
         <thead className="bg-slate/5">
-          <tr className="font-body text-xs text-slate/60 uppercase tracking-wider">
-            <th className="px-4 py-3">Ref</th>
-            <th className="px-4 py-3">Client</th>
-            <th className="px-4 py-3">Email</th>
-            <th className="px-4 py-3">{renderSortLink('event_date', 'Event Date')}</th>
-            <th className="px-4 py-3">Type</th>
-            <th className="px-4 py-3">Guests</th>
-            <th className="px-4 py-3">Package</th>
-            <th className="px-4 py-3">Status</th>
-            <th className="px-4 py-3">{renderSortLink('created_at', 'Submitted')}</th>
+          <tr className="font-body text-xs text-slate/75 uppercase tracking-wider">
+            <th scope="col" className="px-4 py-3">Ref</th>
+            <th scope="col" className="px-4 py-3">Client</th>
+            <th scope="col" className="px-4 py-3">Email</th>
+            <th scope="col" className="px-4 py-3" aria-sort={getAriaSortValue('event_date')}>{renderSortLink('event_date', 'Event Date')}</th>
+            <th scope="col" className="px-4 py-3">Type</th>
+            <th scope="col" className="px-4 py-3">Guests</th>
+            <th scope="col" className="px-4 py-3">Package</th>
+            <th scope="col" className="px-4 py-3">Status</th>
+            <th scope="col" className="px-4 py-3" aria-sort={getAriaSortValue('created_at')}>{renderSortLink('created_at', 'Submitted')}</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-slate/5">
           {inquiries.map((inquiry) => (
             <tr key={inquiry.id} className="hover:bg-frosted-mint/10 transition-colors">
               <td className="px-4 py-3">
-                <Link href={`/admin/inquiries/${inquiry.id}`} className="font-body text-xs text-slate/50 hover:text-slate font-mono">
+                <Link href={`/admin/inquiries/${inquiry.id}`} className="font-body text-xs text-slate/75 hover:text-slate font-mono">
                   {inquiry.reference}
                 </Link>
               </td>
@@ -90,7 +95,7 @@ export default function InquiryTable({ inquiries, sort, direction }: InquiryTabl
               <td className="px-4 py-3 font-body text-sm text-slate/70 text-center">{inquiry.estimated_guest_count}</td>
               <td className="px-4 py-3 font-body text-sm text-slate/70">{inquiry.package_name_snapshot}</td>
               <td className="px-4 py-3"><StatusBadge status={inquiry.status} /></td>
-              <td className="px-4 py-3 font-body text-xs text-slate/50">{formatDateTime(inquiry.created_at)}</td>
+              <td className="px-4 py-3 font-body text-xs text-slate/75">{formatDateTime(inquiry.created_at)}</td>
             </tr>
           ))}
         </tbody>
