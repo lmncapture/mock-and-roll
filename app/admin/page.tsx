@@ -9,6 +9,10 @@ import LogoutButton from '@/app/admin/components/LogoutButton';
 
 export const metadata = {
   title: 'Admin Dashboard | Mock & Roll',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 interface PageProps {

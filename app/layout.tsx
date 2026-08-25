@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -19,22 +19,28 @@ const outfit = localFont({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mocknrollbar.com";
 
+export const viewport: Viewport = {
+  themeColor: "#324648",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Mock & Roll — Premium Mobile Mocktail Bar",
+    default: "Mock & Roll — Premium Mobile Mocktail Bar | Seattle",
     template: "%s | Mock & Roll",
   },
   description:
-    "Premium mobile mocktail bar for weddings, birthdays, corporate events, and every celebration worth remembering. All of the buzz, none of the booze.",
+    "Premium mobile mocktail bar serving Seattle and surrounding areas. Handcrafted mocktails for weddings, birthdays, baby showers, corporate events, and every celebration worth remembering.",
   keywords: [
-    "mocktail bar",
-    "mobile bar",
-    "alcohol-free bar",
-    "non-alcoholic drinks",
-    "wedding bar",
-    "event bar",
-    "mocktails",
+    "mobile mocktail bar",
+    "mocktail bar Seattle",
+    "mobile mocktail bar Seattle",
+    "mocktail catering",
+    "non-alcoholic bar service",
+    "wedding mocktail bar",
+    "event mocktails",
     "Mock & Roll",
   ],
   authors: [{ name: "Mock & Roll" }],
@@ -42,23 +48,24 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Mock & Roll",
-    title: "Mock & Roll — Premium Mobile Mocktail Bar",
+    locale: "en_US",
+    title: "Mock & Roll — Premium Mobile Mocktail Bar | Seattle",
     description:
-      "Premium mobile mocktail bar for weddings, birthdays, corporate events, and every celebration worth remembering. All of the buzz, none of the booze.",
+      "Premium mobile mocktail bar serving Seattle and surrounding areas. Handcrafted mocktails for weddings, birthdays, corporate events, and every celebration worth remembering.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Mock & Roll — Premium Mobile Mocktail Bar",
+        alt: "Mock & Roll — Premium Mobile Mocktail Bar serving Seattle and surrounding areas",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mock & Roll — Premium Mobile Mocktail Bar",
+    title: "Mock & Roll — Premium Mobile Mocktail Bar | Seattle",
     description:
-      "Premium mobile mocktail bar for weddings, birthdays, corporate events, and every celebration worth remembering.",
+      "Premium mobile mocktail bar serving Seattle and surrounding areas. Handcrafted mocktails for weddings, birthdays, corporate events, and celebrations.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -71,6 +78,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: siteUrl,
   },
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import FadeIn from "@/app/components/ui/FadeIn";
 
@@ -174,6 +175,18 @@ export default function Mocktails() {
             ))}
           </div>
         </div>
+
+        {/* Internal link to full mocktails page */}
+        <FadeIn>
+          <div className="flex justify-center mt-10 lg:mt-14">
+            <Link
+              href="/mocktails"
+              className="font-body font-medium text-slate/80 hover:text-slate text-sm lg:text-base transition-colors duration-200 underline underline-offset-4 decoration-slate/30 hover:decoration-slate/60"
+            >
+              View our full menu &amp; custom builder
+            </Link>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

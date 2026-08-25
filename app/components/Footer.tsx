@@ -32,7 +32,8 @@ export default function Footer() {
               />
             </Link>
             <p className="font-body text-sm text-cool-white/70 mt-2 max-w-xs">
-              Premium mobile mocktail experiences for weddings, celebrations, and every event worth remembering.
+              Premium mobile mocktail bar serving Seattle and surrounding areas.
+              Weddings, baby showers, birthdays, corporate events, and every celebration worth remembering.
             </p>
           </div>
 

@@ -5,24 +5,16 @@ import Portfolio from "@/app/components/Portfolio";
 import Events from "@/app/components/Events";
 import ReservationCTA from "@/app/components/ReservationCTA";
 import Footer from "@/app/components/Footer";
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Mock & Roll",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://mocknrollbar.com",
-  sameAs: ["https://www.instagram.com/mocknrollbar"],
-};
+import JsonLd from "@/app/components/JsonLd";
+import {
+  getOrganizationSchema,
+  getWebSiteSchema,
+} from "@/lib/seo/structured-data";
 
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={[getOrganizationSchema(), getWebSiteSchema()]} />
       <Header />
       <main id="main-content" tabIndex={-1}>
         <Hero />

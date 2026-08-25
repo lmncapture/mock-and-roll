@@ -32,7 +32,7 @@ const events = [
 
 export default function Events() {
   return (
-    <section id="packages" className="bg-peach-nectar py-16 lg:py-24 px-6 lg:px-12 overflow-hidden">
+    <section id="events" className="bg-peach-nectar py-16 lg:py-24 px-6 lg:px-12 overflow-hidden">
       <FadeIn>
       <div className="mx-auto max-w-7xl">
         {/* Compact header */}

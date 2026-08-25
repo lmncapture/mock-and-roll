@@ -2,17 +2,52 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import FadeIn from "@/app/components/ui/FadeIn";
 import Button from "@/app/components/ui/Button";
+import JsonLd from "@/app/components/JsonLd";
+import { getBreadcrumbSchema } from "@/lib/seo/structured-data";
 import Image from "next/image";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mocknrollbar.com";
 
 export const metadata = {
   title: "About",
   description:
     "Meet Lauren, the founder of Mock & Roll — a luxury mobile mocktail bar born from an unexpected new chapter, serving Seattle and the surrounding areas.",
+  alternates: {
+    canonical: `${siteUrl}/about`,
+  },
 };
 
 export default function AboutPage() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About Mock & Roll",
+    description:
+      "Meet Lauren, the founder of Mock & Roll — a luxury mobile mocktail bar serving Seattle and surrounding areas.",
+    url: `${siteUrl}/about`,
+    mainEntity: {
+      "@type": "Person",
+      name: "Lauren",
+      jobTitle: "Founder",
+      worksFor: {
+        "@type": "LocalBusiness",
+        "@id": `${siteUrl}/#organization`,
+        name: "Mock & Roll",
+      },
+    },
+  };
+
   return (
     <>
+      <JsonLd
+        data={[
+          aboutSchema,
+          getBreadcrumbSchema([
+            { name: "Home", url: siteUrl },
+            { name: "About", url: `${siteUrl}/about` },
+          ]),
+        ]}
+      />
       <Header />
       <main id="main-content" tabIndex={-1}>
         {/* Editorial Hero */}
