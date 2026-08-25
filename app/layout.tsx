@@ -7,6 +7,7 @@ const justCosmic = localFont({
   src: "../public/fonts/JustCosmic.otf",
   variable: "--font-just-cosmic",
   display: "swap",
+  adjustFontFallback: "Times New Roman",
 });
 
 const outfit = localFont({

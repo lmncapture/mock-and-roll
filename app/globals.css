@@ -54,3 +54,13 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Prevent decorative font glyph clipping on display headings.
+   Just Cosmic has overhang on letters like l, R, M, & that extend
+   beyond the text bounding box. Parent sections use overflow-hidden
+   for decorative blurs — this ensures headings are never clipped. */
+.font-display {
+  overflow: visible;
+  padding-inline: 0.04em;
+  margin-inline: -0.04em;
+}
