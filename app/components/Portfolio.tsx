@@ -27,6 +27,29 @@ const portfolioImages = [
   },
 ];
 
+const additionalImages = [
+  {
+    src: "/images/mr-img-4546.webp",
+    alt: "Vibrant mocktail presentation with fresh garnishes at a private celebration",
+    orientation: "portrait" as const,
+  },
+  {
+    src: "/images/mr-img-4551.webp",
+    alt: "Guests gathered around a curated mocktail bar at an evening event",
+    orientation: "portrait" as const,
+  },
+  {
+    src: "/images/mr-img-4905.webp",
+    alt: "Handcrafted mocktail with botanical accents served at a garden party",
+    orientation: "portrait" as const,
+  },
+  {
+    src: "/images/mr-img-4911.webp",
+    alt: "Panoramic view of a Mock & Roll mocktail spread at a festive gathering",
+    orientation: "landscape" as const,
+  },
+];
+
 export default function Portfolio() {
   return (
     <section id="portfolio" className="bg-rose-petal py-16 lg:py-32 px-6 lg:px-12 overflow-hidden">
@@ -102,6 +125,49 @@ export default function Portfolio() {
               </motion.div>
             </div>
           </FadeIn>
+
+          {/* Row 3: three portrait images side by side */}
+          <FadeIn delay={0.15}>
+            <div className="grid grid-cols-12 gap-4 mt-4">
+              {additionalImages
+                .filter((img) => img.orientation === "portrait")
+                .map((img, i) => (
+                  <motion.div
+                    key={i}
+                    className="col-span-4 relative rounded-2xl overflow-hidden aspect-[3/4] group cursor-pointer"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      sizes="33vw"
+                    />
+                  </motion.div>
+                ))}
+            </div>
+          </FadeIn>
+
+          {/* Row 4: landscape image as wide visual anchor */}
+          <FadeIn delay={0.2}>
+            <div className="grid grid-cols-12 gap-4 mt-4">
+              <motion.div
+                className="col-span-12 relative rounded-2xl overflow-hidden aspect-[16/9] group cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                <Image
+                  src={additionalImages[3].src}
+                  alt={additionalImages[3].alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  sizes="100vw"
+                />
+              </motion.div>
+            </div>
+          </FadeIn>
         </div>
 
         {/* Mobile: vertical stacked + horizontal scroll combo */}
@@ -135,6 +201,25 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
+
+          {/* Additional gallery images — stacked vertically */}
+          {additionalImages.map((img, i) => (
+            <FadeIn key={i}>
+              <div
+                className={`relative rounded-2xl overflow-hidden w-full ${
+                  img.orientation === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]"
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>
