@@ -23,12 +23,12 @@ export default function AboutPage() {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="relative z-10 mx-auto max-w-7xl text-center">
             <FadeIn>
               <p className="font-body text-slate/75 text-sm font-medium tracking-widest uppercase mb-6">
                 Our Story
               </p>
-              <h1 className="font-display text-slate text-[clamp(40px,6vw,80px)] leading-[1.05] tracking-tight max-w-2xl">
+              <h1 className="font-display text-slate text-[clamp(40px,6vw,80px)] leading-[1.05] tracking-tight">
                 Meet Lauren
               </h1>
             </FadeIn>
