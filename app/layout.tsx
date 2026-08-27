@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
+import MetaPixel from "@/app/components/MetaPixel";
 import "./globals.css";
 
 const justCosmic = localFont({
@@ -103,6 +104,7 @@ export default function RootLayout({
         </a>
         {children}
         <Analytics />
+        <MetaPixel />
       </body>
     </html>
   );

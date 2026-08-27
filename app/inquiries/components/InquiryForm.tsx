@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import FormSection from './FormSection';
 import PackageCard from './PackageCard';
 import DrinkSlot, { type DrinkSlotState } from './DrinkSlot';
 import { PACKAGES, getPackageById, isPackageEligible } from '@/lib/config/packages';
 import { EVENT_TYPES } from '@/lib/config/event-types';
+import { trackLead } from '@/lib/analytics/meta';
 
 interface InquiryFormState {
   // Section 01
@@ -63,6 +64,7 @@ const initialState: InquiryFormState = {
 export default function InquiryForm() {
   const [form, setForm] = useState<InquiryFormState>(initialState);
   const [excessDrinkCount, setExcessDrinkCount] = useState(0);
+  const leadFiredRef = useRef(false);
 
   // Derive package info
   const selectedPackage = form.packageId ? getPackageById(form.packageId) : null;
@@ -203,6 +205,16 @@ export default function InquiryForm() {
       });
 
       if (res.ok) {
+        // Fire Meta Lead event exactly once per successful submission
+        if (!leadFiredRef.current) {
+          leadFiredRef.current = true;
+          const pkg = getPackageById(form.packageId);
+          trackLead({
+            content_name: pkg?.name ?? undefined,
+            content_category: form.packageId,
+            value: parseInt(form.estimatedGuestCount, 10) || undefined,
+          });
+        }
         setForm((prev) => ({ ...prev, isSubmitting: false, isSuccess: true }));
       } else {
         const data = await res.json().catch(() => null);
