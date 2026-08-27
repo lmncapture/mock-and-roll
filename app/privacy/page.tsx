@@ -102,7 +102,7 @@ export default function PrivacyPage() {
                 Our website uses Meta Pixel, a technology provided by Meta Platforms, Inc. Meta Pixel helps us understand how visitors interact with our website and measure the effectiveness of our advertising on Meta platforms (such as Facebook and Instagram).
               </p>
               <p>
-                When you visit our website, Meta Pixel may collect information about your browsing activity, such as pages visited. When you submit an inquiry, Meta Advanced Matching may securely transmit certain customer identifiers — such as your email address, phone number, first name, and last name — to Meta for matching, attribution, and advertising measurement purposes. Meta processes this information using hashing before transmission and handles it according to its own privacy policies.
+                When you visit our website, Meta Pixel may collect information about your browsing activity, such as pages visited. When you submit an inquiry, Meta Advanced Matching may send certain customer identifiers — such as your email address, phone number, first name, and last name — to Meta for matching, attribution, and advertising measurement purposes. Meta Pixel&rsquo;s Advanced Matching mechanism handles the hashing of these normalized identifiers. Meta processes this information according to its own privacy policies.
               </p>
               <p>
                 You can learn more about how Meta uses information by reviewing the{" "}
