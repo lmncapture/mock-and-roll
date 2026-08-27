@@ -105,10 +105,16 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-cool-white/10 mt-12 lg:mt-16 pt-8">
-          <p className="font-body text-sm text-cool-white/70 text-center">
+        <div className="border-t border-cool-white/10 mt-12 lg:mt-16 pt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+          <p className="font-body text-sm text-cool-white/70">
           © {new Date().getFullYear()} Mock &amp; Roll. All rights reserved.
           </p>
+          <Link
+            href="/privacy"
+            className="font-body text-sm text-cool-white/50 hover:text-cool-white/80 transition-colors duration-200"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>
