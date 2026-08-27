@@ -6,7 +6,7 @@ import PackageCard from './PackageCard';
 import DrinkSlot, { type DrinkSlotState } from './DrinkSlot';
 import { PACKAGES, getPackageById, isPackageEligible } from '@/lib/config/packages';
 import { EVENT_TYPES } from '@/lib/config/event-types';
-import { trackLead } from '@/lib/analytics/meta';
+import { trackLead, setAdvancedMatching } from '@/lib/analytics/meta';
 
 interface InquiryFormState {
   // Section 01
@@ -208,6 +208,13 @@ export default function InquiryForm() {
         // Fire Meta Lead event exactly once per successful submission
         if (!leadFiredRef.current) {
           leadFiredRef.current = true;
+          // Set Advanced Matching with customer identifiers before Lead event
+          setAdvancedMatching({
+            email: form.email,
+            firstName: form.firstName,
+            lastName: form.lastName,
+            phone: form.phoneNumber,
+          });
           const pkg = getPackageById(form.packageId);
           trackLead({
             content_name: pkg?.name ?? undefined,
