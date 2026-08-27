@@ -212,7 +212,7 @@ export default function InquiryForm() {
           trackLead({
             content_name: pkg?.name ?? undefined,
             content_category: form.packageId,
-            value: parseInt(form.estimatedGuestCount, 10) || undefined,
+            guest_count: parseInt(form.estimatedGuestCount, 10) || undefined,
           });
         }
         setForm((prev) => ({ ...prev, isSubmitting: false, isSuccess: true }));
