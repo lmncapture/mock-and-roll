@@ -1,12 +1,14 @@
 'use client';
 
 import { useState, useCallback, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import FormSection from './FormSection';
 import PackageCard from './PackageCard';
 import DrinkSlot, { type DrinkSlotState } from './DrinkSlot';
 import { PACKAGES, getPackageById, isPackageEligible } from '@/lib/config/packages';
 import { EVENT_TYPES } from '@/lib/config/event-types';
-import { trackLead, setAdvancedMatching } from '@/lib/analytics/meta';
+import { setAdvancedMatching } from '@/lib/analytics/meta';
+import { INQUIRY_CONVERSION_STORAGE_KEY, type InquiryConversion } from '@/lib/analytics/inquiry-conversion';
 
 interface InquiryFormState {
   // Section 01
@@ -31,7 +33,6 @@ interface InquiryFormState {
   honeypot: string;
   // UI state
   isSubmitting: boolean;
-  isSuccess: boolean;
   errors: Record<string, string>;
 }
 
@@ -57,14 +58,14 @@ const initialState: InquiryFormState = {
   additionalNotes: '',
   honeypot: '',
   isSubmitting: false,
-  isSuccess: false,
   errors: {},
 };
 
 export default function InquiryForm() {
+  const router = useRouter();
   const [form, setForm] = useState<InquiryFormState>(initialState);
   const [excessDrinkCount, setExcessDrinkCount] = useState(0);
-  const leadFiredRef = useRef(false);
+  const submittedRef = useRef(false);
 
   // Derive package info
   const selectedPackage = form.packageId ? getPackageById(form.packageId) : null;
@@ -205,24 +206,45 @@ export default function InquiryForm() {
       });
 
       if (res.ok) {
-        // Fire Meta Lead event exactly once per successful submission
-        if (!leadFiredRef.current) {
-          leadFiredRef.current = true;
-          // Set Advanced Matching with customer identifiers before Lead event
+        // Guard against duplicate handling of a single successful submission.
+        if (!submittedRef.current) {
+          submittedRef.current = true;
+
+          // Set Meta Advanced Matching with in-memory customer identifiers
+          // NOW, on the inquiry page. PII is never persisted to storage or
+          // carried across the redirect; only the hashed matching data set
+          // here (by the Pixel) travels with subsequent events.
           setAdvancedMatching({
             email: form.email,
             firstName: form.firstName,
             lastName: form.lastName,
             phone: form.phoneNumber,
           });
+
+          // Persist only NON-PII conversion context for the thank-you page to
+          // fire the Lead event. The Lead event itself is fired there.
           const pkg = getPackageById(form.packageId);
-          trackLead({
-            content_name: pkg?.name ?? undefined,
-            content_category: form.packageId,
-            guest_count: parseInt(form.estimatedGuestCount, 10) || undefined,
-          });
+          const guestCount = parseInt(form.estimatedGuestCount, 10);
+          const conversion: InquiryConversion = {
+            completed: true,
+            packageId: form.packageId,
+            packageName: pkg?.name ?? undefined,
+            guestCount: Number.isNaN(guestCount) ? undefined : guestCount,
+          };
+          try {
+            sessionStorage.setItem(
+              INQUIRY_CONVERSION_STORAGE_KEY,
+              JSON.stringify(conversion),
+            );
+          } catch {
+            // sessionStorage may be unavailable (private mode, etc.).
+            // The redirect still proceeds; Lead simply won't fire.
+          }
+
+          // Navigate to the dedicated confirmation page. Keep isSubmitting
+          // true so the button stays disabled through the transition.
+          router.push('/inquiries/thank-you');
         }
-        setForm((prev) => ({ ...prev, isSubmitting: false, isSuccess: true }));
       } else {
         const data = await res.json().catch(() => null);
         const errors: Record<string, string> = {};
@@ -245,18 +267,6 @@ export default function InquiryForm() {
       }));
     }
   };
-
-  // Success state
-  if (form.isSuccess) {
-    return (
-      <div role="status" aria-live="polite" className="rounded-2xl bg-frosted-mint/30 p-8 lg:p-12 text-center">
-        <h2 className="font-display text-2xl lg:text-3xl text-slate">Thank You!</h2>
-        <p className="font-body text-base text-slate/80 mt-4 max-w-md mx-auto leading-relaxed">
-          Thanks for your inquiry — someone from our team will be in touch within 1 business day.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-16" noValidate>
