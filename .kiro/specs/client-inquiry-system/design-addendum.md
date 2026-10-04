@@ -259,9 +259,9 @@ p_package_price_display_snapshot text,
 
 Show package pricing context alongside the package name in the inquiry detail view.
 
-### Notification Email
+### ~~Notification Email~~ — REMOVED
 
-Include package pricing in the Package section of the notification.
+Inquiry email notifications are no longer sent; the Supabase-backed admin dashboard is the sole channel for receiving inquiries. (Package pricing is shown in the admin inquiry detail view.)
 
 ## 5. Inquiry Source Column
 
@@ -320,7 +320,6 @@ export function formatTime(time: string): string {
 Used in:
 - Admin inquiry list (event date, submitted date)
 - Admin inquiry detail (all dates/times)
-- Notification email (event date, event time, submitted timestamp)
 - Success confirmation (if date/time is referenced)
 - Event date validation (determining "today")
 
@@ -420,7 +419,6 @@ The current `updateAdminNotes` server action updates `admin_notes` only. It does
 | Admin inquiry detail | Display package price info. Show `source` field. |
 | Admin inquiry list | Pagination component receives `totalPages`/`currentPage` directly. |
 | All date displays | Use `formatDate()`/`formatTime()` from `lib/utils/format.ts` |
-| Notification email | Include package pricing. Use consistent timezone formatting. |
 
 ### Tests to Add/Update
 

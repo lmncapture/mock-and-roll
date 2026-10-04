@@ -5,7 +5,6 @@ import { getPackageById, isPackageEligible } from '@/lib/config/packages';
 import { SIGNATURE_DRINKS } from '@/lib/config/drinks';
 import { getTodayInBusinessTimezone } from '@/lib/utils/format';
 import { createAdminSupabaseClient } from '@/lib/supabase/admin';
-import { sendInquiryNotification } from '@/lib/email/send-inquiry-notification';
 
 export async function POST(request: Request) {
   try {
@@ -135,34 +134,7 @@ export async function POST(request: Request) {
 
     const reference = result?.reference as string;
 
-    // 10. Send notification email (await inside try/catch — log failure but proceed)
-    try {
-      await sendInquiryNotification({
-        reference,
-        firstName,
-        lastName,
-        email,
-        phoneNumber: phoneResult.phoneNumber,
-        eventDate: data.eventDate,
-        eventTime: data.eventTime,
-        eventType: data.eventType,
-        eventTypeOther: eventTypeOther ?? undefined,
-        estimatedGuestCount: data.estimatedGuestCount,
-        eventLocation,
-        packageName: pkg.name,
-        packagePriceDisplay: pkg.priceDisplay,
-        drinks: drinksPayload,
-        additionalNotes: additionalNotes ?? undefined,
-        inquiryId: result?.id as string,
-      });
-    } catch (emailError) {
-      console.error(
-        `[Resend] Notification failed for inquiry ${reference}:`,
-        emailError instanceof Error ? emailError.message : 'Unknown error'
-      );
-    }
-
-    // 11. Success response
+    // 10. Success response
     return NextResponse.json({ success: true, reference });
   } catch (error) {
     console.error(

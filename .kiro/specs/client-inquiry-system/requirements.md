@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Mock & Roll Client Inquiry System is a full-stack feature that enables prospective clients to submit event inquiries through a public form at `/inquiries`. The system captures client contact details (including phone number), event information, package selection with eligibility validation, package-dependent drink choices (signature mocktails or custom mocktail configurations), and additional notes. Submissions are validated and normalized server-side, persisted atomically to Supabase via a transactional RPC, and trigger a notification email via Resend. A private admin dashboard allows authorized team members to review, search, filter, sort, and manage inquiries using URL-driven state.
+The Mock & Roll Client Inquiry System is a full-stack feature that enables prospective clients to submit event inquiries through a public form at `/inquiries`. The system captures client contact details (including phone number), event information, package selection with eligibility validation, package-dependent drink choices (signature mocktails or custom mocktail configurations), and additional notes. Submissions are validated and normalized server-side and persisted atomically to Supabase via a transactional RPC. An inquiry is considered successfully submitted once it has been validated and persisted to Supabase; no email notifications are sent. A private admin dashboard allows authorized team members to review, search, filter, sort, and manage inquiries using URL-driven state and is the sole channel for receiving inquiries.
 
 The interactive "Create Your Own Mocktail" builder is one component within this system — it appears conditionally inside individual drink selection slots when a visitor chooses "Create Your Own" rather than a signature mocktail. The public `/mocktails` page remains a static showcase.
 
@@ -199,10 +199,8 @@ The interactive "Create Your Own Mocktail" builder is one component within this 
 1. THE Inquiry_Form SHALL display a submit button labeled "Send Inquiry" (or another polished equivalent that does not imply a confirmed booking)
 2. WHEN the form is submitted successfully, THE Inquiry_Form SHALL display the message "Thanks for your inquiry — someone from our team will be in touch within 1 business day."
 3. THE success message SHALL NOT appear until the inquiry has been safely persisted to Supabase via the Transactional_RPC
-4. IF the inquiry is stored successfully but the Resend notification fails, THE system SHALL still display the success message to the visitor
-5. THE system SHALL NOT require the visitor to resubmit if only the notification email fails
-6. THE system SHALL log notification failures server-side without exposing internal details to the visitor
-7. THE system SHALL NOT create duplicate inquiries under any failure scenario
+4. An inquiry SHALL be considered successfully submitted once it has been validated and persisted to Supabase via the Transactional_RPC, and the success message SHALL be displayed on that basis
+5. THE system SHALL NOT create duplicate inquiries under any failure scenario
 
 ### Requirement 14: Server-Side Validation and Normalization
 
@@ -273,30 +271,20 @@ The interactive "Create Your Own Mocktail" builder is one component within this 
 
 ### Requirement 19: Public Submission API and Transactional Persistence
 
-**User Story:** As a system operator, I want inquiry submissions processed through a server-side API route with atomic persistence, so that validation, storage, and notification happen securely and no partial records are left behind.
+**User Story:** As a system operator, I want inquiry submissions processed through a server-side API route with atomic persistence, so that validation and storage happen securely and no partial records are left behind.
 
 #### Acceptance Criteria
 
 1. THE system SHALL create an API route at `app/api/inquiries/route.ts` accepting POST requests
-2. THE API route SHALL execute this sequence: (1) receive POST request, (2) check anti-spam controls, (3) validate all fields server-side, (4) normalize inputs, (5) validate package business rules and eligibility, (6) validate drink-slot count against package, (7) validate each drink configuration, (8) remove stale/inactive choice data, (9) call Transactional_RPC using the Privileged_Client, (10) receive the created inquiry ID and reference, (11) attempt Resend notification, (12) return safe response
+2. THE API route SHALL execute this sequence: (1) receive POST request, (2) check anti-spam controls, (3) validate all fields server-side, (4) normalize inputs, (5) validate package business rules and eligibility, (6) validate drink-slot count against package, (7) validate each drink configuration, (8) remove stale/inactive choice data, (9) call Transactional_RPC using the Privileged_Client, (10) receive the created inquiry ID and reference, (11) return safe response
 3. THE Transactional_RPC SHALL be a PostgreSQL function (represented in a migration) that creates the inquiry and ALL required related records (drink choices, custom mocktails) within a single database transaction
 4. THE database operation SHALL either successfully create the complete inquiry with all child records OR roll back the entire operation — no partial records
-5. THE Resend notification SHALL occur OUTSIDE the database transaction; if persistence succeeds but Resend fails, the inquiry is kept and success is returned to the visitor
+5. An inquiry SHALL be considered successfully submitted once persistence via the Transactional_RPC succeeds, at which point a safe success response with the Inquiry_Reference is returned to the visitor
 6. THE system SHALL generate the Inquiry_Reference server-side or database-side as part of the transactional creation
 
-### Requirement 20: Resend Notification
+### Requirement 20: ~~Resend Notification~~ — REMOVED
 
-**User Story:** As a team member, I want to receive an email notification when a new inquiry arrives, so that I can respond promptly.
-
-#### Acceptance Criteria
-
-1. THE system SHALL send a notification email using Resend after an inquiry is successfully stored
-2. THE notification SHALL set replyTo to the visitor's submitted email address
-3. THE notification SHALL never use the visitor's email as the From address
-4. THE notification SHALL be sent to the recipient specified in the INQUIRY_NOTIFICATION_EMAIL environment variable
-5. THE notification subject SHALL include the Inquiry_Reference and client name, e.g., "New Mock & Roll Inquiry MR-2026-XXXXXX — Jane Smith"
-6. THE notification body SHALL include: contact details (first name, last name, email, phone number), event details (date, time, type, guest count, location), package name, Inquiry_Reference, all drink choices with full details — signature drink names for signature choices; base, purée, syrup, garnishes, and "Sparkling with club soda" preparation note for custom choices — and additional notes
-7. IF NEXT_PUBLIC_SITE_URL is configured, THE notification SHALL include a direct link to the inquiry's admin detail page
+Inquiry email notifications are no longer sent. An inquiry is considered successfully submitted once it has been validated and persisted to Supabase via the Transactional_RPC, and the Supabase-backed admin dashboard is the sole channel for receiving and managing inquiries. The former acceptance criteria governing Resend email delivery, recipients, subject, body, and admin-link content no longer apply.
 
 ### Requirement 21: Admin Authentication
 
@@ -394,7 +382,7 @@ The interactive "Create Your Own Mocktail" builder is one component within this 
 #### Acceptance Criteria
 
 1. THE admin detail page SHALL allow adding or updating private admin notes
-2. ADMIN notes SHALL never appear publicly, in client-facing messages, or in notification emails
+2. ADMIN notes SHALL never appear publicly or in client-facing messages
 3. ADMIN notes SHALL persist safely with a clear save confirmation
 4. SAVING admin notes SHALL NOT overwrite other inquiry fields
 5. SAVING admin notes SHALL trigger the updated_at timestamp to update automatically
@@ -433,7 +421,7 @@ The interactive "Create Your Own Mocktail" builder is one component within this 
 1. THE system SHALL define a shared canonical configuration for packages including: stable identifier, display name, pricing mode, price/base price/per-person rate, guest-count eligibility rules (min/max), and allowed drink count
 2. THE system SHALL define a shared canonical configuration for signature mocktails including: stable identifier and display name
 3. THE system SHALL define a shared canonical configuration for custom mocktail ingredients including bases, purées, syrups, and garnishes
-4. THE Inquiry_Form, API validation, notification email, and admin dashboard SHALL all reference the same shared configuration
+4. THE Inquiry_Form, API validation, and admin dashboard SHALL all reference the same shared configuration
 5. THE static `/mocktails` page SHOULD render from the same ingredient configuration where feasible without unnecessary redesign
 6. THE canonical package configuration SHALL contain structured values sufficient to determine eligibility — business logic SHALL NOT be derived by parsing display strings
 
@@ -448,7 +436,6 @@ The interactive "Create Your Own Mocktail" builder is one component within this 
 3. THE Inquiry_Reference SHALL be collision-safe and unique
 4. THE Inquiry_Reference SHALL NOT replace the internal UUID primary key
 5. THE Inquiry_Reference SHALL be visible in the admin inquiry list and detail page
-6. THE Inquiry_Reference SHALL be included in the Resend notification subject and body
 
 ### Requirement 33: Environment Variables
 
@@ -457,7 +444,7 @@ The interactive "Create Your Own Mocktail" builder is one component within this 
 #### Acceptance Criteria
 
 1. THE system SHALL use these public environment variables: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, NEXT_PUBLIC_SITE_URL
-2. THE system SHALL use these server-only environment variables: SUPABASE_SECRET_KEY, RESEND_API_KEY, RESEND_FROM_EMAIL, INQUIRY_NOTIFICATION_EMAIL
+2. THE system SHALL use these server-only environment variables: SUPABASE_SECRET_KEY
 3. THE `.env.example` file SHALL be updated with all variable names and safe placeholder descriptions
 4. SERVER-ONLY variables SHALL NOT be prefixed with NEXT_PUBLIC_
 5. THE system SHALL validate required environment variables at startup and name missing variables in error messages without exposing values
@@ -526,7 +513,6 @@ The interactive "Create Your Own Mocktail" builder is one component within this 
 2. THE system SHALL verify the complete Your Event section: event date required and not in the past, event type selection, Other conditional field, guest count positive integer, location required, time required
 3. THE system SHALL verify Package selection: required, correct values, package eligibility against guest count (Signature ≤30, Celebration >30), package-dependent drink count enforcement, server rejects manipulated combinations
 4. THE system SHALL verify Drink choices: signature selection, custom selection, multiple independent slots, base/purée/syrup single-select, garnish multi-select, type switching behavior (no stale data), server validation of all drink configurations
-5. THE system SHALL verify transactional persistence: complete inquiry persists, all drink choices persist, custom mocktail children persist, signature choices do not create custom rows, simulated child-write failure rolls back entire inquiry, no orphaned records, Resend failure after persistence does NOT remove inquiry
-6. THE system SHALL verify Resend notification: generated, correct recipients, replyTo correct, From correct, all fields including phone number and Inquiry_Reference included, failure handled safely
+5. THE system SHALL verify transactional persistence: complete inquiry persists, all drink choices persist, custom mocktail children persist, signature choices do not create custom rows, simulated child-write failure rolls back entire inquiry, no orphaned records
 7. THE system SHALL verify Admin: authentication, authorization (non-admin denied), list, search (including phone), filters, sorting, pagination, detail view (including phone as tel: link), status update, notes update, URL state persistence
 8. THE system SHALL verify Security: RLS enabled, direct public reads blocked, direct public writes blocked, service secret absent from client bundle, phone numbers not exposed publicly

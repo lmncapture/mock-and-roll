@@ -2,7 +2,7 @@
 
 ## Overview
 
-A full-stack event inquiry system comprising: a public form at `/inquiries`, server-side validation and normalization, atomic Supabase persistence via a PostgreSQL RPC, Resend email notification, and a private admin dashboard with search/filter/sort/pagination driven by URL state.
+A full-stack event inquiry system comprising: a public form at `/inquiries`, server-side validation and normalization, atomic Supabase persistence via a PostgreSQL RPC, and a private admin dashboard with search/filter/sort/pagination driven by URL state. An inquiry is considered successfully submitted once it has been validated and persisted to Supabase via the `create_inquiry` RPC; the Supabase-backed admin dashboard is the sole channel for receiving and managing inquiries (no email notifications are sent).
 
 ## Implementation Decisions Resolved
 
@@ -58,8 +58,7 @@ This value must be confirmed before production deployment. If the business reloc
 │       ├─ 4. Package eligibility check                            │
 │       ├─ 5. Drink-count + drink-config validation                │
 │       ├─ 6. RPC: create_inquiry() — transactional                │
-│       ├─ 7. await Resend notification (catch/log failure)        │
-│       └─ 8. Return { success, reference }                        │
+│       └─ 7. Return { success, reference }                        │
 │                                                                   │
 └─────────────────────────────────────────────────────────────────┘
 
@@ -162,8 +161,6 @@ lib/
     admin-params.ts             ← URL parameter sanitization for admin queries
   auth/
     require-admin.ts            ← requireAdmin() helper
-  email/
-    send-inquiry-notification.ts ← Resend notification builder
   env/
     server.ts                   ← Server-only env validation (import 'server-only')
     public.ts                   ← Public env access
@@ -550,9 +547,6 @@ function requireEnv(name: string): string {
 
 export const serverEnv = {
   supabaseSecretKey: requireEnv('SUPABASE_SECRET_KEY'),
-  resendApiKey: requireEnv('RESEND_API_KEY'),
-  resendFromEmail: requireEnv('RESEND_FROM_EMAIL'),
-  notificationEmail: requireEnv('INQUIRY_NOTIFICATION_EMAIL'),
 };
 ```
 
@@ -1326,54 +1320,16 @@ export async function POST(request: Request) {
   // 8. drinks.length === getPackageById(packageId).allowedDrinkCount
   // 9. Build RPC payload with name snapshots for package + signature drinks
   // 10. Call create_inquiry RPC via admin client
-  // 11. await Resend notification inside try/catch
-  // 12. Return { success: true, reference }
+  // 11. Return { success: true, reference }
 }
 ```
 
-**Resend is awaited** — not fire-and-forget — to ensure the email attempt completes before the serverless runtime terminates. Failure is caught and logged; it does not affect the response.
+**Success point:** An inquiry is considered successfully submitted once it has been validated and persisted to Supabase via the `create_inquiry` RPC. No email notification is sent; the Supabase-backed admin dashboard is the sole channel for receiving and managing inquiries.
 
 **Response shapes:**
 - Success: `{ success: true, reference: "MR-2026-XXXXXX" }` (200)
 - Validation error: `{ success: false, errors: { field: message } }` (400)
 - Server error: `{ success: false, error: "Something went wrong" }` (500)
-
-## Resend Notification
-
-### `lib/email/send-inquiry-notification.ts`
-
-```typescript
-import 'server-only';
-import { Resend } from 'resend';
-import { serverEnv } from '@/lib/env/server';
-import { publicEnv } from '@/lib/env/public';
-
-// ... notification builder
-```
-
-**Subject:** `New Mock & Roll Inquiry ${reference} — ${firstName} ${lastName}`
-
-**Body:** Structured plain-text email with sections: Contact (name, email, phone), Event (date, time, type, guest count, location), Package, Drink Choices (with full custom details including "Sparkling with club soda"), Additional Notes, and admin link if `siteUrl` is configured.
-
-**Recipients:** From `INQUIRY_NOTIFICATION_EMAIL`.
-**replyTo:** Visitor's email.
-**from:** `RESEND_FROM_EMAIL`
-
-### Safe Error Logging
-
-```typescript
-try {
-  await resend.emails.send({ ... });
-} catch (error) {
-  // Log reference and error type only — no PII
-  console.error(
-    `[Resend] Notification failed for inquiry ${reference}:`,
-    error instanceof Error ? error.message : 'Unknown error'
-  );
-}
-```
-
-**Never log:** phone numbers, email addresses, additional notes, full form payloads, secret configuration. Only inquiry reference + sanitized error type.
 
 ## Duplicate Submission Prevention
 
@@ -1463,7 +1419,6 @@ All in `supabase/migrations/` directory, ordered for execution:
 | `libphonenumber-js` | Phone parsing/E.164 normalization | ~80KB gzip (tree-shakeable) |
 | `@supabase/supabase-js` | Privileged admin client | Already peer of @supabase/ssr |
 | `@supabase/ssr` | Server session client + middleware | New |
-| `resend` | Email notification | ~5KB |
 | `server-only` | Build-time guard for server modules | ~0KB (marker package) |
 
 ## Testing Strategy
@@ -1485,7 +1440,6 @@ All in `supabase/migrations/` directory, ordered for execution:
 - **API route — invalid phone:** → 400
 - **API route — honeypot filled:** → 400
 - **Transactional integrity:** All child records created on success; simulated child-insert failure rolls back entire inquiry; no orphaned rows
-- **Resend failure:** Inquiry persists, 200 returned, error logged without PII
 
 ### Security Tests
 

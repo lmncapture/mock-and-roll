@@ -2,13 +2,13 @@
 
 ## Overview
 
-A full-stack event inquiry system comprising: a public form at `/inquiries`, server-side validation and normalization, atomic Supabase persistence via a PostgreSQL RPC, Resend email notification, and a private admin dashboard with search/filter/sort/pagination driven by URL state. Implementation proceeds from shared configuration and infrastructure outward through public-facing features and admin tooling.
+A full-stack event inquiry system comprising: a public form at `/inquiries`, server-side validation and normalization, atomic Supabase persistence via a PostgreSQL RPC, and a private admin dashboard with search/filter/sort/pagination driven by URL state. An inquiry is considered successfully submitted once validated and persisted to Supabase; the admin dashboard is the sole channel for receiving inquiries (no email notifications are sent). Implementation proceeds from shared configuration and infrastructure outward through public-facing features and admin tooling.
 
 ## Tasks
 
 - [x] 1. Install dependencies and set up shared configuration
   - [x] 1.1 Install new npm dependencies
-    - Install `zod`, `libphonenumber-js`, `@supabase/supabase-js`, `@supabase/ssr`, `resend`, and `server-only`
+    - Install `zod`, `libphonenumber-js`, `@supabase/supabase-js`, `@supabase/ssr`, and `server-only`
     - Pin exact versions in package.json
     - _Requirements: 18.1, 18.2, 18.3, 33.1, 33.2_
 
@@ -29,7 +29,7 @@ A full-stack event inquiry system comprising: a public form at `/inquiries`, ser
     - _Requirements: 27.1, 3.4, 31.4_
 
   - [x] 1.5 Create environment variable modules
-    - Create `lib/env/server.ts` with `import 'server-only'` and `requireEnv()` for SUPABASE_SECRET_KEY, RESEND_API_KEY, RESEND_FROM_EMAIL, INQUIRY_NOTIFICATION_EMAIL
+    - Create `lib/env/server.ts` with `import 'server-only'` and `requireEnv()` for SUPABASE_SECRET_KEY
     - Create `lib/env/public.ts` with `requirePublicEnv()` for NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, optional NEXT_PUBLIC_SITE_URL
     - Update `.env.example` with all variable names and safe placeholder descriptions
     - _Requirements: 33.1, 33.2, 33.3, 33.4, 33.5_
@@ -171,24 +171,16 @@ A full-stack event inquiry system comprising: a public form at `/inquiries`, ser
 
 - [x] 7. Implement public submission API route
   - [x] 7.1 Create POST route handler (`app/api/inquiries/route.ts`)
-    - Sequence: parse JSON → Zod validate → honeypot check → normalize inputs (trim, lowercase email, normalizePhone) → validate eventDate >= today in BUSINESS_TIMEZONE → validate eventType/Other → isPackageEligible → drink count matches → build RPC payload with server-derived snapshots (package name/price/pricingMode/priceDisplay, signature drink name) → call create_inquiry via admin client → await Resend notification (catch/log) → return { success, reference }
+    - Sequence: parse JSON → Zod validate → honeypot check → normalize inputs (trim, lowercase email, normalizePhone) → validate eventDate >= today in BUSINESS_TIMEZONE → validate eventType/Other → isPackageEligible → drink count matches → build RPC payload with server-derived snapshots (package name/price/pricingMode/priceDisplay, signature drink name) → call create_inquiry via admin client → return { success, reference }
     - Response shapes: 200 success, 400 validation error with field errors, 500 server error
     - Never trust client-provided snapshots — derive from canonical config
     - _Requirements: 19.1, 19.2, 19.3, 19.4, 19.5, 14.1–14.9, 5.5, 5.6, 13.3, 13.4, 13.5, 13.6, 13.7, 15.2, 15.3_
 
-- [x] 8. Implement Resend notification
-  - [x] 8.1 Create notification builder (`lib/email/send-inquiry-notification.ts`)
-    - `import 'server-only'`
-    - Build plain-text email with sections: Contact (name, email, phone), Event (date, time, type, guest count, location), Package (name + price info from snapshots), Drink Choices (full details including custom ingredients and "Sparkling with club soda"), Additional Notes, Admin link if NEXT_PUBLIC_SITE_URL configured
-    - Subject: "New Mock & Roll Inquiry {reference} — {firstName} {lastName}"
-    - Recipients from INQUIRY_NOTIFICATION_EMAIL, replyTo visitor email, from RESEND_FROM_EMAIL
-    - Resend must be awaited (not fire-and-forget)
-    - Safe error logging: reference + error type only, no PII
-    - Use formatDate/formatTime from lib/utils/format.ts for consistent timezone
-    - _Requirements: 20.1, 20.2, 20.3, 20.4, 20.5, 20.6, 20.7_
+- [x] 8. ~~Implement Resend notification~~ — REMOVED
+  - Inquiry email notifications are no longer sent. An inquiry is considered successfully submitted once validated and persisted to Supabase via the `create_inquiry` RPC, and the Supabase-backed admin dashboard is the sole channel for receiving and managing inquiries. The `lib/email/send-inquiry-notification.ts` helper, the `resend` dependency, and the RESEND_API_KEY / RESEND_FROM_EMAIL / INQUIRY_NOTIFICATION_EMAIL env vars have been removed. (Former Requirement 20 is obsolete.)
 
 - [x] 9. Checkpoint
-  - Ensure public form page, API route, and notification compile cleanly. Run `npx tsc --noEmit` and `npm run lint`. Ask the user if questions arise.
+  - Ensure public form page and API route compile cleanly. Run `npx tsc --noEmit` and `npm run lint`. Ask the user if questions arise.
 
 - [x] 10. Implement auth callback and admin login
   - [x] 10.1 Create auth callback route (`app/auth/callback/route.ts`)

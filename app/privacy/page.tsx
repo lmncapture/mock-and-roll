@@ -135,9 +135,6 @@ export default function PrivacyPage() {
                   <span className="font-medium text-slate">Supabase</span> — database infrastructure for storing inquiry submissions
                 </li>
                 <li>
-                  <span className="font-medium text-slate">Resend</span> — transactional email infrastructure for internal inquiry notifications
-                </li>
-                <li>
                   <span className="font-medium text-slate">Vercel</span> — website hosting and analytics
                 </li>
                 <li>
